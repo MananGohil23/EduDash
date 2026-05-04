@@ -5,7 +5,7 @@ const Lectures = () => {
     return (
         <>
             <div className = "bg-gray-100 h-full flex">
-                <div className = "bg-white w-[350px]shadow-lg rounded-lg p-6">
+                <div className = "bg-white w-[350px] shadow-lg rounded-lg p-6">
                     <h1 className = "text-4xl font-bold mb-6 text-slate-900 items-center flex justify-center">
                         Lectures
                     </h1>
@@ -47,7 +47,7 @@ const Lectures = () => {
                         </div>
                     </div>
                 </div>
-                <div className = "bg-black rounded-lg w-full">
+                <div className = {`${selectedLecture === null ? 'hidden' : 'bg-black rounded-lg w-full flex items-center justify-center'}`}>
                     <h1 className = {`text-4xl font-bold text-white items-center flex justify-center ${selectedLecture === 1 ? 'block' : 'hidden'}`}>
                         1. Data Structures lectures coming soon...
                     </h1>

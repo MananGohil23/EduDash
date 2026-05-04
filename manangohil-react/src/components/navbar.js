@@ -13,16 +13,13 @@ class Navbar extends React.Component {
             className="text-lg font-semibold tracking-wide"
             title="Student Dashboard"
           >
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 transition hover:scale-[110%] transition-delay-100">
               <img
                 src="/logo.png"
                 alt="Logo"
                 className="h-8 w-8 inline-block mr-2"
               />
-              <div>
-                Student <br />
-                Dashboard
-              </div>
+              <div>Student Dashboard</div>
             </div>
           </Link>
           <div className="flex gap-2">
