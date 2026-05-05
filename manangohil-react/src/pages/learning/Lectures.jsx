@@ -128,8 +128,8 @@ const Lectures = () => {
                             </div>
                             <div className = {`bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[300px] p-6 ${subTopicSidebarActive ? 'block' : 'hidden'} transition-all duration-300 ease-in-out`}>
                                 <div className = "flex justify-start gap-6 mb-4"> 
-                                    <button className = "p-1 text-xl bg-white text-slate-900 mb-4" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
-                                        | | |
+                                    <button className = "p-1 text-3xl bg-white text-slate-900 mb-4" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
+                                        {'>'}
                                     </button>
                                     <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-center">
                                         Sub-Topics
@@ -271,8 +271,8 @@ const Lectures = () => {
                             </div>
                             <div className = {`bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[300px] p-6 ${subTopicSidebarActive ? 'block' : 'hidden'} transition-all duration-300 ease-in-out`}>
                                 <div className = "flex justify-start gap-6 mb-4"> 
-                                    <button className = "p-1 text-xl bg-white text-slate-900 mb-4" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
-                                        | | |
+                                    <button className = "p-1 text-3xl bg-white text-slate-900 mb-4" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
+                                        {'>'}
                                     </button>
                                     <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-center">
                                         Sub-Topics
@@ -419,8 +419,8 @@ const Lectures = () => {
                             </div>
                             <div className = {`bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[300px] p-6 ${subTopicSidebarActive ? 'block' : 'hidden'} transition-all duration-300 ease-in-out`}>
                                 <div className = "flex justify-start gap-6 mb-4"> 
-                                    <button className = "p-1 text-xl bg-white text-slate-900 mb-4" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
-                                        | | |
+                                    <button className = "p-1 text-3l bg-white text-slate-900 mb-4" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
+                                        {'>'}
                                     </button>
                                     <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-center">
                                         Sub-Topics
@@ -567,8 +567,8 @@ const Lectures = () => {
                             </div>
                             <div className = {`bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[300px] p-6 ${subTopicSidebarActive ? 'block' : 'hidden'} transition-all duration-300 ease-in-out`}>
                                 <div className = "flex justify-start gap-6 mb-4"> 
-                                    <button className = "p-1 text-xl bg-white text-slate-900 mb-4" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
-                                        | | |
+                                    <button className = "p-1 text-3xl bg-white text-slate-900 mb-4" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
+                                        {'>'}
                                     </button>
                                     <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-center">
                                         Sub-Topics
@@ -721,8 +721,8 @@ const Lectures = () => {
                             </div>
                             <div className = {`bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[300px] p-6 ${subTopicSidebarActive ? 'block' : 'hidden'} transition-all duration-300 ease-in-out`}>
                                 <div className = "flex justify-start gap-6 mb-4"> 
-                                    <button className = "p-1 text-xl bg-white text-slate-900 mb-4" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
-                                        | | |
+                                    <button className = "p-1 text-3xl bg-white text-slate-900 mb-4" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
+                                        {'>'}
                                     </button>
                                     <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-center">
                                         Sub-Topics
@@ -903,8 +903,8 @@ const Lectures = () => {
                             </div>
                             <div className = {`bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[300px] p-6 ${subTopicSidebarActive ? 'block' : 'hidden'} transition-all duration-300 ease-in-out`}>
                                 <div className = "flex justify-start gap-6 mb-4"> 
-                                    <button className = "p-1 text-xl bg-white text-slate-900 mb-4" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
-                                        | | |
+                                    <button className = "p-1 text-3xl bg-white text-slate-900 mb-4" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
+                                        {'>'}
                                     </button>
                                     <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-center">
                                         Sub-Topics
@@ -1106,8 +1106,8 @@ const Lectures = () => {
                             </div>
                             <div className = {`bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[300px] p-6 ${subTopicSidebarActive ? 'block' : 'hidden'} transition-all duration-300 ease-in-out`}>
                                 <div className = "flex justify-start gap-6 mb-4"> 
-                                    <button className = "p-1 text-xl bg-white text-slate-900 mb-4" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
-                                        | | |
+                                    <button className = "p-1 text-3xl bg-white text-slate-900 mb-4" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
+                                        {'>'}
                                     </button>
                                     <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-center">
                                         Sub-Topics
