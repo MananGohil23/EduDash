@@ -1,11 +1,11 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
+import { useState } from "react";
 
-class Navbar extends React.Component {
-  state = {};
+const Navbar = () => {
+  const [isloggedin, setIsLoggedIn] = useState(false);
 
-  render() {
-    return (
+  return (
       <nav className=" w-full bg-slate-900 text-white px-4 py-3 shadow-lg shadow-slate-950/30">
         <div className="flex justify-between items-center gap-3">
           <Link
@@ -72,6 +72,5 @@ class Navbar extends React.Component {
       </nav>
     );
   }
-}
 
 export default Navbar;
