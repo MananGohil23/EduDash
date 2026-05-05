@@ -5,6 +5,7 @@ const Lectures = () => {
     const [subTopic , setSubTopic] = useState(null);
     const [buttonActive, setButtonActive] = useState(null);
     const [buttonActiveLecture, setButtonActiveLecture] = useState(null);
+    const [subTopicSidebarActive , setSubTopicSidebarActive] = useState(true);
     return (
         <>
             <div className = "bg-gray-100 h-full flex">
@@ -14,37 +15,37 @@ const Lectures = () => {
                     </h1>
                     <div className = "flex flex-col gap-4 transition">
                         <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActiveLecture === 1 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`} onClick={() => {setSelectedLecture(1); setSubTopic(null)}}>
-                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(1); setSubTopic(null); setButtonActive(null)}}>
+                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(1); setSubTopic(null); setButtonActive(null); setSubTopicSidebarActive(true)}}>
                                 1. Data Structures 
                             </h2>    
                         </div>
                         <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActiveLecture === 2 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`} onClick={() => {setSelectedLecture(2); setSubTopic(null)}}>
-                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(2); setSubTopic(null); setButtonActive(null)}}>
+                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(2); setSubTopic(null); setButtonActive(null); setSubTopicSidebarActive(true)}}>
                                 2. Algorithms 
                             </h2>    
                         </div>
                         <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActiveLecture === 3 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`} onClick={() => {setSelectedLecture(3); setSubTopic(null)}}>
-                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(3); setSubTopic(null); setButtonActive(null)}}>
+                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(3); setSubTopic(null); setButtonActive(null); setSubTopicSidebarActive(true)}}>
                                 3. JavaScript Fundamentals
                             </h2>    
                         </div>
                         <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActiveLecture === 4 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`} onClick={() => {setSelectedLecture(4); setSubTopic(null)}}>
-                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(4); setSubTopic(null); setButtonActive(null)}}>
+                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(4); setSubTopic(null); setButtonActive(null); setSubTopicSidebarActive(true)}}>
                                 4. Document Object Method (DOM)
                             </h2>    
                         </div>
                         <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActiveLecture === 5 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`} onClick={() => {setSelectedLecture(5); setSubTopic(null)}}>
-                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(5); setSubTopic(null); setButtonActive(null)}}>
+                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(5); setSubTopic(null); setButtonActive(null); setSubTopicSidebarActive(true)}}>
                                 5. React.js
                             </h2>    
                         </div>
                         <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActiveLecture === 6 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`} onClick={() => {setSelectedLecture(6); setSubTopic(null)}}>
-                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(6); setSubTopic(null); setButtonActive(null)}}>
+                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(6); setSubTopic(null); setButtonActive(null); setSubTopicSidebarActive(true)}}>
                                 6. Node.js
                             </h2>    
                         </div>
                         <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActiveLecture === 7 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`} onClick={() => {setSelectedLecture(7); setSubTopic(null)}}>
-                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(7); setSubTopic(null); setButtonActive(null)}}>
+                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(7); setSubTopic(null); setButtonActive(null); setSubTopicSidebarActive(true)}}>
                                 7. Machine Learning Basics
                             </h2>    
                         </div>
@@ -53,11 +54,11 @@ const Lectures = () => {
                 <div className = {`${selectedLecture === null ? 'block' : 'hidden'} text-4xl font-bold text-slate-900 items-center flex justify-center w-full`}>
                     <h1 >Please select a lecture to view its content</h1>
                 </div>
-                <div className = {`${selectedLecture === null ? 'hidden' : 'rounded-lg w-full'}`}>
+                <div className = {`${selectedLecture === null ? 'hidden' : 'rounded-lg flex'}`}>
                     <div className = {`text-4xl font-bold text-white ${selectedLecture === 1 ? 'block' : 'hidden'}`}>
                         <div className = "flex justify-start m-5 gap-4">
-                            <div>
-                                <div className = "bg-black rounded-lg  w-[900px] h-[600px] flex items-center justify-center">
+                            <div className = "flex-1 w-full max-w-[1200px]">
+                                <div className = "bg-black rounded-lg h-[600px] flex items-center justify-center">
                                     <h2 className = "text-xl font-bold text-white">
                                         Data Structures lectures coming soon...
                                     </h2>
@@ -95,7 +96,7 @@ const Lectures = () => {
                                 <div className = {`${subTopic === 11 ? 'block' : 'hidden'}`}>
                                     <h1 className = "text-3xl font-bold text-slate-900 ml-4 mt-4"> Advanced Data Structures </h1>
                                 </div>
-                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[900px] p-6 mt-4">
+                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 p-6 mt-4">
                                     <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-start">
                                         Description
                                     </h1>
@@ -103,27 +104,37 @@ const Lectures = () => {
                                         In this lecture series, we will cover the fundamental data structures that are essential for any programmer. We will start with an introduction to data structures and their importance in computer science. Then, we will dive into specific data structures such as arrays, linked lists, stacks, queues, trees, graphs, hashing, sorting techniques, and searching techniques. We will also touch upon advanced data structures for those who want to explore further. Each lecture will include explanations, examples, and practical applications to help you understand how to use these data structures effectively in your programming projects.
                                     </p>
                                 </div>
-                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[900px] p-6 mt-4">
+                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 p-6 mt-4">
                                     <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-start">
                                         Resources
                                     </h1>
                                 </div>
-                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[900px] p-6 mt-4">
+                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 p-6 mt-4">
                                     <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-start">
                                         Comments
                                     </h1>
-                                    <div>
-                                        <input type = "text" placeholder = "Add a comment..." className = "w-[750px] text-lg border border-gray-300 rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-gray-400" />
+                                    <div className = "flex justify-between">
+                                        <input type = "text" placeholder = "Add a comment..." className = "w-full max-w-[1200px] text-lg border border-gray-300 rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-gray-400" />
                                         <button className = "ml-4 px-4 text-lg py-2 bg-slate-900 text-white rounded-full hover:bg-red-600 transition">
                                             Post
                                         </button>
                                     </div>
                                 </div>
                             </div>
-                            <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[300px] p-6">
-                                <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-center">
-                                    Sub-Topics
-                                </h1>
+                            <div className = {`fixed top-24 right-4 ${subTopicSidebarActive ? 'hidden' : 'block'}`}>
+                                    <button className = "flex justify-center bg-white text-slate-900 text-3xl rounded-lg shadow-lg shadow-slate-950/30 w-10 h-10" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
+                                        {'<'}
+                                    </button>     
+                            </div>
+                            <div className = {`bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[300px] p-6 ${subTopicSidebarActive ? 'block' : 'hidden'} transition-all duration-300 ease-in-out`}>
+                                <div className = "flex justify-start gap-6 mb-4"> 
+                                    <button className = "p-1 text-xl bg-white text-slate-900 mb-4" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
+                                        | | |
+                                    </button>
+                                    <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-center">
+                                        Sub-Topics
+                                    </h1>
+                                </div>
                                 <div className = "flex flex-col gap-4">
                                     <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 1 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
                                         <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(1); setButtonActive(1)}}>
@@ -186,8 +197,8 @@ const Lectures = () => {
                     </div>
                     <div className = {`text-4xl font-bold text-white items-center flex justify-center ${selectedLecture === 2 ? 'block' : 'hidden'}`}>
                         <div className = "flex justify-start m-5 gap-4">
-                            <div>
-                                <div className = "bg-black rounded-lg  w-[900px] h-[600px] flex items-center justify-center">
+                            <div className = "flex-1 w-full max-w-[1200px]">
+                                <div className = "bg-black rounded-lg h-[600px] flex items-center justify-center">
                                     <h2 className = "text-xl font-bold text-white">
                                         Algorithms lectures coming soon...
                                     </h2>
@@ -228,7 +239,7 @@ const Lectures = () => {
                                 <div className = {`${subTopic === 12 ? 'block' : 'hidden'}`}>
                                     <h1 className = "text-3xl font-bold text-slate-900 ml-4 mt-4"> Advanced Topics </h1>
                                 </div>
-                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[900px] p-6 mt-4">
+                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 p-6 mt-4">
                                     <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-start">
                                         Description
                                     </h1>
@@ -236,27 +247,37 @@ const Lectures = () => {
                                         In this lecture series, we will cover the fundamental algorithms that are essential for any programmer. We will start with an introduction to algorithms and their importance in computer science. Then, we will dive into specific algorithms such as algorithm analysis, design techniques, recursion, searching algorithms, sorting algorithms, graph algorithms, string algorithms, greedy algorithms, dynamic programming, complexity classes, and advanced topics for those who want to explore further. Each lecture will include explanations, examples, and practical applications to help you understand how to use these algorithms effectively in your programming projects.
                                     </p>
                                 </div>
-                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[900px] p-6 mt-4">
+                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 p-6 mt-4">
                                     <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-start">
                                         Resources
                                     </h1>
                                 </div>
-                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[900px] p-6 mt-4">
+                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 p-6 mt-4">
                                     <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-start">
                                         Comments
                                     </h1>
-                                    <div>
-                                        <input type = "text" placeholder = "Add a comment..." className = "w-[750px] text-lg border border-gray-300 rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-gray-400" />
+                                    <div className = "flex justify-between">
+                                        <input type = "text" placeholder = "Add a comment..." className = "w-full max-w-[1200px] text-lg border border-gray-300 rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-gray-400" />
                                         <button className = "ml-4 px-4 text-lg py-2 bg-slate-900 text-white rounded-full hover:bg-red-600 transition">
                                             Post
                                         </button>
                                     </div>
                                 </div>
                             </div>
-                            <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[300px] p-6">
-                                <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-center">
-                                    Sub-Topics
-                                </h1>
+                            <div className = {`fixed top-24 right-4 ${subTopicSidebarActive ? 'hidden' : 'block'}`}>
+                                    <button className = "flex justify-center bg-white text-slate-900 text-3xl rounded-lg shadow-lg shadow-slate-950/30 w-10 h-10" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
+                                        {'<'}
+                                    </button>     
+                            </div>
+                            <div className = {`bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[300px] p-6 ${subTopicSidebarActive ? 'block' : 'hidden'} transition-all duration-300 ease-in-out`}>
+                                <div className = "flex justify-start gap-6 mb-4"> 
+                                    <button className = "p-1 text-xl bg-white text-slate-900 mb-4" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
+                                        | | |
+                                    </button>
+                                    <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-center">
+                                        Sub-Topics
+                                    </h1>
+                                </div>
                                 <div className = "flex flex-col gap-4">
                                     <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 1 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
                                         <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(1); setButtonActive(1)}}>
@@ -324,8 +345,8 @@ const Lectures = () => {
                     </div>
                     <div className = {`text-4xl font-bold text-white items-center flex justify-center ${selectedLecture === 3 ? 'block' : 'hidden'}`}>
                         <div className = "flex justify-start m-5 gap-4">
-                            <div>
-                                <div className = "bg-black rounded-lg  w-[900px] h-[600px] flex items-center justify-center">
+                            <div className = "flex-1 w-full max-w-[1200px]">
+                                <div className = "bg-black rounded-lg h-[600px] flex items-center justify-center">
                                     <h2 className = "text-xl font-bold text-white">
                                         JavaScript Fundamentals lectures coming soon...
                                     </h2>
@@ -366,7 +387,7 @@ const Lectures = () => {
                                 <div className = {`${subTopic === 12 ? 'block' : 'hidden'}`}>
                                     <h1 className = "text-3xl font-bold text-slate-900 ml-4 mt-4"> Browser Storage </h1>
                                 </div>
-                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[900px] p-6 mt-4">
+                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 p-6 mt-4">
                                     <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-start">
                                         Description
                                     </h1>
@@ -374,27 +395,37 @@ const Lectures = () => {
                                         In this lecture series, we will cover the fundamental concepts of JavaScript programming. We will start with an introduction to JavaScript and its role in web development. Then, we will dive into JavaScript syntax and basics, variables and data types, operators, control statements, functions, arrays, objects, error handling, ES6+ features, asynchronous JavaScript, and browser storage. Each lecture will include explanations, examples, and practical applications to help you understand how to use JavaScript effectively in your web development projects.
                                         </p>
                                 </div>
-                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[900px] p-6 mt-4">
+                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 p-6 mt-4">
                                     <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-start">
                                         Resources
                                     </h1>
                                 </div>
-                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[900px] p-6 mt-4">
+                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 p-6 mt-4">
                                     <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-start">
                                         Comments
                                     </h1>
-                                    <div>
-                                        <input type = "text" placeholder = "Add a comment..." className = "w-[750px] text-lg border border-gray-300 rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-gray-400" />
+                                    <div className = "flex justify-between">
+                                        <input type = "text" placeholder = "Add a comment..." className = "w-full max-w-[1200px] text-lg border border-gray-300 rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-gray-400" />
                                         <button className = "ml-4 px-4 text-lg py-2 bg-slate-900 text-white rounded-full hover:bg-red-600 transition">
                                             Post
                                         </button>
                                     </div>
                                 </div>
                             </div>
-                            <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[300px] p-6">
-                                <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-center">
-                                    Sub-Topics
-                                </h1>
+                            <div className = {`fixed top-24 right-4 ${subTopicSidebarActive ? 'hidden' : 'block'}`}>
+                                    <button className = "flex justify-center bg-white text-slate-900 text-3xl rounded-lg shadow-lg shadow-slate-950/30 w-10 h-10" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
+                                        {'<'}
+                                    </button>     
+                            </div>
+                            <div className = {`bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[300px] p-6 ${subTopicSidebarActive ? 'block' : 'hidden'} transition-all duration-300 ease-in-out`}>
+                                <div className = "flex justify-start gap-6 mb-4"> 
+                                    <button className = "p-1 text-xl bg-white text-slate-900 mb-4" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
+                                        | | |
+                                    </button>
+                                    <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-center">
+                                        Sub-Topics
+                                    </h1>
+                                </div>
                                 <div className = "flex flex-col gap-4">
                                     <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 1 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
                                         <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(1); setButtonActive(1)}}>
@@ -462,8 +493,8 @@ const Lectures = () => {
                     </div>
                     <div className = {`text-4xl font-bold text-white items-center flex justify-center ${selectedLecture === 4 ? 'block' : 'hidden'}`}>
                         <div className = "flex justify-start m-5 gap-4">
-                            <div>
-                                <div className = "bg-black rounded-lg  w-[900px] h-[600px] flex items-center justify-center">
+                            <div className = "flex-1 w-full max-w-[1200px]">
+                                <div className = "bg-black rounded-lg h-[600px] flex items-center justify-center">
                                     <h2 className = "text-xl font-bold text-white">
                                         Document Object Method (DOM) lectures coming soon...
                                     </h2>
@@ -504,7 +535,7 @@ const Lectures = () => {
                                 <div className = {`${subTopic === 12 ? 'block' : 'hidden'}`}>
                                     <h1 className = "text-3xl font-bold text-slate-900 ml-4 mt-4"> Modern DOM Features and APIs </h1>
                                 </div>
-                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[900px] p-6 mt-4">
+                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 p-6 mt-4">
                                     <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-start">
                                         Description
                                     </h1>
@@ -512,27 +543,37 @@ const Lectures = () => {
                                         In this lecture series, we will cover the fundamental concepts of the Document Object Model (DOM) and how it interacts with JavaScript to create dynamic web pages. We will start with an introduction to the DOM and its structure, then move on to accessing and manipulating DOM elements, event handling, forms, DOM collections, and performance best practices. Each lecture will include explanations, examples, and practical applications to help you understand how to use the DOM effectively in your web development projects.
                                         </p>
                                 </div>
-                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[900px] p-6 mt-4">
+                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 p-6 mt-4">
                                     <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-start">
                                         Resources
                                     </h1>
                                 </div>
-                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[900px] p-6 mt-4">
+                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 p-6 mt-4">
                                     <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-start">
                                         Comments
                                     </h1>
-                                    <div>
-                                        <input type = "text" placeholder = "Add a comment..." className = "w-[750px] text-lg border border-gray-300 rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-gray-400" />
+                                    <div className = "flex justify-between">
+                                        <input type = "text" placeholder = "Add a comment..." className = "w-full max-w-[1200px] text-lg border border-gray-300 rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-gray-400" />
                                         <button className = "ml-4 px-4 text-lg py-2 bg-slate-900 text-white rounded-full hover:bg-red-600 transition">
                                             Post
                                         </button>
                                     </div>
                                 </div>
                             </div>
-                            <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[300px] p-6">
-                                <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-center">
-                                    Sub-Topics
-                                </h1>
+                            <div className = {`fixed top-24 right-4 ${subTopicSidebarActive ? 'hidden' : 'block'}`}>
+                                    <button className = "flex justify-center bg-white text-slate-900 text-3xl rounded-lg shadow-lg shadow-slate-950/30 w-10 h-10" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
+                                        {'<'}
+                                    </button>     
+                            </div>
+                            <div className = {`bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[300px] p-6 ${subTopicSidebarActive ? 'block' : 'hidden'} transition-all duration-300 ease-in-out`}>
+                                <div className = "flex justify-start gap-6 mb-4"> 
+                                    <button className = "p-1 text-xl bg-white text-slate-900 mb-4" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
+                                        | | |
+                                    </button>
+                                    <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-center">
+                                        Sub-Topics
+                                    </h1>
+                                </div>
                                 <div className = "flex flex-col gap-4">
                                     <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 1 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
                                         <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(1); setButtonActive(1)}}>
@@ -600,8 +641,8 @@ const Lectures = () => {
                     </div>
                     <div className = {`text-4xl font-bold text-white items-center flex justify-center ${selectedLecture === 5 ? 'block' : 'hidden'}`}>
                         <div className = "flex justify-start m-5 gap-4">
-                            <div>
-                                <div className = "bg-black rounded-lg  w-[900px] h-[600px] flex items-center justify-center">
+                            <div className = "flex-1 w-full max-w-[1200px]"> 
+                                <div className = "bg-black rounded-lg h-[600px] flex items-center justify-center">
                                     <h2 className = "text-xl font-bold text-white">
                                         React.js lectures coming soon...
                                     </h2>
@@ -648,7 +689,7 @@ const Lectures = () => {
                                 <div className = {`${subTopic === 14 ? 'block' : 'hidden'}`}>
                                     <h1 className = "text-3xl font-bold text-slate-900 ml-4 mt-4"> API Calls and Data Fetching in React </h1>
                                 </div>
-                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[900px] p-6 mt-4">
+                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 p-6 mt-4">
                                     <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-start">
                                         Description
                                     </h1>
@@ -656,27 +697,37 @@ const Lectures = () => {
                                         In this lecture series, we will cover the fundamental concepts of React.js, a popular JavaScript library for building user interfaces. We will start with an introduction to React and its core principles, then move on to setting up a React development environment, understanding JSX, creating components, managing state and props, handling events, conditional rendering, lists and keys, forms in React, hooks, routing, styling, and making API calls. Each lecture will include explanations, examples, and practical applications to help you understand how to use React effectively in your web development projects.
                                         </p>
                                 </div>
-                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[900px] p-6 mt-4">
+                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 p-6 mt-4">
                                     <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-start">
                                         Resources
                                     </h1>
                                 </div>
-                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[900px] p-6 mt-4">
+                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 p-6 mt-4">
                                     <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-start">
                                         Comments
                                     </h1>
-                                    <div>
-                                        <input type = "text" placeholder = "Add a comment..." className = "w-[750px] text-lg border border-gray-300 rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-gray-400" />
+                                    <div className = "flex justify-between">
+                                        <input type = "text" placeholder = "Add a comment..." className = "w-full max-w-[1200px] text-lg border border-gray-300 rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-gray-400" />
                                         <button className = "ml-4 px-4 text-lg py-2 bg-slate-900 text-white rounded-full hover:bg-red-600 transition">
                                             Post
                                         </button>
                                     </div>
                                 </div>
                             </div>
-                            <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[300px] p-6">
-                                <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-center">
-                                    Sub-Topics
-                                </h1>
+                            <div className = {`fixed top-24 right-4 ${subTopicSidebarActive ? 'hidden' : 'block'}`}>
+                                    <button className = "flex justify-center bg-white text-slate-900 text-3xl rounded-lg shadow-lg shadow-slate-950/30 w-10 h-10" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
+                                        {'<'}
+                                    </button>     
+                            </div>
+                            <div className = {`bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[300px] p-6 ${subTopicSidebarActive ? 'block' : 'hidden'} transition-all duration-300 ease-in-out`}>
+                                <div className = "flex justify-start gap-6 mb-4"> 
+                                    <button className = "p-1 text-xl bg-white text-slate-900 mb-4" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
+                                        | | |
+                                    </button>
+                                    <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-center">
+                                        Sub-Topics
+                                    </h1>
+                                </div>
                                 <div className = "flex flex-col gap-4">
                                     <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 1 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
                                         <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(1); setButtonActive(1)}}>
@@ -754,8 +805,8 @@ const Lectures = () => {
                     </div>
                     <div className = {`text-4xl font-bold text-white items-center flex justify-center ${selectedLecture === 6 ? 'block' : 'hidden'}`}>
                         <div className = "flex justify-start m-5 gap-4">
-                            <div>
-                                <div className = "bg-black rounded-lg  w-[900px] h-[600px] flex items-center justify-center">
+                            <div className = "flex-1 w-full max-w-[1200px]">
+                                <div className = "bg-black rounded-lg h-[600px] flex items-center justify-center">
                                     <h2 className = "text-xl font-bold text-white">
                                         Node.js lectures coming soon...
                                     </h2>
@@ -820,7 +871,7 @@ const Lectures = () => {
                                 <div className = {`${subTopic === 20 ? 'block' : 'hidden'}`}>
                                     <h1 className = "text-3xl font-bold text-slate-900 ml-4 mt-4"> Deployment and Hosting </h1>
                                 </div>
-                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[900px] p-6 mt-4">
+                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 p-6 mt-4">
                                     <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-start">
                                         Description
                                     </h1>
@@ -828,27 +879,37 @@ const Lectures = () => {
                                         In this lecture series, we will cover the fundamental concepts of Node.js, a powerful JavaScript runtime built on Chrome's V8 engine. We will start with an introduction to Node.js and its architecture, then move on to installation and setup, core modules, file system operations, creating a server, working with modules, package management, asynchronous programming, event handling, and working with frameworks. We will also cover RESTful APIs, database integration, authentication and security, error handling and debugging, environment variables and configuration, streams and buffers, performance and scaling, testing, and deployment. Each lecture will include explanations, examples, and practical applications to help you understand how to use Node.js effectively in your web development projects.
                                         </p>
                                 </div>
-                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[900px] p-6 mt-4">
+                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 p-6 mt-4">
                                     <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-start">
                                         Resources
                                     </h1>
                                 </div>
-                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[900px] p-6 mt-4">
+                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 p-6 mt-4">
                                     <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-start">
                                         Comments
                                     </h1>
-                                    <div>
-                                        <input type = "text" placeholder = "Add a comment..." className = "w-[750px] text-lg border border-gray-300 rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-gray-400" />
+                                    <div className = "flex justify-between">
+                                        <input type = "text" placeholder = "Add a comment..." className = "w-full max-w-[1200px] text-lg border border-gray-300 rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-gray-400" />
                                         <button className = "ml-4 px-4 text-lg py-2 bg-slate-900 text-white rounded-full hover:bg-red-600 transition">
                                             Post
                                         </button>
                                     </div>
                                 </div>
                             </div>
-                            <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[300px] p-6">
-                                <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-center">
-                                    Sub-Topics
-                                </h1>
+                            <div className = {`fixed top-24 right-4 ${subTopicSidebarActive ? 'hidden' : 'block'}`}>
+                                    <button className = "flex justify-center bg-white text-slate-900 text-3xl rounded-lg shadow-lg shadow-slate-950/30 w-10 h-10" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
+                                        {'<'}
+                                    </button>     
+                            </div>
+                            <div className = {`bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[300px] p-6 ${subTopicSidebarActive ? 'block' : 'hidden'} transition-all duration-300 ease-in-out`}>
+                                <div className = "flex justify-start gap-6 mb-4"> 
+                                    <button className = "p-1 text-xl bg-white text-slate-900 mb-4" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
+                                        | | |
+                                    </button>
+                                    <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-center">
+                                        Sub-Topics
+                                    </h1>
+                                </div>
                                 <div className = "flex flex-col gap-4">
                                     <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 1 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
                                         <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(1); setButtonActive(1)}}>
@@ -956,8 +1017,8 @@ const Lectures = () => {
                     </div>
                     <div className = {`text-4xl font-bold text-white items-center flex justify-center ${selectedLecture === 7 ? 'block' : 'hidden'}`}>
                         <div className = "flex justify-start m-5 gap-4">
-                            <div>
-                                <div className = "bg-black rounded-lg  w-[900px] h-[600px] flex items-center justify-center">
+                            <div className = "flex-1 w-full max-w-[1200px]">
+                                <div className = "bg-black rounded-lg h-[600px] flex items-center justify-center">
                                     <h2 className = "text-xl font-bold text-white">
                                         Machine Learning lectures coming soon...
                                     </h2>
@@ -1013,7 +1074,7 @@ const Lectures = () => {
                                 <div className = {`${subTopic === 17 ? 'block' : 'hidden'}`}>
                                     <h1 className = "text-3xl font-bold text-slate-900 ml-4 mt-4"> Advanced Topics </h1>
                                 </div>
-                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[900px] p-6 mt-4">
+                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 p-6 mt-4">
                                     <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-start">
                                         Description
                                     </h1>
@@ -1021,27 +1082,37 @@ const Lectures = () => {
                                         In this lecture series, we will cover the fundamental concepts of Machine Learning, a subset of artificial intelligence that enables computers to learn from data and make predictions or decisions without being explicitly programmed. We will start with an introduction to machine learning and its types, then move on to data preprocessing, supervised and unsupervised learning algorithms, model evaluation and validation, overfitting and underfitting, feature engineering, optimization techniques, neural networks, deep learning, reinforcement learning, tools and libraries, model deployment, ethics in machine learning, real-world applications, and advanced topics. Each lecture will include explanations, examples, and practical applications to help you understand how to use machine learning effectively in various domains.
                                         </p>
                                 </div>
-                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[900px] p-6 mt-4">
+                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 p-6 mt-4">
                                     <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-start">
                                         Resources
                                     </h1>
                                 </div>
-                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[900px] p-6 mt-4">
+                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 p-6 mt-4">
                                     <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-start">
                                         Comments
                                     </h1>
-                                    <div>
-                                        <input type = "text" placeholder = "Add a comment..." className = "w-[750px] text-lg text-gray-700 border border-gray-300 rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-gray-400" />
+                                    <div className = "flex justify-between">
+                                        <input type = "text" placeholder = "Add a comment..." className = "w-full max-w-[1200px] text-lg text-gray-700 border border-gray-300 rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-gray-400" />
                                         <button className = "ml-4 px-4 text-lg py-2 bg-slate-900 text-white rounded-full hover:bg-red-600 transition">
                                             Post
                                         </button>
                                     </div>
                                 </div>
                             </div>
-                            <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[300px] p-6">
-                                <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-center">
-                                    Sub-Topics
-                                </h1>
+                            <div className = {`fixed top-24 right-4 ${subTopicSidebarActive ? 'hidden' : 'block'}`}>
+                                    <button className = "flex justify-center bg-white text-slate-900 text-3xl rounded-lg shadow-lg shadow-slate-950/30 w-10 h-10" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
+                                        {'<'}
+                                    </button>     
+                            </div>
+                            <div className = {`bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[300px] p-6 ${subTopicSidebarActive ? 'block' : 'hidden'} transition-all duration-300 ease-in-out`}>
+                                <div className = "flex justify-start gap-6 mb-4"> 
+                                    <button className = "p-1 text-xl bg-white text-slate-900 mb-4" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
+                                        | | |
+                                    </button>
+                                    <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-center">
+                                        Sub-Topics
+                                    </h1>
+                                </div>
                                 <div className = "flex flex-col gap-4">
                                     <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 1 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
                                         <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(1); setButtonActive(1)}}>
