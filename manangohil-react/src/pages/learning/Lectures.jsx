@@ -14,37 +14,37 @@ const Lectures = () => {
                     </h1>
                     <div className = "flex flex-col gap-4 transition">
                         <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActiveLecture === 1 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`} onClick={() => {setSelectedLecture(1); setSubTopic(null)}}>
-                            <h2 className = "text-xl font-medium" onClick = {() => setButtonActiveLecture(1)}>
+                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(1); setSubTopic(null); setButtonActive(null)}}>
                                 1. Data Structures 
                             </h2>    
                         </div>
                         <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActiveLecture === 2 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`} onClick={() => {setSelectedLecture(2); setSubTopic(null)}}>
-                            <h2 className = "text-xl font-medium" onClick = {() => setButtonActiveLecture(2)}>
+                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(2); setSubTopic(null); setButtonActive(null)}}>
                                 2. Algorithms 
                             </h2>    
                         </div>
                         <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActiveLecture === 3 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`} onClick={() => {setSelectedLecture(3); setSubTopic(null)}}>
-                            <h2 className = "text-xl font-medium" onClick = {() => setButtonActiveLecture(3)}>
+                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(3); setSubTopic(null); setButtonActive(null)}}>
                                 3. JavaScript Fundamentals
                             </h2>    
                         </div>
                         <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActiveLecture === 4 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`} onClick={() => {setSelectedLecture(4); setSubTopic(null)}}>
-                            <h2 className = "text-xl font-medium" onClick = {() => setButtonActiveLecture(4)}>
+                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(4); setSubTopic(null); setButtonActive(null)}}>
                                 4. Document Object Method (DOM)
                             </h2>    
                         </div>
                         <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActiveLecture === 5 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`} onClick={() => {setSelectedLecture(5); setSubTopic(null)}}>
-                            <h2 className = "text-xl font-medium" onClick = {() => setButtonActiveLecture(5)}>
+                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(5); setSubTopic(null); setButtonActive(null)}}>
                                 5. React.js
                             </h2>    
                         </div>
                         <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActiveLecture === 6 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`} onClick={() => {setSelectedLecture(6); setSubTopic(null)}}>
-                            <h2 className = "text-xl font-medium" onClick = {() => setButtonActiveLecture(6)}>
+                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(6); setSubTopic(null); setButtonActive(null)}}>
                                 6. Node.js
                             </h2>    
                         </div>
                         <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActiveLecture === 7 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`} onClick={() => {setSelectedLecture(7); setSubTopic(null)}}>
-                            <h2 className = "text-xl font-medium" onClick = {() => setButtonActiveLecture(7)}>
+                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(7); setSubTopic(null); setButtonActive(null)}}>
                                 7. Machine Learning Basics
                             </h2>    
                         </div>
@@ -103,64 +103,80 @@ const Lectures = () => {
                                         In this lecture series, we will cover the fundamental data structures that are essential for any programmer. We will start with an introduction to data structures and their importance in computer science. Then, we will dive into specific data structures such as arrays, linked lists, stacks, queues, trees, graphs, hashing, sorting techniques, and searching techniques. We will also touch upon advanced data structures for those who want to explore further. Each lecture will include explanations, examples, and practical applications to help you understand how to use these data structures effectively in your programming projects.
                                     </p>
                                 </div>
+                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[900px] p-6 mt-4">
+                                    <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-start">
+                                        Resources
+                                    </h1>
+                                </div>
+                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[900px] p-6 mt-4">
+                                    <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-start">
+                                        Comments
+                                    </h1>
+                                    <div>
+                                        <input type = "text" placeholder = "Add a comment..." className = "w-[750px] text-lg border border-gray-300 rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-gray-400" />
+                                        <button className = "ml-4 px-4 text-lg py-2 bg-slate-900 text-white rounded-full hover:bg-red-600 transition">
+                                            Post
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                             <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[300px] p-6">
                                 <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-center">
                                     Sub-Topics
                                 </h1>
                                 <div className = "flex flex-col gap-4">
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(1)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 1 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(1); setButtonActive(1)}}>
                                             Introduction to Data Structures
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(2)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 2 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(2); setButtonActive(2)}}>
                                             Arrays
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(3)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 3 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(3); setButtonActive(3)}}>
                                             Linked Lists
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(4)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 4 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(4); setButtonActive(4)}}>
                                             Stacks
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(5)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 5 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(5); setButtonActive(5)}}>
                                             Queues
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(6)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 6 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(6); setButtonActive(6)}}>
                                             Trees
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(7)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 7 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(7); setButtonActive(7)}}>
                                             Graphs
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(8)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 8 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(8); setButtonActive(8)}}>
                                             Hashing
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(9)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 9 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(9); setButtonActive(9)}}>
                                             Sorting Techniques
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(10)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 10 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(10); setButtonActive(10)}}>
                                             Searching Techniques
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(11)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 11 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(11); setButtonActive(11)}}>
                                             Advanced Data Structures (optional)
                                         </h2>
                                     </div>
@@ -220,69 +236,85 @@ const Lectures = () => {
                                         In this lecture series, we will cover the fundamental algorithms that are essential for any programmer. We will start with an introduction to algorithms and their importance in computer science. Then, we will dive into specific algorithms such as algorithm analysis, design techniques, recursion, searching algorithms, sorting algorithms, graph algorithms, string algorithms, greedy algorithms, dynamic programming, complexity classes, and advanced topics for those who want to explore further. Each lecture will include explanations, examples, and practical applications to help you understand how to use these algorithms effectively in your programming projects.
                                     </p>
                                 </div>
+                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[900px] p-6 mt-4">
+                                    <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-start">
+                                        Resources
+                                    </h1>
+                                </div>
+                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[900px] p-6 mt-4">
+                                    <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-start">
+                                        Comments
+                                    </h1>
+                                    <div>
+                                        <input type = "text" placeholder = "Add a comment..." className = "w-[750px] text-lg border border-gray-300 rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-gray-400" />
+                                        <button className = "ml-4 px-4 text-lg py-2 bg-slate-900 text-white rounded-full hover:bg-red-600 transition">
+                                            Post
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                             <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[300px] p-6">
                                 <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-center">
                                     Sub-Topics
                                 </h1>
                                 <div className = "flex flex-col gap-4">
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(1)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 1 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(1); setButtonActive(1)}}>
                                             Introduction to Algorithms
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(2)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 2 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(2); setButtonActive(2)}}>
                                             Algorithm Analysis
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(3)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 3 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(3); setButtonActive(3)}}>
                                             Design Techniques
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(4)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 4 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(4); setButtonActive(4)}}>
                                             Recursion
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(5)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 5 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(5); setButtonActive(5)}}>
                                             Searching Algorithms
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(6)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 6 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(6); setButtonActive(6)}}>
                                             Sorting Algorithms 
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(7)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 7 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(7); setButtonActive(7)}}>
                                             Graph Algorithms 
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(8)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 8 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(8); setButtonActive(8)}}>
                                             String Algorithms 
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(9)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 9 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(9); setButtonActive(9)}}>
                                             Greedy Algorithms (Detailed)
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(10)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 10 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(10); setButtonActive(10)}}>
                                             Dynamic Programming (Detailed)
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(11)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 11 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(11); setButtonActive(11)}}>
                                             Complexity Classes (Basic)
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(12)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 12 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(12); setButtonActive(12)}}>
                                             Advanced Topics (Optional)
                                         </h2>
                                     </div>
@@ -342,69 +374,85 @@ const Lectures = () => {
                                         In this lecture series, we will cover the fundamental concepts of JavaScript programming. We will start with an introduction to JavaScript and its role in web development. Then, we will dive into JavaScript syntax and basics, variables and data types, operators, control statements, functions, arrays, objects, error handling, ES6+ features, asynchronous JavaScript, and browser storage. Each lecture will include explanations, examples, and practical applications to help you understand how to use JavaScript effectively in your web development projects.
                                         </p>
                                 </div>
+                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[900px] p-6 mt-4">
+                                    <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-start">
+                                        Resources
+                                    </h1>
+                                </div>
+                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[900px] p-6 mt-4">
+                                    <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-start">
+                                        Comments
+                                    </h1>
+                                    <div>
+                                        <input type = "text" placeholder = "Add a comment..." className = "w-[750px] text-lg border border-gray-300 rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-gray-400" />
+                                        <button className = "ml-4 px-4 text-lg py-2 bg-slate-900 text-white rounded-full hover:bg-red-600 transition">
+                                            Post
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                             <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[300px] p-6">
                                 <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-center">
                                     Sub-Topics
                                 </h1>
                                 <div className = "flex flex-col gap-4">
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(1)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 1 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(1); setButtonActive(1)}}>
                                             Introduction to JavaScript
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(2)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 2 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(2); setButtonActive(2)}}>
                                             JavaScript Syntax and Basics
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(3)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 3 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(3); setButtonActive(3)}}>
                                             Variables and Data Types
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(4)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 4 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(4); setButtonActive(4)}}>
                                             Operators
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(5)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 5 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(5); setButtonActive(5)}}>
                                             Control Statements
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(6)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 6 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(6); setButtonActive(6)}}>
                                             Functions
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(7)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 7 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(7); setButtonActive(7)}}>
                                             Arrays
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(8)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 8 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(8); setButtonActive(8)}}>
                                             Objects 
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(9)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 9 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(9); setButtonActive(9)}}>
                                             Error Handling
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(10)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 10 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(10); setButtonActive(10)}}>
                                             ES6+ Features (Basics)
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(11)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 11 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(11); setButtonActive(11)}}>
                                             Asynchronous JavaScript (Introduction)
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(12)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 12 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(12); setButtonActive(12)}}>
                                             Browser Storage (LocalStorage and SessionStorage)
                                         </h2>
                                     </div>
@@ -464,69 +512,85 @@ const Lectures = () => {
                                         In this lecture series, we will cover the fundamental concepts of the Document Object Model (DOM) and how it interacts with JavaScript to create dynamic web pages. We will start with an introduction to the DOM and its structure, then move on to accessing and manipulating DOM elements, event handling, forms, DOM collections, and performance best practices. Each lecture will include explanations, examples, and practical applications to help you understand how to use the DOM effectively in your web development projects.
                                         </p>
                                 </div>
+                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[900px] p-6 mt-4">
+                                    <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-start">
+                                        Resources
+                                    </h1>
+                                </div>
+                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[900px] p-6 mt-4">
+                                    <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-start">
+                                        Comments
+                                    </h1>
+                                    <div>
+                                        <input type = "text" placeholder = "Add a comment..." className = "w-[750px] text-lg border border-gray-300 rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-gray-400" />
+                                        <button className = "ml-4 px-4 text-lg py-2 bg-slate-900 text-white rounded-full hover:bg-red-600 transition">
+                                            Post
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                             <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[300px] p-6">
                                 <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-center">
                                     Sub-Topics
                                 </h1>
                                 <div className = "flex flex-col gap-4">
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(1)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 1 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(1); setButtonActive(1)}}>
                                             Introduction to DOM 
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(2)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 2 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(2); setButtonActive(2)}}>
                                             Accessing DOM Elements
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(3)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 3 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(3); setButtonActive(3)}}>
                                             DOM Traversal
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(4)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 4 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(4); setButtonActive(4)}}>
                                             Manipulating DOM Elements
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(5)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 5 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(5); setButtonActive(5)}}>
                                             Creating and Removing DOM Elements
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(6)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 6 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(6); setButtonActive(6)}}>
                                             Event Handling 
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(7)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 7 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(7); setButtonActive(7)}}>
                                             Event Propagation
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(8)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 8 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(8); setButtonActive(8)}}>
                                             Forms and DOM 
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(9)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 9 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(9); setButtonActive(9)}}>
                                             DOM Collections
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(10)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 10 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(10); setButtonActive(10)}}>
                                             BOM (Browser Object Model) Basics
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(11)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 11 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(11); setButtonActive(11)}}>
                                             DOM Performance and Best Practices
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(12)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 12 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(12); setButtonActive(12)}}>
                                             Modern DOM Features and APIs
                                         </h2>
                                     </div>
@@ -592,79 +656,95 @@ const Lectures = () => {
                                         In this lecture series, we will cover the fundamental concepts of React.js, a popular JavaScript library for building user interfaces. We will start with an introduction to React and its core principles, then move on to setting up a React development environment, understanding JSX, creating components, managing state and props, handling events, conditional rendering, lists and keys, forms in React, hooks, routing, styling, and making API calls. Each lecture will include explanations, examples, and practical applications to help you understand how to use React effectively in your web development projects.
                                         </p>
                                 </div>
+                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[900px] p-6 mt-4">
+                                    <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-start">
+                                        Resources
+                                    </h1>
+                                </div>
+                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[900px] p-6 mt-4">
+                                    <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-start">
+                                        Comments
+                                    </h1>
+                                    <div>
+                                        <input type = "text" placeholder = "Add a comment..." className = "w-[750px] text-lg border border-gray-300 rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-gray-400" />
+                                        <button className = "ml-4 px-4 text-lg py-2 bg-slate-900 text-white rounded-full hover:bg-red-600 transition">
+                                            Post
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                             <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[300px] p-6">
                                 <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-center">
                                     Sub-Topics
                                 </h1>
                                 <div className = "flex flex-col gap-4">
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(1)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 1 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(1); setButtonActive(1)}}>
                                             Introduction to React 
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(2)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 2 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(2); setButtonActive(2)}}>
                                             Setting up React
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(3)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 3 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(3); setButtonActive(3)}}>
                                             JSX (JavaScript XML)
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(4)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 4 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(4); setButtonActive(4)}}>
                                             Components
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(5)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 5 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(5); setButtonActive(5)}}>
                                             Props
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(6)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 6 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(6); setButtonActive(6)}}>
                                             State 
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(7)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 7 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(7); setButtonActive(7)}}>
                                             Event Handling
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(8)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 8 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(8); setButtonActive(8)}}>
                                             Conditional Rendering 
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(9)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 9 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(9); setButtonActive(9)}}>
                                             Lists and Keys
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(10)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 10 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(10); setButtonActive(10)}}>
                                             Forms in React 
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(11)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 11 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(11); setButtonActive(11)}}>
                                             Hooks
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(12)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 12 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(12); setButtonActive(12)}}>
                                             Routing 
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(13)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 13 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(13); setButtonActive(13)}}>
                                             Styling in React 
                                         </h2>
                                     </div>
-                                    <div className = "bg-gray-200 rounded-lg shadow-md p-4 hover:scale-[110%] hover:bg-gray-300">
-                                        <h2 className = "text-lg font-medium text-gray-700" onClick = {() => setSubTopic(14)}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 14 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(14); setButtonActive(14)}}>
                                             API Calls and Data Fetching in React 
                                         </h2>
                                     </div>
@@ -748,108 +828,124 @@ const Lectures = () => {
                                         In this lecture series, we will cover the fundamental concepts of Node.js, a powerful JavaScript runtime built on Chrome's V8 engine. We will start with an introduction to Node.js and its architecture, then move on to installation and setup, core modules, file system operations, creating a server, working with modules, package management, asynchronous programming, event handling, and working with frameworks. We will also cover RESTful APIs, database integration, authentication and security, error handling and debugging, environment variables and configuration, streams and buffers, performance and scaling, testing, and deployment. Each lecture will include explanations, examples, and practical applications to help you understand how to use Node.js effectively in your web development projects.
                                         </p>
                                 </div>
+                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[900px] p-6 mt-4">
+                                    <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-start">
+                                        Resources
+                                    </h1>
+                                </div>
+                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[900px] p-6 mt-4">
+                                    <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-start">
+                                        Comments
+                                    </h1>
+                                    <div>
+                                        <input type = "text" placeholder = "Add a comment..." className = "w-[750px] text-lg border border-gray-300 rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-gray-400" />
+                                        <button className = "ml-4 px-4 text-lg py-2 bg-slate-900 text-white rounded-full hover:bg-red-600 transition">
+                                            Post
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                             <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[300px] p-6">
                                 <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-center">
                                     Sub-Topics
                                 </h1>
                                 <div className = "flex flex-col gap-4">
-                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 1 ? 'bg-slate-900 text-white border-2 border-slate-900 scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 1 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
                                         <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(1); setButtonActive(1)}}>
                                             Introduction to Node.js
                                         </h2>
                                     </div>
-                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 2 ? 'bg-slate-900 text-white border-2 border-slate-900 scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 2 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
                                         <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(2); setButtonActive(2)}}>
                                             Installation and Setup
                                         </h2>
                                     </div>
-                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 3 ? 'bg-slate-900 text-white border-2 border-slate-900 scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 3 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
                                         <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(3); setButtonActive(3)}}>
                                             Node.js Architecture
                                         </h2>
                                     </div>
-                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 4 ? 'bg-slate-900 text-white border-2 border-slate-900 scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 4 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
                                         <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(4); setButtonActive(4)}}>
                                             Core Modules
                                         </h2>
                                     </div>
-                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 5 ? 'bg-slate-900 text-white border-2 border-slate-900 scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 5 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
                                         <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(5); setButtonActive(5)}}>
                                             File System Operations
                                         </h2>
                                     </div>
-                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 6 ? 'bg-slate-900 text-white border-2 border-slate-900 scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 6 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
                                         <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(6); setButtonActive(6)}}>
                                             Creating a Server 
                                         </h2>
                                     </div>
-                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 7 ? 'bg-slate-900 text-white border-2 border-slate-900 scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 7 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
                                         <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(7); setButtonActive(7)}}>
                                             Modules in Node.js
                                         </h2>
                                     </div>
-                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 8 ? 'bg-slate-900 text-white border-2 border-slate-900 scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 8 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
                                         <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(8); setButtonActive(8)}}>
                                             Package Management
                                         </h2>
                                     </div>
-                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 9 ? 'bg-slate-900 text-white border-2 border-slate-900 scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 9 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
                                         <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(9); setButtonActive(9)}}>
                                             Asynchronous Programming
                                         </h2>
                                     </div>
-                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 10 ? 'bg-slate-900 text-white border-2 border-slate-900 scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 10 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
                                         <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(10); setButtonActive(10)}}>
                                             Event Handling  
                                         </h2>
                                     </div>
-                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 11 ? 'bg-slate-900 text-white border-2 border-slate-900 scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 11 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
                                         <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(11); setButtonActive(11)}}>
                                             Working with Frameworks
                                         </h2>
                                     </div>
-                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 12 ? 'bg-slate-900 text-white border-2 border-slate-900 scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 12 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
                                         <h2 className = "text-lg font-medium " onClick = {() => {setSubTopic(12); setButtonActive(12)}}>
                                             RESTFul APIs 
                                         </h2>
                                     </div>
-                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 13 ? 'bg-slate-900 text-white border-2 border-slate-900 scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 13 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
                                         <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(13); setButtonActive(13)}}>
                                             Database Integration (Introduction)
                                         </h2>
                                     </div>
-                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 14 ? 'bg-slate-900 text-white border-2 border-slate-900 scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 14 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
                                         <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(14); setButtonActive(14)}}>
                                             Authentication and Security (Basics)
                                         </h2>
                                     </div>
-                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 15 ? 'bg-slate-900 text-white border-2 border-slate-900 scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 15 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
                                         <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(15); setButtonActive(15)}}>
                                             Error Handling and Debugging
                                         </h2>
                                     </div>
-                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 16 ? 'bg-slate-900 text-white border-2 border-slate-900 scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 16 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
                                         <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(16); setButtonActive(16)}}>
                                             Environment Variables and Configuration
                                         </h2>
                                     </div>
-                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 17 ? 'bg-slate-900 text-white border-2 border-slate-900 scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 17 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
                                         <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(17); setButtonActive(17)}}>
                                             Streams and Buffers
                                         </h2>
                                     </div>
-                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 18 ? 'bg-slate-900 text-white border-2 border-slate-900 scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 18 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
                                         <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(18); setButtonActive(18)}}>
                                             Performance and Scaling
                                         </h2>
                                     </div>
-                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 19 ? 'bg-slate-900 text-white border-2 border-slate-900 scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 19 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
                                         <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(19); setButtonActive(19)}}>
                                             Testing (Basic)
                                         </h2>
                                     </div>
-                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 20 ? 'bg-slate-900 text-white border-2 border-slate-900 scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 20 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
                                         <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(20); setButtonActive(20)}}>
                                             Deployment and Hosting (Introduction)
                                         </h2>
@@ -859,7 +955,182 @@ const Lectures = () => {
                         </div>
                     </div>
                     <div className = {`text-4xl font-bold text-white items-center flex justify-center ${selectedLecture === 7 ? 'block' : 'hidden'}`}>
-                        7. State and Props lectures coming soon...
+                        <div className = "flex justify-start m-5 gap-4">
+                            <div>
+                                <div className = "bg-black rounded-lg  w-[900px] h-[600px] flex items-center justify-center">
+                                    <h2 className = "text-xl font-bold text-white">
+                                        Machine Learning lectures coming soon...
+                                    </h2>
+                                </div>
+                                <div className = {`${subTopic === 1 ? 'block' : 'hidden'}`}>
+                                    <h1 className = "text-3xl font-bold text-slate-900 ml-4 mt-4"> Introduction to Machine Learning </h1>
+                                </div>
+                                <div className = {`${subTopic === 2 ? 'block' : 'hidden'}`}>
+                                    <h1 className = "text-3xl font-bold text-slate-900 ml-4 mt-4"> Types of Machine Learning </h1>
+                                </div>
+                                <div className = {`${subTopic === 3 ? 'block' : 'hidden'}`}>
+                                    <h1 className = "text-3xl font-bold text-slate-900 ml-4 mt-4"> Data Preprocessing </h1>
+                                </div>
+                                <div className = {`${subTopic === 4 ? 'block' : 'hidden'}`}>
+                                    <h1 className = "text-3xl font-bold text-slate-900 ml-4 mt-4"> Supervised Learning Algorithms </h1>
+                                </div>
+                                <div className = {`${subTopic === 5 ? 'block' : 'hidden'}`}>
+                                    <h1 className = "text-3xl font-bold text-slate-900 ml-4 mt-4"> Unsupervised Learning Algorithms </h1>
+                                </div>
+                                <div className = {`${subTopic === 6 ? 'block' : 'hidden'}`}>
+                                    <h1 className = "text-3xl font-bold text-slate-900 ml-4 mt-4"> Model Evaluation and Validation </h1>
+                                </div>
+                                <div className = {`${subTopic === 7 ? 'block' : 'hidden'}`}>
+                                    <h1 className = "text-3xl font-bold text-slate-900 ml-4 mt-4"> Overfitting and Underfitting </h1>
+                                </div>
+                                <div className = {`${subTopic === 8 ? 'block' : 'hidden'}`}>
+                                    <h1 className = "text-3xl font-bold text-slate-900 ml-4 mt-4"> Feature Engineering </h1>
+                                </div>
+                                <div className = {`${subTopic === 9 ? 'block' : 'hidden'}`}>
+                                    <h1 className = "text-3xl font-bold text-slate-900 ml-4 mt-4"> Optimization Techniques </h1>
+                                </div>
+                                <div className = {`${subTopic === 10 ? 'block' : 'hidden'}`}>
+                                    <h1 className = "text-3xl font-bold text-slate-900 ml-4 mt-4"> Neural Networks </h1>
+                                </div>
+                                <div className = {`${subTopic === 11 ? 'block' : 'hidden'}`}>
+                                    <h1 className = "text-3xl font-bold text-slate-900 ml-4 mt-4"> Introduction to Deep Learning </h1>
+                                </div>
+                                <div className = {`${subTopic === 12 ? 'block' : 'hidden'}`}>
+                                    <h1 className = "text-3xl font-bold text-slate-900 ml-4 mt-4"> Reinforcement Learning </h1>
+                                </div>
+                                <div className = {`${subTopic === 13 ? 'block' : 'hidden'}`}>
+                                    <h1 className = "text-3xl font-bold text-slate-900 ml-4 mt-4"> Tools and Libraries </h1>
+                                </div>
+                                <div className = {`${subTopic === 14 ? 'block' : 'hidden'}`}>
+                                    <h1 className = "text-3xl font-bold text-slate-900 ml-4 mt-4"> Model Deployment </h1>
+                                </div>
+                                <div className = {`${subTopic === 15 ? 'block' : 'hidden'}`}>
+                                    <h1 className = "text-3xl font-bold text-slate-900 ml-4 mt-4"> Ethics in Machine Learning </h1>
+                                </div>
+                                <div className = {`${subTopic === 16 ? 'block' : 'hidden'}`}>
+                                    <h1 className = "text-3xl font-bold text-slate-900 ml-4 mt-4"> Real World Applications </h1>
+                                </div>
+                                <div className = {`${subTopic === 17 ? 'block' : 'hidden'}`}>
+                                    <h1 className = "text-3xl font-bold text-slate-900 ml-4 mt-4"> Advanced Topics </h1>
+                                </div>
+                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[900px] p-6 mt-4">
+                                    <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-start">
+                                        Description
+                                    </h1>
+                                    <p className = "text-gray-600 text-lg">
+                                        In this lecture series, we will cover the fundamental concepts of Machine Learning, a subset of artificial intelligence that enables computers to learn from data and make predictions or decisions without being explicitly programmed. We will start with an introduction to machine learning and its types, then move on to data preprocessing, supervised and unsupervised learning algorithms, model evaluation and validation, overfitting and underfitting, feature engineering, optimization techniques, neural networks, deep learning, reinforcement learning, tools and libraries, model deployment, ethics in machine learning, real-world applications, and advanced topics. Each lecture will include explanations, examples, and practical applications to help you understand how to use machine learning effectively in various domains.
+                                        </p>
+                                </div>
+                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[900px] p-6 mt-4">
+                                    <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-start">
+                                        Resources
+                                    </h1>
+                                </div>
+                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[900px] p-6 mt-4">
+                                    <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-start">
+                                        Comments
+                                    </h1>
+                                    <div>
+                                        <input type = "text" placeholder = "Add a comment..." className = "w-[750px] text-lg text-gray-700 border border-gray-300 rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-gray-400" />
+                                        <button className = "ml-4 px-4 text-lg py-2 bg-slate-900 text-white rounded-full hover:bg-red-600 transition">
+                                            Post
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[300px] p-6">
+                                <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-center">
+                                    Sub-Topics
+                                </h1>
+                                <div className = "flex flex-col gap-4">
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 1 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(1); setButtonActive(1)}}>
+                                            Introduction to Machine Learning
+                                        </h2>
+                                    </div>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 2 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(2); setButtonActive(2)}}>
+                                            Types of Machine Learning
+                                        </h2>
+                                    </div>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 3 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(3); setButtonActive(3)}}>
+                                            Data Preprocessing
+                                        </h2>
+                                    </div>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 4 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(4); setButtonActive(4)}}>
+                                            Supervised Learning Algorithms
+                                        </h2>
+                                    </div>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 5 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(5); setButtonActive(5)}}>
+                                            Unsupervised Learning Algorithms
+                                        </h2>
+                                    </div>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 6 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(6); setButtonActive(6)}}>
+                                            Model Evaluation and Validation
+                                        </h2>
+                                    </div>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 7 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(7); setButtonActive(7)}}>
+                                            Overfitting and Underfitting
+                                        </h2>
+                                    </div>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 8 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(8); setButtonActive(8)}}>
+                                            Feature Engineering
+                                        </h2>
+                                    </div>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 9 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(9); setButtonActive(9)}}>
+                                            Optimization Techniques
+                                        </h2>
+                                    </div>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 10 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(10); setButtonActive(10)}}>
+                                            Neural Networks (Basics) 
+                                        </h2>
+                                    </div>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 11 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(11); setButtonActive(11)}}>
+                                            Introduction to Deep Learning 
+                                        </h2>
+                                    </div>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 12 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium " onClick = {() => {setSubTopic(12); setButtonActive(12)}}>
+                                            Reinforcement Learning (Basics) 
+                                        </h2>
+                                    </div>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 13 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(13); setButtonActive(13)}}>
+                                            Tools and Libraries 
+                                        </h2>
+                                    </div>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 14 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(14); setButtonActive(14)}}>
+                                            Model Deployment (Intoduction)
+                                        </h2>
+                                    </div>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 15 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(15); setButtonActive(15)}}>
+                                            Ethics in Machine Learning
+                                        </h2>
+                                    </div>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 16 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(16); setButtonActive(16)}}>
+                                            Real World Applications 
+                                        </h2>
+                                    </div>
+                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 17 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(17); setButtonActive(17)}}>
+                                            Advanced Topics (Optional)
+                                        </h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
