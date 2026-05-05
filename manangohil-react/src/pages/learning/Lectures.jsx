@@ -14,37 +14,37 @@ const Lectures = () => {
                         Topics
                     </h1>
                     <div className = "flex flex-col gap-4 transition">
-                        <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActiveLecture === 1 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`} onClick={() => {setSelectedLecture(1); setSubTopic(null)}}>
+                        <div className = {`rounded-lg shadow-md text-slate-900 p-4 hover:scale-[110%] ${buttonActiveLecture === 1 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`} onClick={() => {setSelectedLecture(1); setSubTopic(null)}}>
                             <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(1); setSubTopic(null); setButtonActive(null); setSubTopicSidebarActive(true)}}>
                                 1. Data Structures 
                             </h2>    
                         </div>
-                        <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActiveLecture === 2 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`} onClick={() => {setSelectedLecture(2); setSubTopic(null)}}>
+                        <div className = {`rounded-lg shadow-md text-slate-900 p-4 hover:scale-[110%] ${buttonActiveLecture === 2 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`} onClick={() => {setSelectedLecture(2); setSubTopic(null)}}>
                             <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(2); setSubTopic(null); setButtonActive(null); setSubTopicSidebarActive(true)}}>
                                 2. Algorithms 
                             </h2>    
                         </div>
-                        <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActiveLecture === 3 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`} onClick={() => {setSelectedLecture(3); setSubTopic(null)}}>
+                        <div className = {`rounded-lg shadow-md text-slate-900 p-4 hover:scale-[110%] ${buttonActiveLecture === 3 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`} onClick={() => {setSelectedLecture(3); setSubTopic(null)}}>
                             <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(3); setSubTopic(null); setButtonActive(null); setSubTopicSidebarActive(true)}}>
                                 3. JavaScript Fundamentals
                             </h2>    
                         </div>
-                        <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActiveLecture === 4 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`} onClick={() => {setSelectedLecture(4); setSubTopic(null)}}>
+                        <div className = {`rounded-lg shadow-md text-slate-900 p-4 hover:scale-[110%] ${buttonActiveLecture === 4 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`} onClick={() => {setSelectedLecture(4); setSubTopic(null)}}>
                             <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(4); setSubTopic(null); setButtonActive(null); setSubTopicSidebarActive(true)}}>
                                 4. Document Object Method (DOM)
                             </h2>    
                         </div>
-                        <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActiveLecture === 5 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`} onClick={() => {setSelectedLecture(5); setSubTopic(null)}}>
+                        <div className = {`rounded-lg shadow-md text-slate-900 p-4 hover:scale-[110%] ${buttonActiveLecture === 5 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`} onClick={() => {setSelectedLecture(5); setSubTopic(null)}}>
                             <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(5); setSubTopic(null); setButtonActive(null); setSubTopicSidebarActive(true)}}>
                                 5. React.js
                             </h2>    
                         </div>
-                        <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActiveLecture === 6 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`} onClick={() => {setSelectedLecture(6); setSubTopic(null)}}>
+                        <div className = {`rounded-lg shadow-md text-slate-900 p-4 hover:scale-[110%] ${buttonActiveLecture === 6 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`} onClick={() => {setSelectedLecture(6); setSubTopic(null)}}>
                             <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(6); setSubTopic(null); setButtonActive(null); setSubTopicSidebarActive(true)}}>
                                 6. Node.js
                             </h2>    
                         </div>
-                        <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActiveLecture === 7 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`} onClick={() => {setSelectedLecture(7); setSubTopic(null)}}>
+                        <div className = {`rounded-lg shadow-md text-slate-900 p-4 hover:scale-[110%] ${buttonActiveLecture === 7 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`} onClick={() => {setSelectedLecture(7); setSubTopic(null)}}>
                             <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(7); setSubTopic(null); setButtonActive(null); setSubTopicSidebarActive(true)}}>
                                 7. Machine Learning Basics
                             </h2>    
@@ -122,16 +122,16 @@ const Lectures = () => {
                                 </div>
                             </div>
                             <div className = {`fixed top-24 right-4 ${subTopicSidebarActive ? 'hidden' : 'block'}`}>
-                                    <button className = "flex justify-center bg-white text-slate-900 text-3xl rounded-lg shadow-lg shadow-slate-950/30 w-10 h-10" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
+                                    <button className = "flex justify-center bg-slate-900 text-white text-3xl rounded-lg shadow-lg shadow-slate-950/30 w-10 h-10" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
                                         {'<'}
                                     </button>     
                             </div>
-                            <div className = {`bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[300px] p-6 ${subTopicSidebarActive ? 'block' : 'hidden'} transition-all duration-300 ease-in-out`}>
-                                <div className = "flex justify-start gap-6 mb-4"> 
-                                    <button className = "p-1 text-3xl bg-white text-slate-900 mb-4" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
-                                        {'>'}
+                            <div className = {`bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[300px] p-4 ${subTopicSidebarActive ? 'block' : 'hidden'} transition-all duration-300 ease-in-out`}>
+                                <div className = "flex bg-slate-900 rounded-lg text-white justify-start gap-8 p-2 mb-4"> 
+                                    <button className = "ml-2 mb-1 text-2xl" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
+                                        |||
                                     </button>
-                                    <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-center">
+                                    <h1 className = "text-2xl font-bold">
                                         Sub-Topics
                                     </h1>
                                 </div>
@@ -265,16 +265,16 @@ const Lectures = () => {
                                 </div>
                             </div>
                             <div className = {`fixed top-24 right-4 ${subTopicSidebarActive ? 'hidden' : 'block'}`}>
-                                    <button className = "flex justify-center bg-white text-slate-900 text-3xl rounded-lg shadow-lg shadow-slate-950/30 w-10 h-10" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
+                                    <button className = "flex justify-center bg-slate-900 text-white text-3xl rounded-lg shadow-lg shadow-slate-950/30 w-10 h-10" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
                                         {'<'}
                                     </button>     
                             </div>
-                            <div className = {`bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[300px] p-6 ${subTopicSidebarActive ? 'block' : 'hidden'} transition-all duration-300 ease-in-out`}>
-                                <div className = "flex justify-start gap-6 mb-4"> 
-                                    <button className = "p-1 text-3xl bg-white text-slate-900 mb-4" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
-                                        {'>'}
+                            <div className = {`bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[300px] p-4 ${subTopicSidebarActive ? 'block' : 'hidden'} transition-all duration-300 ease-in-out`}>
+                                <div className = "flex bg-slate-900 rounded-lg text-white justify-start gap-8 p-2 mb-4"> 
+                                    <button className = "mb-1 ml-2 text-2xl" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
+                                        |||
                                     </button>
-                                    <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-center">
+                                    <h1 className = "text-2xl font-bold">
                                         Sub-Topics
                                     </h1>
                                 </div>
@@ -413,16 +413,16 @@ const Lectures = () => {
                                 </div>
                             </div>
                             <div className = {`fixed top-24 right-4 ${subTopicSidebarActive ? 'hidden' : 'block'}`}>
-                                    <button className = "flex justify-center bg-white text-slate-900 text-3xl rounded-lg shadow-lg shadow-slate-950/30 w-10 h-10" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
+                                    <button className = "flex justify-center bg-slate-900 text-white text-3xl rounded-lg shadow-lg shadow-slate-950/30 w-10 h-10" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
                                         {'<'}
                                     </button>     
                             </div>
-                            <div className = {`bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[300px] p-6 ${subTopicSidebarActive ? 'block' : 'hidden'} transition-all duration-300 ease-in-out`}>
-                                <div className = "flex justify-start gap-6 mb-4"> 
-                                    <button className = "p-1 text-3l bg-white text-slate-900 mb-4" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
-                                        {'>'}
+                            <div className = {`bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[300px] p-4 ${subTopicSidebarActive ? 'block' : 'hidden'} transition-all duration-300 ease-in-out`}>
+                                <div className = "flex bg-slate-900 rounded-lg text-white justify-start gap-8 p-2 mb-4"> 
+                                    <button className = "ml-2 mb-1 text-2xl" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
+                                        |||
                                     </button>
-                                    <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-center">
+                                    <h1 className = "text-2xl font-bold">
                                         Sub-Topics
                                     </h1>
                                 </div>
@@ -561,16 +561,16 @@ const Lectures = () => {
                                 </div>
                             </div>
                             <div className = {`fixed top-24 right-4 ${subTopicSidebarActive ? 'hidden' : 'block'}`}>
-                                    <button className = "flex justify-center bg-white text-slate-900 text-3xl rounded-lg shadow-lg shadow-slate-950/30 w-10 h-10" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
+                                    <button className = "flex justify-center bg-slate-900 text-white text-3xl rounded-lg shadow-lg shadow-slate-950/30 w-10 h-10" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
                                         {'<'}
                                     </button>     
                             </div>
-                            <div className = {`bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[300px] p-6 ${subTopicSidebarActive ? 'block' : 'hidden'} transition-all duration-300 ease-in-out`}>
-                                <div className = "flex justify-start gap-6 mb-4"> 
-                                    <button className = "p-1 text-3xl bg-white text-slate-900 mb-4" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
-                                        {'>'}
+                            <div className = {`bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[300px] p-4 ${subTopicSidebarActive ? 'block' : 'hidden'} transition-all duration-300 ease-in-out`}>
+                                <div className = "flex bg-slate-900 rounded-lg text-white justify-start gap-8 p-2 mb-4"> 
+                                    <button className = "mb-1 ml-2 text-2xl" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
+                                        |||
                                     </button>
-                                    <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-center">
+                                    <h1 className = "text-2xl font-bold">
                                         Sub-Topics
                                     </h1>
                                 </div>
@@ -715,16 +715,16 @@ const Lectures = () => {
                                 </div>
                             </div>
                             <div className = {`fixed top-24 right-4 ${subTopicSidebarActive ? 'hidden' : 'block'}`}>
-                                    <button className = "flex justify-center bg-white text-slate-900 text-3xl rounded-lg shadow-lg shadow-slate-950/30 w-10 h-10" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
+                                    <button className = "flex justify-center bg-slate-900 text-white text-3xl rounded-lg shadow-lg shadow-slate-950/30 w-10 h-10" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
                                         {'<'}
                                     </button>     
                             </div>
-                            <div className = {`bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[300px] p-6 ${subTopicSidebarActive ? 'block' : 'hidden'} transition-all duration-300 ease-in-out`}>
-                                <div className = "flex justify-start gap-6 mb-4"> 
-                                    <button className = "p-1 text-3xl bg-white text-slate-900 mb-4" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
-                                        {'>'}
+                            <div className = {`bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[300px] p-4 ${subTopicSidebarActive ? 'block' : 'hidden'} transition-all duration-300 ease-in-out`}>
+                                <div className = "flex bg-slate-900 rounded-lg text-white justify-start gap-8 p-2 mb-4"> 
+                                    <button className = "ml-2 mb-1 text-2xl" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
+                                        |||
                                     </button>
-                                    <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-center">
+                                    <h1 className = "text-2xl font-bold">
                                         Sub-Topics
                                     </h1>
                                 </div>
@@ -897,16 +897,16 @@ const Lectures = () => {
                                 </div>
                             </div>
                             <div className = {`fixed top-24 right-4 ${subTopicSidebarActive ? 'hidden' : 'block'}`}>
-                                    <button className = "flex justify-center bg-white text-slate-900 text-3xl rounded-lg shadow-lg shadow-slate-950/30 w-10 h-10" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
+                                    <button className = "flex justify-center bg-slate-900 text-white text-3xl rounded-lg shadow-lg shadow-slate-950/30 w-10 h-10" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
                                         {'<'}
                                     </button>     
                             </div>
-                            <div className = {`bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[300px] p-6 ${subTopicSidebarActive ? 'block' : 'hidden'} transition-all duration-300 ease-in-out`}>
-                                <div className = "flex justify-start gap-6 mb-4"> 
-                                    <button className = "p-1 text-3xl bg-white text-slate-900 mb-4" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
-                                        {'>'}
+                            <div className = {`bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[300px] p-4 ${subTopicSidebarActive ? 'block' : 'hidden'} transition-all duration-300 ease-in-out`}>
+                                <div className = "flex bg-slate-900 rounded-lg text-white justify-start gap-8 p-2 mb-4"> 
+                                    <button className = "ml-2 mb-1 text-2xl" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
+                                        |||
                                     </button>
-                                    <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-center">
+                                    <h1 className = "text-2xl font-bold">
                                         Sub-Topics
                                     </h1>
                                 </div>
@@ -1100,16 +1100,16 @@ const Lectures = () => {
                                 </div>
                             </div>
                             <div className = {`fixed top-24 right-4 ${subTopicSidebarActive ? 'hidden' : 'block'}`}>
-                                    <button className = "flex justify-center bg-white text-slate-900 text-3xl rounded-lg shadow-lg shadow-slate-950/30 w-10 h-10" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
+                                    <button className = "flex justify-center bg-slate-900 text-white text-3xl rounded-lg shadow-lg shadow-slate-950/30 w-10 h-10" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
                                         {'<'}
                                     </button>     
                             </div>
-                            <div className = {`bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[300px] p-6 ${subTopicSidebarActive ? 'block' : 'hidden'} transition-all duration-300 ease-in-out`}>
-                                <div className = "flex justify-start gap-6 mb-4"> 
-                                    <button className = "p-1 text-3xl bg-white text-slate-900 mb-4" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
-                                        {'>'}
+                            <div className = {`bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[300px] p-4 ${subTopicSidebarActive ? 'block' : 'hidden'} transition-all duration-300 ease-in-out`}>
+                                <div className = "flex bg-slate-900 rounded-lg text-white justify-start gap-8 p-2 mb-4"> 
+                                    <button className = "ml-2 mb-1 text-2xl" onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}>
+                                        |||
                                     </button>
-                                    <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-center">
+                                    <h1 className = "text-2xl font-bold">
                                         Sub-Topics
                                     </h1>
                                 </div>
