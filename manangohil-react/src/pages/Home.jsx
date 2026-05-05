@@ -7,7 +7,7 @@ const Home = () => {
                 <h1 className = "w-full flex justify-center items-center text-4xl p-6 font-bold text-slate-800">
                     Welcome to the Student Dashboard.   
                 </h1>
-                <Marquee speed = {100} className="mb-4 z-1">
+                <Marquee speed = {100} className="mb-4 z-15">
                     <div className = "bg-white rounded-lg text-xl font-bold shadow-lg p-4 mr-4">
                         Recent Announcements:
                         <div className = "flex font-medium justify-between gap-4">
