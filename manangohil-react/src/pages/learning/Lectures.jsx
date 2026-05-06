@@ -278,7 +278,7 @@ const Lectures = () => {
                                 </div>
                             </div>
                             <div className = {`fixed top-24 right-4 ${subTopicSidebarActive ? 'hidden' : 'block'}`}>
-                                    <button className = "flex justify-center bg-slate-900 text-white text-3xl rounded-lg shadow-lg shadow-slate-950/30 w-10 h-10" onClick={() => {setSubTopicSidebarActive(!subTopicSidebarActive); document.getElementsByClassName("Algovideo")[subTopic-1].width = 900; document.getElementsByClassName("Algovideo")[subTopic-1].height = 600}}>
+                                    <button className = "flex justify-center bg-slate-900 text-white text-3xl rounded-lg shadow-lg shadow-slate-950/30 w-10 h-10" onClick={() => {setSubTopicSidebarActive(!subTopicSidebarActive); document.getElementsByClassName("Algovideo")[subTopic === 0 ? 0 : subTopic - 1].width = 900; document.getElementsByClassName("Algovideo")[subTopic === 0 ? 0 : subTopic - 1].height = 600}}>
                                         {'<'}
                                     </button>     
                             </div>
