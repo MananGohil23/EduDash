@@ -133,13 +133,13 @@ const Lectures = () => {
                                 </div>
                             </div>
                             <div className = {`fixed top-24 right-4 ${subTopicSidebarActive ? 'hidden' : 'block'}`}>
-                                    <button className = "flex justify-center bg-slate-900 text-white text-3xl rounded-lg shadow-lg shadow-slate-950/30 w-10 h-10" onClick={() => {setSubTopicSidebarActive(!subTopicSidebarActive); document.getElementsByClassName("dsvideo")[subTopic-1].width = 900; document.getElementsByClassName("dsvideo")[subTopic-1].height = 600}}>
+                                    <button className = "flex justify-center bg-slate-900 text-white text-3xl rounded-lg shadow-lg shadow-slate-950/30 w-10 h-10" onClick={() => {setSubTopicSidebarActive(!subTopicSidebarActive); document.getElementsByClassName("dsvideo")[subTopic === null ? 0 : subTopic - 1].width = 900; document.getElementsByClassName("dsvideo")[subTopic === null ? 0 : subTopic - 1].height = 600}}>
                                         {'<'}
                                     </button>     
                             </div>
                             <div className = {`bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[300px] p-4 ${subTopicSidebarActive ? 'block' : 'hidden'} transition-all duration-300 ease-in-out`}>
                                 <div className = "flex bg-slate-900 rounded-lg text-white justify-start gap-8 p-2 mb-4"> 
-                                    <button className = "ml-2 mb-1 text-2xl" onClick={() => {setSubTopicSidebarActive(!subTopicSidebarActive); document.getElementsByClassName("dsvideo")[subTopic-1].width = 1200}}>
+                                    <button className = "ml-2 mb-1 text-2xl" onClick={() => {setSubTopicSidebarActive(!subTopicSidebarActive); document.getElementsByClassName("dsvideo")[subTopic === null ? 0 : subTopic - 1].width = 1200}}>
                                         |||
                                     </button>
                                     <h1 className = "text-2xl font-bold">
@@ -284,7 +284,7 @@ const Lectures = () => {
                             </div>
                             <div className = {`bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[300px] p-4 ${subTopicSidebarActive ? 'block' : 'hidden'} transition-all duration-300 ease-in-out`}>
                                 <div className = "flex bg-slate-900 rounded-lg text-white justify-start gap-8 p-2 mb-4"> 
-                                    <button className = "mb-1 ml-2 text-2xl" onClick={() => {setSubTopicSidebarActive(!subTopicSidebarActive); document.getElementsByClassName("Algovideo")[subTopic-1].width = 1200; document.getElementsByClassName("Algovideo")[subTopic-1].height = 600}}>
+                                    <button className = "mb-1 ml-2 text-2xl" onClick={() => {setSubTopicSidebarActive(!subTopicSidebarActive); document.getElementsByClassName("Algovideo")[subTopic === null ? 0 : subTopic - 1].width = 1200; document.getElementsByClassName("Algovideo")[subTopic === null ? 0 : subTopic - 1].height = 600}}>
                                         |||
                                     </button>
                                     <h1 className = "text-2xl font-bold">
