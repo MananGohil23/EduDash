@@ -15,37 +15,37 @@ const Lectures = () => {
                     </h1>
                     <div className = "flex flex-col gap-4 transition">
                         <div className = {`rounded-lg shadow-md text-slate-900 p-4 hover:scale-[110%] ${buttonActiveLecture === 1 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`} onClick={() => {setSelectedLecture(1); setSubTopic(null)}}>
-                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(1); setSubTopic(null); setButtonActive(null); setSubTopicSidebarActive(true); document.getElementById("dsvideo").width = 900; document.getElementById("dsvideo").height = 600}}>
+                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(1); setSubTopic(null); setButtonActive(null); setSubTopicSidebarActive(true); document.getElementsByClassName("dsvideo")[0].width = 900; document.getElementsByClassName("dsvideo")[0].height = 600}}>
                                 1. Data Structures 
                             </h2>    
                         </div>
                         <div className = {`rounded-lg shadow-md text-slate-900 p-4 hover:scale-[110%] ${buttonActiveLecture === 2 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`} onClick={() => {setSelectedLecture(2); setSubTopic(null)}}>
-                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(2); setSubTopic(null); setButtonActive(null); setSubTopicSidebarActive(true); document.getElementById("dsvideo").width = 900; document.getElementById("dsvideo").height = 600}}>
+                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(2); setSubTopic(null); setButtonActive(null); setSubTopicSidebarActive(true); document.getElementsByClassName("dsvideo")[0].width = 900; document.getElementsByClassName("dsvideo")[0].height = 600}}>
                                 2. Algorithms 
                             </h2>    
                         </div>
                         <div className = {`rounded-lg shadow-md text-slate-900 p-4 hover:scale-[110%] ${buttonActiveLecture === 3 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`} onClick={() => {setSelectedLecture(3); setSubTopic(null)}}>
-                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(3); setSubTopic(null); setButtonActive(null); setSubTopicSidebarActive(true); document.getElementById("dsvideo").width = 900; document.getElementById("dsvideo").height = 600}}>
+                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(3); setSubTopic(null); setButtonActive(null); setSubTopicSidebarActive(true); document.getElementsByClassName("dsvideo")[0].width = 900; document.getElementsByClassName("dsvideo")[0].height = 600}}>
                                 3. JavaScript Fundamentals
                             </h2>    
                         </div>
                         <div className = {`rounded-lg shadow-md text-slate-900 p-4 hover:scale-[110%] ${buttonActiveLecture === 4 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`} onClick={() => {setSelectedLecture(4); setSubTopic(null)}}>
-                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(4); setSubTopic(null); setButtonActive(null); setSubTopicSidebarActive(true); document.getElementById("dsvideo").width = 900; document.getElementById("dsvideo").height = 600}}>
+                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(4); setSubTopic(null); setButtonActive(null); setSubTopicSidebarActive(true); document.getElementsByClassName("dsvideo")[0].width = 900; document.getElementsByClassName("dsvideo")[0].height = 600}}>
                                 4. Document Object Method (DOM)
                             </h2>    
                         </div>
                         <div className = {`rounded-lg shadow-md text-slate-900 p-4 hover:scale-[110%] ${buttonActiveLecture === 5 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`} onClick={() => {setSelectedLecture(5); setSubTopic(null)}}>
-                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(5); setSubTopic(null); setButtonActive(null); setSubTopicSidebarActive(true); document.getElementById("dsvideo").width = 900; document.getElementById("dsvideo").height = 600}}>
+                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(5); setSubTopic(null); setButtonActive(null); setSubTopicSidebarActive(true); document.getElementsByClassName("dsvideo")[0].width = 900; document.getElementsByClassName("dsvideo")[0].height = 600}}>
                                 5. React.js
                             </h2>    
                         </div>
                         <div className = {`rounded-lg shadow-md text-slate-900 p-4 hover:scale-[110%] ${buttonActiveLecture === 6 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`} onClick={() => {setSelectedLecture(6); setSubTopic(null)}}>
-                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(6); setSubTopic(null); setButtonActive(null); setSubTopicSidebarActive(true); document.getElementById("dsvideo").width = 900; document.getElementById("dsvideo").height = 600}}>
+                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(6); setSubTopic(null); setButtonActive(null); setSubTopicSidebarActive(true); document.getElementsByClassName("dsvideo")[0].width = 900; document.getElementsByClassName("dsvideo")[0].height = 600}}>
                                 6. Node.js
                             </h2>    
                         </div>
                         <div className = {`rounded-lg shadow-md text-slate-900 p-4 hover:scale-[110%] ${buttonActiveLecture === 7 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`} onClick={() => {setSelectedLecture(7); setSubTopic(null)}}>
-                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(7); setSubTopic(null); setButtonActive(null); setSubTopicSidebarActive(true); document.getElementById("dsvideo").width = 900; document.getElementById("dsvideo").height = 600}}>
+                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(7); setSubTopic(null); setButtonActive(null); setSubTopicSidebarActive(true); document.getElementsByClassName("dsvideo")[0].width = 900; document.getElementsByClassName("dsvideo")[0].height = 600}}>
                                 7. Machine Learning Basics
                             </h2>    
                         </div>
@@ -58,10 +58,12 @@ const Lectures = () => {
                     <div className = {`text-4xl font-bold text-white ${selectedLecture === 1 ? 'block' : 'hidden'}`}>
                         <div className = "flex justify-start m-5 gap-4">
                             <div className = "flex-1 w-full max-w-[1200px]">
-                                <div className = "bg-black rounded-lg h-[600px] flex items-center justify-center">
-                                    <h2 className = "text-xl font-bold text-white">
-                                        <iframe width="900" height="600" src="https://www.youtube.com/embed/SGDS6NFN-_U?si=aUufjhRUWnCAK7VM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowFullScreen id="dsvideo" className = {`rounded-lg ${subTopic === 1 ? 'block' : 'hidden'}`}></iframe>
-                                    </h2>
+                                <div className = "rounded-lg text-slate-900 h-[600px] flex items-center justify-center">
+                                        <h2 className = {`text-3xl font-bold ${subTopic === null ? 'block' : 'hidden'}`}>
+                                            Please select a Sub-Topic to continue...
+                                        </h2>
+                                        <iframe width="900" height="600" src="https://www.youtube.com/embed/SGDS6NFN-_U?si=aUufjhRUWnCAK7VM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowFullScreen className = {`dsvideo rounded-lg ${subTopic === 1 ? 'block' : 'hidden'}`}></iframe>
+                                        <iframe width="900" height="600" src="https://www.youtube.com/embed/AT14lCXuMKI?si=3l2CJbTMQhSupTzx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowFullScreen className = {`dsvideo rounded-lg ${subTopic === 2 ? 'block' : 'hidden'}`}></iframe>
                                 </div>
                                 <div className = {`${subTopic === 1 ? 'block' : 'hidden'}`}>
                                     <h1 className = "text-3xl font-bold text-slate-900 ml-4 mt-4"> Introduction to Data Structures </h1>
@@ -122,13 +124,13 @@ const Lectures = () => {
                                 </div>
                             </div>
                             <div className = {`fixed top-24 right-4 ${subTopicSidebarActive ? 'hidden' : 'block'}`}>
-                                    <button className = "flex justify-center bg-slate-900 text-white text-3xl rounded-lg shadow-lg shadow-slate-950/30 w-10 h-10" onClick={() => {setSubTopicSidebarActive(!subTopicSidebarActive); document.getElementById("dsvideo").width = 900; document.getElementById("dsvideo").height = 600}}>
+                                    <button className = "flex justify-center bg-slate-900 text-white text-3xl rounded-lg shadow-lg shadow-slate-950/30 w-10 h-10" onClick={() => {setSubTopicSidebarActive(!subTopicSidebarActive); document.getElementsByClassName("dsvideo")[subTopic-1].width = 900; document.getElementsByClassName("dsvideo")[subTopic-1].height = 600}}>
                                         {'<'}
                                     </button>     
                             </div>
                             <div className = {`bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[300px] p-4 ${subTopicSidebarActive ? 'block' : 'hidden'} transition-all duration-300 ease-in-out`}>
                                 <div className = "flex bg-slate-900 rounded-lg text-white justify-start gap-8 p-2 mb-4"> 
-                                    <button className = "ml-2 mb-1 text-2xl" onClick={() => {setSubTopicSidebarActive(!subTopicSidebarActive); document.getElementById("dsvideo").width = 1200}}>
+                                    <button className = "ml-2 mb-1 text-2xl" onClick={() => {setSubTopicSidebarActive(!subTopicSidebarActive); document.getElementsByClassName("dsvideo")[subTopic-1].width = 1200}}>
                                         |||
                                     </button>
                                     <h1 className = "text-2xl font-bold">
