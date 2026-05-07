@@ -5,7 +5,7 @@ const Home = () => {
         <>
             <div className = "bg-gray-100 min-h-screen">
                 <h1 className = "w-full flex justify-center items-center text-4xl p-6 font-bold text-slate-800">
-                    Welcome to the Student Dashboard.   
+                    Welcome to EduDash.   
                 </h1>
                 <Marquee speed = {100} className="mb-4 z-15">
                     <div className = "bg-white rounded-lg text-xl font-bold shadow-lg p-4 mr-4">
