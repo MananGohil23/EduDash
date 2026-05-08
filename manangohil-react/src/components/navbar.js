@@ -81,17 +81,24 @@ const Navbar = () => {
               </NavLink>
             </div>
             <div className = {`flex items-center gap-2 ${(isloggedin ? 'hidden' : 'block')}`}>
-                <button className = "rounded-full bg-emerald-500 px-4 py-2 text-lg hover:scale-[110%] font-semibold text-white transition hover:bg-emerald-400 hover:-translate-y-[5px]" onClick={() => setLoginCardActive(true)}>
+                <button className = "rounded-full bg-emerald-500 px-4 py-2 text-lg hover:scale-[110%] font-semibold text-white transition hover:bg-emerald-400 hover:-translate-y-[5px]" onClick={() => {setLoginCardActive(true); setIncorrectLogin(false); document.getElementById("passwordInput").value = ""; document.getElementById("usernameInput").value = ""}}>
                   Login
                 </button>
             </div>
-            <div className={`flex items-center gap-2 ${isloggedin ? 'block' : 'hidden'}`}>
-              <Link
-                to="/profile"
-                className="rounded-full bg-emerald-500 px-4 py-2 text-lg hover:scale-[110%] font-semibold text-white transition hover:bg-emerald-400 hover:-translate-y-[5px]"
-              >
-                Profile
-              </Link>
+            <div className = {`flex items-center gap-2 ${(isloggedin ? 'block' : 'hidden')}`}>
+              <div className = "flex items-center gap-2">
+                <Link to="/" onClick={() => {setIsLoggedIn(false); alert("You have been logged out."); document.getElementById("passwordInput").value = ""; document.getElementById("usernameInput").value = ""}} className="rounded-full bg-emerald-500 px-4 py-2 text-lg hover:scale-[110%] font-semibold text-white transition hover:bg-emerald-400 hover:-translate-y-[5px]">
+                      Logout
+                </Link>
+              </div>
+              <div className = "flex items-center gap-2">
+                <Link
+                  to="/profile"
+                  className="rounded-full bg-emerald-500 px-4 py-2 text-lg hover:scale-[110%] font-semibold text-white transition hover:bg-emerald-400 hover:-translate-y-[5px]"
+                >
+                  Profile
+                </Link>
+              </div>
             </div>
           </div>
         </nav>
