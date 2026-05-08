@@ -33,7 +33,7 @@ const Navbar = () => {
               className="text-lg font-semibold tracking-wide"
               title="Student Dashboard"
             >
-              <div className="flex items-center gap-2 transition hover:scale-[110%] transition-delay-100">
+              <div className="flex items-center gap-2 transition hover:scale-[110%] hover:-translate-y-[5px] transition-delay-100">
                 <img
                   src="/logo.png"
                   alt="Logo"
@@ -48,7 +48,7 @@ const Navbar = () => {
                   `rounded-full bg-slate-900 px-4 py-2 text-lg font-bold transition ${
                     isActive
                       ? "border-white bg-white text-slate-900"
-                      : "border-white/25 text-white hover:border-white hover:bg-blue-600 hover:scale-[110%] "
+                      : "border-white/25 text-white hover:border-white hover:bg-blue-600 hover:scale-[110%] hover:-translate-y-[5px] "
                   }`
                 }
                 to="/attendance"
@@ -60,7 +60,7 @@ const Navbar = () => {
                   `rounded-full bg-slate-900 px-4 py-2 text-lg font-bold transition ${
                     isActive
                       ? "border-white bg-white text-slate-900"
-                      : "border-white/25 text-white hover:border-white hover:bg-blue-600 hover:scale-[110%] "
+                      : "border-white/25 text-white hover:border-white hover:bg-blue-600 hover:scale-[110%] hover:-translate-y-[5px] "
                   }`
                 }
                 to="/learning/Lectures"
@@ -72,7 +72,7 @@ const Navbar = () => {
                   `rounded-full bg-slate-900 px-4 py-2 text-lg font-bold transition ${
                     isActive
                       ? "border-white bg-white text-slate-900"
-                      : "border-white/25 text-white hover:border-white hover:bg-blue-600 hover:scale-[110%] "
+                      : "border-white/25 text-white hover:border-white hover:bg-blue-600 hover:scale-[110%] hover:-translate-y-[5px] "
                   }`
                 }
                 to="/learning/Assignments"
@@ -81,14 +81,14 @@ const Navbar = () => {
               </NavLink>
             </div>
             <div className = {`flex items-center gap-2 ${(isloggedin ? 'hidden' : 'block')}`}>
-                <button className = "rounded-full bg-emerald-500 px-4 py-2 text-lg hover:scale-[110%] font-semibold text-white transition hover:bg-emerald-400" onClick={() => setLoginCardActive(true)}>
+                <button className = "rounded-full bg-emerald-500 px-4 py-2 text-lg hover:scale-[110%] font-semibold text-white transition hover:bg-emerald-400 hover:-translate-y-[5px]" onClick={() => setLoginCardActive(true)}>
                   Login
                 </button>
             </div>
             <div className={`flex items-center gap-2 ${isloggedin ? 'block' : 'hidden'}`}>
               <Link
                 to="/profile"
-                className="rounded-full bg-emerald-500 px-4 py-2 text-lg hover:scale-[110%] font-semibold text-white transition hover:bg-emerald-400"
+                className="rounded-full bg-emerald-500 px-4 py-2 text-lg hover:scale-[110%] font-semibold text-white transition hover:bg-emerald-400 hover:-translate-y-[5px]"
               >
                 Profile
               </Link>
