@@ -39,7 +39,7 @@ const Navbar = () => {
                   alt="Logo"
                   className="h-8 w-8 inline-block mr-2"
                 />
-                <div>Student Dashboard</div>
+                <div>EduDash</div>
               </div>
             </Link>
             <div className="flex gap-2">

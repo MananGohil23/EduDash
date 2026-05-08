@@ -9,7 +9,7 @@ const Sidebar = () => {
       >
         <nav className="">
           <header className="text-[20px] font-bold flex items-center justify-center gap-2 p-1 mb-5">
-            Student Dashboard
+            EduDash
             <br />
             -----------------------
           </header>
