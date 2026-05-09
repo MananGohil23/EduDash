@@ -1,31 +1,46 @@
 import React from 'react'
 import { useState } from 'react';
 import DropDown from '../../components/DropDown';
+import {FaChevronDown , FaChevronUp} from 'react-icons/fa';
 const Lectures = () => {
     const [selectedLecture, setSelectedLecture] = useState(null);
     const [subTopic , setSubTopic] = useState(null);
     const [buttonActive, setButtonActive] = useState(null);
     const [buttonActiveLecture, setButtonActiveLecture] = useState(null);
     const [subTopicSidebarActive , setSubTopicSidebarActive] = useState(true);
-    const physics = ["Fibre Optics" , "Quantum Mechanics" , "Interference and Diffraction" , "Relativity" , "Thermodynamics" , "Nuclear Physics" , "Particle Physics" , "Astrophysics" , "Optics" , "Acoustics" , "Fluid Mechanics"];
-    const maths = ["Algebra" , "Calculus" , "Geometry" , "Trigonometry" , "Statistics" , "Probability" , "Linear Algebra" , "Differential Equations" , "Complex Analysis" , "Numerical Methods"];
+    const [dropDown, setDropDown] = useState(null);
+    const [chapter , setChapter] = useState(null);
+
+    const physics = ["1. Fibre Optics" , "2. Quantum Mechanics" , "3. Interference and Diffraction" , "4. Sensors" , "5. Lasers" , "6. Electodynamics"];
+    const maths = ["1. Algebra" , "2. Calculus" , "3. Geometry" , "4. Trigonometry" , "5. Statistics" , "6. Probability" , "7. Linear Algebra" , "8. Differential Equations" , "9. Complex Analysis" , "10. Numerical Methods"];
     return (
         <>
             <div className = "bg-gray-100 h-full flex">
                 <div className = "bg-white w-[350px] shadow-lg rounded-lg p-6">
                     <h1 className = "text-4xl font-bold mb-6 text-slate-900 items-center flex justify-center">
-                        Topics
+                        Subjects
                     </h1>
                     <div className = "flex flex-col gap-4 transition">
                         <div className = {`rounded-lg shadow-md text-slate-900 p-4 hover:scale-[110%] ${buttonActiveLecture === 1 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`} onClick={() => {setSelectedLecture(1); setSubTopic(null)}}>
-                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(1); setSubTopic(null); setButtonActive(null); setSubTopicSidebarActive(true); document.getElementsByClassName("dsvideo")[0].width = 900; document.getElementsByClassName("video").height = 600}}>
-                                <DropDown buttonText = "Physics" content = {selectedLecture === 1 ? physics : ['']} />
-                            </h2>    
+                            <div className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(1); setSubTopicSidebarActive(true); document.getElementsByClassName("dsvideo")[0].width = 900; document.getElementsByClassName("video").height = 600}}>
+                                <div className = "flex flex-col gap-2">
+                                    <div className = "flex items-center justify-between gap-2">   
+                                        <h1>Physics</h1>
+                                        <button onClick={() => setDropDown(dropDown === 1 ? 0 : 1)}>
+                                            {dropDown === 1 ? <FaChevronUp /> : <FaChevronDown />}
+                                        </button>
+                                    </div>
+                                    <div className = {`${dropDown === 1 ? 'block' : 'hidden'}`}>
+                                        <div className = "flex flex-col gap-2 bg-white text-slate-900 p-2 rounded-md cursor-pointer">{physics.map((item , index) => ( <p className = {`text-lg hover:bg-gray-300 p-2 rounded-md `} onClick = {() => {setChapter(index+1); console.log("Chapter:", index+1)}} key={index}>{item}</p>))}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>    
                         </div>
                         <div className = {`rounded-lg shadow-md text-slate-900 p-4 hover:scale-[110%] ${buttonActiveLecture === 2 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`} onClick={() => {setSelectedLecture(2); setSubTopic(null)}}>
-                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(2); setSubTopic(null); setButtonActive(null); setSubTopicSidebarActive(true); document.getElementsByClassName("dsvideo")[0].width = 900; document.getElementsByClassName("video").height = 600}}>
-                                <DropDown buttonText = "Maths" content = {selectedLecture === 2 ? maths : ['']} />
-                            </h2>    
+                            <div className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(2); setSubTopic(null); setButtonActive(null); setSubTopicSidebarActive(true); document.getElementsByClassName("dsvideo")[0].width = 900; document.getElementsByClassName("video").height = 600}}>
+                                helo
+                            </div>    
                         </div>
                         <div className = {`rounded-lg shadow-md text-slate-900 p-4 hover:scale-[110%] ${buttonActiveLecture === 3 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`} onClick={() => {setSelectedLecture(3); setSubTopic(null)}}>
                             <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(3); setSubTopic(null); setButtonActive(null); setSubTopicSidebarActive(true); document.getElementsByClassName("dsvideo")[0].width = 900; document.getElementsByClassName("video").height = 600}}>
