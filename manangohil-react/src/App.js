@@ -6,7 +6,6 @@ import Profile from "./pages/Profile";
 import Lectures  from "./pages/learning/Lectures";
 import Assignments from "./pages/learning/Assignments";
 import Sidebar from "./components/sidebar";
-// import  darkMode  from "./commponents/navbar";
 function App() {
   return (
     <>

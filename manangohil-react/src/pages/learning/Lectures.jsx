@@ -1,11 +1,14 @@
 import React from 'react'
 import { useState } from 'react';
+import DropDown from '../../components/DropDown';
 const Lectures = () => {
     const [selectedLecture, setSelectedLecture] = useState(null);
     const [subTopic , setSubTopic] = useState(null);
     const [buttonActive, setButtonActive] = useState(null);
     const [buttonActiveLecture, setButtonActiveLecture] = useState(null);
     const [subTopicSidebarActive , setSubTopicSidebarActive] = useState(true);
+    const physics = ["Fibre Optics" , "Quantum Mechanics" , "Interference and Diffraction" , "Relativity" , "Thermodynamics" , "Nuclear Physics" , "Particle Physics" , "Astrophysics" , "Optics" , "Acoustics" , "Fluid Mechanics"];
+    const maths = ["Algebra" , "Calculus" , "Geometry" , "Trigonometry" , "Statistics" , "Probability" , "Linear Algebra" , "Differential Equations" , "Complex Analysis" , "Numerical Methods"];
     return (
         <>
             <div className = "bg-gray-100 h-full flex">
@@ -16,12 +19,12 @@ const Lectures = () => {
                     <div className = "flex flex-col gap-4 transition">
                         <div className = {`rounded-lg shadow-md text-slate-900 p-4 hover:scale-[110%] ${buttonActiveLecture === 1 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`} onClick={() => {setSelectedLecture(1); setSubTopic(null)}}>
                             <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(1); setSubTopic(null); setButtonActive(null); setSubTopicSidebarActive(true); document.getElementsByClassName("dsvideo")[0].width = 900; document.getElementsByClassName("video").height = 600}}>
-                                1. Data Structures 
+                                <DropDown buttonText = "Physics" content = {selectedLecture === 1 ? physics : ['']} />
                             </h2>    
                         </div>
                         <div className = {`rounded-lg shadow-md text-slate-900 p-4 hover:scale-[110%] ${buttonActiveLecture === 2 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`} onClick={() => {setSelectedLecture(2); setSubTopic(null)}}>
                             <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(2); setSubTopic(null); setButtonActive(null); setSubTopicSidebarActive(true); document.getElementsByClassName("dsvideo")[0].width = 900; document.getElementsByClassName("video").height = 600}}>
-                                2. Algorithms 
+                                <DropDown buttonText = "Maths" content = {selectedLecture === 2 ? maths : ['']} />
                             </h2>    
                         </div>
                         <div className = {`rounded-lg shadow-md text-slate-900 p-4 hover:scale-[110%] ${buttonActiveLecture === 3 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`} onClick={() => {setSelectedLecture(3); setSubTopic(null)}}>
