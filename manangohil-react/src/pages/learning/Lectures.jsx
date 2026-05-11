@@ -43,7 +43,7 @@ const Lectures = () => {
                             </div>    
                         </div>
                         <div className = {`rounded-lg shadow-md text-slate-900 p-4 hover:scale-[110%] ${buttonActiveLecture === 2 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`} onClick={() => {setSelectedLecture(2); setSubTopic(null)}}>
-                            <div className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(2); setSubTopic(null); setButtonActive(null); setSubTopicSidebarActive(true); document.getElementsByClassName("video")[0].width = 900; document.getElementsByClassName("video").height = 600}}>
+                            <div className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(2); document.getElementsByClassName("video")[0].width = 900; document.getElementsByClassName("video").height = 600}}>
                                 <div className = "flex flex-col gap-2">
                                     <div className = "flex items-center justify-between gap-2" onClick = {() => {setSubTopicSidebarActive(false);}}>   
                                         <h1 onClick={() => {setChapter(null); setChapterActive(null);}}>Mathematics</h1>
@@ -59,7 +59,7 @@ const Lectures = () => {
                             </div>    
                         </div>
                         <div className = {`rounded-lg shadow-md text-slate-900 p-4 hover:scale-[110%] ${buttonActiveLecture === 3 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`} onClick={() => {setSelectedLecture(3); setSubTopic(null)}}>
-                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(3); setSubTopic(null); setButtonActive(null); setSubTopicSidebarActive(true); document.getElementsByClassName("video")[0].width = 900; document.getElementsByClassName("video").height = 600}}>
+                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(3); document.getElementsByClassName("video")[0].width = 900; document.getElementsByClassName("video").height = 600}}>
                                 <div className = "flex flex-col gap-2">
                                     <div className = "flex items-center justify-between gap-2">   
                                         <h1 onClick={() => {setChapter(null); setChapterActive(null);}}>BEE&DE</h1>
@@ -75,7 +75,7 @@ const Lectures = () => {
                             </h2>    
                         </div>
                         <div className = {`rounded-lg shadow-md text-slate-900 p-4 hover:scale-[110%] ${buttonActiveLecture === 4 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`} onClick={() => {setSelectedLecture(4); setSubTopic(null)}}>
-                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(4); setSubTopic(null); setButtonActive(null); setSubTopicSidebarActive(true); document.getElementsByClassName("video")[0].width = 900; document.getElementsByClassName("video").height = 600}}>
+                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(4); document.getElementsByClassName("video")[0].width = 900; document.getElementsByClassName("video").height = 600}}>
                                 <div className = "flex flex-col gap-2">
                                     <div className = "flex items-center justify-between gap-2">   
                                         <h1 onClick={() => {setChapter(null); setChapterActive(null);}}>CEM</h1>
@@ -91,7 +91,7 @@ const Lectures = () => {
                             </h2>    
                         </div>
                         <div className = {`rounded-lg shadow-md text-slate-900 p-4 hover:scale-[110%] ${buttonActiveLecture === 5 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`} onClick={() => {setSelectedLecture(5); setSubTopic(null)}}>
-                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(5); setSubTopic(null); setButtonActive(null); setSubTopicSidebarActive(true); document.getElementsByClassName("video")[0].width = 900; document.getElementsByClassName("video").height = 600}}>
+                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(5); document.getElementsByClassName("video")[0].width = 900; document.getElementsByClassName("video").height = 600}}>
                                 <div className = "flex flex-col gap-2">
                                     <div className = "flex items-center justify-between gap-2">   
                                         <h1 onClick={() => {setChapter(null); setChapterActive(null);}}>Chemistry</h1>
@@ -107,7 +107,7 @@ const Lectures = () => {
                             </h2>    
                         </div>
                         <div className = {`rounded-lg shadow-md text-slate-900 p-4 hover:scale-[110%] ${buttonActiveLecture === 6 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`} onClick={() => {setSelectedLecture(6); setSubTopic(null)}}>
-                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(6); setSubTopic(null); setButtonActive(null); setSubTopicSidebarActive(true); document.getElementsByClassName("video")[0].width = 900; document.getElementsByClassName("video").height = 600}}>
+                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(6); document.getElementsByClassName("video")[0].width = 900; document.getElementsByClassName("video").height = 600}}>
                                 <div className = "flex flex-col gap-2">
                                     <div className = "flex items-center justify-between gap-2">   
                                         <h1 onClick={() => {setChapter(null); setChapterActive(null);}}>C Programming</h1>
@@ -123,7 +123,7 @@ const Lectures = () => {
                             </h2>    
                         </div>
                         <div className = {`rounded-lg shadow-md text-slate-900 p-4 hover:scale-[110%] ${buttonActiveLecture === 7 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`} onClick={() => {setSelectedLecture(7); setSubTopic(null)}}>
-                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(7); setSubTopic(null); setButtonActive(null); setSubTopicSidebarActive(true); document.getElementsByClassName("video")[0].width = 900; document.getElementsByClassName("video").height = 600}}>
+                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(7); document.getElementsByClassName("video")[0].width = 900; document.getElementsByClassName("video").height = 600}}>
                                 <div className = "flex items-center justify-between gap-2">   
                                         <h1 onClick={() => {setChapter(null); setChapterActive(null);}}>OOP Using Java</h1>
                                         <button onClick={() => setDropDown(dropDown === 7 ? 0 : 7)}>
