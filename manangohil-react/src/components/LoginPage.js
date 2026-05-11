@@ -1,13 +1,7 @@
 import React from "react";
-import { useState } from "react";
 import { X } from "lucide-react";
 
-const LoginPage = () => {
-  const [isloggedin, setIsLoggedIn] = useState(false);
-  const [loginCardActive, setLoginCardActive] = useState(false);
-  const [incorrectLogin, setIncorrectLogin] = useState(false);
-  const password = "123"; // Replace with your desired password
-  const username = "Manan"; // Replace with your desired username
+const LoginPage = ({ username, password, isloggedin, setIsLoggedIn, loginCardActive, setLoginCardActive, incorrectLogin, setIncorrectLogin }) => {
   const handleLogin = (enteredPassword, enteredUsername) => {
     if (enteredUsername === username && enteredPassword === password) {
       setIsLoggedIn(true);
