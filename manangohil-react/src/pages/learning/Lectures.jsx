@@ -17,7 +17,7 @@ const Lectures = () => {
     const cem = ["1. Strength of Materials" , "2. Fluid Mechanics" , "3. Structural Analysis" , "4. Geotechnical Engineering"];
     const chem = ["1. Organic Chemistry" , "2. Inorganic Chemistry" , "3. Physical Chemistry" , "4. Analytical Chemistry"];
     const clanguage = ["1. Introduction to C" , "2. Variables and Data Types" , "3. Arrays" , "4. Pointers" , "5. Functions" , "6. Structures" , "7. File Handling"];
-    const java = ["1. Introduction to Java" , "2. Object-Oriented Programming" , "3. Inheritance and Polymorphism" , "4. Exception Handling" , "5. Collections Framework" , "6. Multithreading" , "7. JavaFX"];
+    const java = ["1. Introduction to Java" , "2. Object-Oriented Programming" , "3. Inheritance and Polymorphism" , "4. Exception Handling" , "5. Collections Framework" , "6. Multithreading" , "7. JavaFX" , "8. JDBC" , "9. Servlets and JSP" , "10. Spring Framework" , "11. Hibernate" , "12. Design Patterns" , "13. Java Best Practices" , "14. Java Interview Questions" , "15. Java Projects"];
     return (
         <>
             <div className = "bg-gray-100 h-full flex">
@@ -30,12 +30,12 @@ const Lectures = () => {
                             <div className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(1); document.getElementsByClassName("PhyVideo")[0].width = 900; document.getElementsByClassName("video").height = 600}}>
                                 <div className = "flex flex-col gap-2">
                                     <div className = "flex items-center justify-between gap-2" onClick = {() => {setSubTopicSidebarActive(false);}}>   
-                                        <h1 onClick={() => {setChapter(null); setChapterActive(null);}}>Physics</h1>
+                                        <h1 className = "cursor-pointer" onClick={() => {setChapter(null); setChapterActive(null);}}>Physics</h1>
                                         <button onClick={() => setDropDown(dropDown === 1 ? 0 : 1)}>
                                             {dropDown === 1 ? <FaChevronUp /> : <FaChevronDown />}
                                         </button>
                                     </div>
-                                    <div className = {`${dropDown === 1 ? 'block' : 'hidden'}`}>
+                                    <div className={`overflow-hidden transition-all duration-300 ease-in-out ${dropDown === 1 ? 'max-h-96 opacity-100 overflow-y-auto' : 'max-h-0 opacity-0'}`}>
                                         <div className = "flex flex-col gap-2 bg-white text-slate-900 p-2 rounded-md cursor-pointer">{physics.map((item , index) => ( <p className = {`text-lg p-2 rounded-md ${chapterActive === index+1 ? 'bg-slate-900 text-white' : 'hover:bg-gray-300'} `} onClick = {() => {setChapter(index+1); setSubTopic(null); setButtonActive(null); setChapterActive(index+1); setSubTopicSidebarActive(true)}} key={index}>{item}</p>))}
                                         </div>
                                     </div>
@@ -46,12 +46,12 @@ const Lectures = () => {
                             <div className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(2); document.getElementsByClassName("video")[0].width = 900; document.getElementsByClassName("video").height = 600}}>
                                 <div className = "flex flex-col gap-2">
                                     <div className = "flex items-center justify-between gap-2" onClick = {() => {setSubTopicSidebarActive(false);}}>   
-                                        <h1 onClick={() => {setChapter(null); setChapterActive(null);}}>Mathematics</h1>
+                                        <h1 className = "cursor-pointer" onClick={() => {setChapter(null); setChapterActive(null);}}>Mathematics</h1>
                                         <button onClick={() => setDropDown(dropDown === 2 ? 0 : 2)}>
                                             {dropDown === 2 ? <FaChevronUp /> : <FaChevronDown />}
                                         </button>
                                     </div>
-                                    <div className = {`${dropDown === 2 ? 'block' : 'hidden'}`}>
+                                    <div className={`overflow-hidden transition-all duration-300 ease-in-out ${dropDown === 2 ? 'max-h-96 opacity-100 overflow-y-auto' : 'max-h-0 opacity-0'}`}>
                                         <div className = "flex flex-col gap-2 bg-white text-slate-900 p-2 rounded-md cursor-pointer">{maths.map((item , index) => ( <p className = {`text-lg p-2 rounded-md ${chapterActive === index+1 ? 'bg-slate-900 text-white' : 'hover:bg-gray-300'} `} onClick = {() => {setChapter(index+1); setSubTopic(null); setButtonActive(null); setChapterActive(index+1)}} key={index}>{item}</p>))}
                                         </div>
                                     </div>
@@ -62,12 +62,12 @@ const Lectures = () => {
                             <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(3); document.getElementsByClassName("video")[0].width = 900; document.getElementsByClassName("video").height = 600}}>
                                 <div className = "flex flex-col gap-2">
                                     <div className = "flex items-center justify-between gap-2">   
-                                        <h1 onClick={() => {setChapter(null); setChapterActive(null);}}>BEE&DE</h1>
+                                        <h1 className = "cursor-pointer" onClick={() => {setChapter(null); setChapterActive(null);}}>BEE&DE</h1>
                                         <button onClick={() => setDropDown(dropDown === 3 ? 0 : 3)}>
                                             {dropDown === 3 ? <FaChevronUp /> : <FaChevronDown />}
                                         </button>
                                     </div>
-                                    <div className = {`${dropDown === 3 ? 'block' : 'hidden'}`}>
+                                    <div className={`overflow-hidden transition-all duration-300 ease-in-out ${dropDown === 3 ? 'max-h-96 opacity-100 overflow-y-auto' : 'max-h-0 opacity-0'}`}>
                                         <div className = "flex flex-col gap-2 bg-white text-slate-900 p-2 rounded-md cursor-pointer">{bee.map((item , index) => ( <p className = {`text-lg p-2 rounded-md ${chapterActive === index+1 ? 'bg-slate-900 text-white' : 'hover:bg-gray-300'} `} onClick = {() => {setChapter(index+1); setSubTopic(null); setButtonActive(null); setChapterActive(index+1)}} key={index}>{item}</p>))}
                                         </div>
                                     </div>
@@ -78,12 +78,12 @@ const Lectures = () => {
                             <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(4); document.getElementsByClassName("video")[0].width = 900; document.getElementsByClassName("video").height = 600}}>
                                 <div className = "flex flex-col gap-2">
                                     <div className = "flex items-center justify-between gap-2">   
-                                        <h1 onClick={() => {setChapter(null); setChapterActive(null);}}>CEM</h1>
+                                        <h1 className = "cursor-pointer" onClick={() => {setChapter(null); setChapterActive(null);}}>CEM</h1>
                                         <button onClick={() => setDropDown(dropDown === 4 ? 0 : 4)}>
                                             {dropDown === 4 ? <FaChevronUp /> : <FaChevronDown />}
                                         </button>
                                     </div>
-                                    <div className = {`${dropDown === 4 ? 'block' : 'hidden'}`}>
+                                    <div className={`overflow-hidden transition-all duration-300 ease-in-out ${dropDown === 4 ? 'max-h-96 opacity-100 overflow-y-auto' : 'max-h-0 opacity-0'}`}>
                                         <div className = "flex flex-col gap-2 bg-white text-slate-900 p-2 rounded-md cursor-pointer">{cem.map((item , index) => ( <p className = {`text-lg p-2 rounded-md ${chapterActive === index+1 ? 'bg-slate-900 text-white' : 'hover:bg-gray-300'} `} onClick = {() => {setChapter(index+1); setSubTopic(null); setButtonActive(null); setChapterActive(index+1)}} key={index}>{item}</p>))}
                                         </div>
                                     </div>
@@ -94,12 +94,12 @@ const Lectures = () => {
                             <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(5); document.getElementsByClassName("video")[0].width = 900; document.getElementsByClassName("video").height = 600}}>
                                 <div className = "flex flex-col gap-2">
                                     <div className = "flex items-center justify-between gap-2">   
-                                        <h1 onClick={() => {setChapter(null); setChapterActive(null);}}>Chemistry</h1>
+                                        <h1 className = "cursor-pointer" onClick={() => {setChapter(null); setChapterActive(null);}}>Chemistry</h1>
                                         <button onClick={() => setDropDown(dropDown === 5 ? 0 : 5)}>
                                             {dropDown === 5 ? <FaChevronUp /> : <FaChevronDown />}
                                         </button>
                                     </div>
-                                    <div className = {`${dropDown === 5 ? 'block' : 'hidden'}`}>
+                                    <div className={`overflow-hidden transition-all duration-300 ease-in-out ${dropDown === 5 ? 'max-h-96 opacity-100 overflow-y-auto' : 'max-h-0 opacity-0'}`}>
                                         <div className = "flex flex-col gap-2 bg-white text-slate-900 p-2 rounded-md cursor-pointer">{chem.map((item , index) => ( <p className = {`text-lg p-2 rounded-md ${chapterActive === index+1 ? 'bg-slate-900 text-white' : 'hover:bg-gray-300'} `} onClick = {() => {setChapter(index+1); setSubTopic(null); setButtonActive(null); setChapterActive(index+1)}} key={index}>{item}</p>))}
                                         </div>
                                     </div>
@@ -110,12 +110,12 @@ const Lectures = () => {
                             <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(6); document.getElementsByClassName("video")[0].width = 900; document.getElementsByClassName("video").height = 600}}>
                                 <div className = "flex flex-col gap-2">
                                     <div className = "flex items-center justify-between gap-2">   
-                                        <h1 onClick={() => {setChapter(null); setChapterActive(null);}}>C Programming</h1>
+                                        <h1 className = "cursor-pointer" onClick={() => {setChapter(null); setChapterActive(null);}}>C Programming</h1>
                                         <button onClick={() => setDropDown(dropDown === 6 ? 0 : 6)}>
                                             {dropDown === 6 ? <FaChevronUp /> : <FaChevronDown />}
                                         </button>
                                     </div>
-                                    <div className = {`${dropDown === 6 ? 'block' : 'hidden'}`}>
+                                    <div className={`overflow-hidden transition-all duration-300 ease-in-out ${dropDown === 6 ? 'max-h-96 opacity-100 overflow-y-auto' : 'max-h-0 opacity-0'}`}>
                                         <div className = "flex flex-col gap-2 bg-white text-slate-900 p-2 rounded-md cursor-pointer">{clanguage.map((item , index) => ( <p className = {`text-lg p-2 rounded-md ${chapterActive === index+1 ? 'bg-slate-900 text-white' : 'hover:bg-gray-300'} `} onClick = {() => {setChapter(index+1); setSubTopic(null); setButtonActive(null); setChapterActive(index+1)}} key={index}>{item}</p>))}
                                         </div>
                                     </div>
@@ -125,12 +125,12 @@ const Lectures = () => {
                         <div className = {`rounded-lg shadow-md text-slate-900 p-4 hover:scale-[110%] ${buttonActiveLecture === 7 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`} onClick={() => {setSelectedLecture(7); setSubTopic(null)}}>
                             <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(7); document.getElementsByClassName("video")[0].width = 900; document.getElementsByClassName("video").height = 600}}>
                                 <div className = "flex items-center justify-between gap-2">   
-                                        <h1 onClick={() => {setChapter(null); setChapterActive(null);}}>OOP Using Java</h1>
+                                        <h1 className = "cursor-pointer" onClick={() => {setChapter(null); setChapterActive(null);}}>OOP Using Java</h1>
                                         <button onClick={() => setDropDown(dropDown === 7 ? 0 : 7)}>
                                             {dropDown === 7 ? <FaChevronUp /> : <FaChevronDown />}
                                         </button>
                                     </div>
-                                    <div className = {`${dropDown === 7 ? 'block' : 'hidden'}`}>
+                                    <div className={`overflow-hidden transition-all duration-300 ease-in-out ${dropDown === 7 ? 'max-h-96 opacity-100 overflow-y-auto' : 'max-h-0 opacity-0'}`}>
                                         <div className = "flex flex-col gap-2 bg-white text-slate-900 p-2 rounded-md cursor-pointer">{java.map((item , index) => ( <p className = {`text-lg p-2 rounded-md ${chapterActive === index+1 ? 'bg-slate-900 text-white' : 'hover:bg-gray-300'} `} onClick = {() => {setChapter(index+1); setSubTopic(null); setButtonActive(null); setChapterActive(index+1)}} key={index}>{item}</p>))}
                                         </div>
                                     </div>
@@ -146,8 +146,8 @@ const Lectures = () => {
                         <div className = "flex justify-start m-5 gap-4">
                             <div className = "flex-1 w-full max-w-[1200px]">
                                 <div className = "rounded-lg text-slate-900 h-[600px] flex items-center justify-center">
-                                        <h2 className = {`text-3xl font-bold ${subTopic === null ? 'block' : 'hidden'}`}>
-                                            Please select a Sub-Topic to continue...
+                                        <h2 className = {`text-3xl justify-center font-bold ${subTopic === null ? 'block' : 'hidden'}`}>
+                                            Please select a Chapter to continue...
                                         </h2>
                                         <div className = {`${chapter === 1 ? 'block' : 'hidden'}`}>
                                             <iframe width="900" height="600" src="https://www.youtube.com/embed/4nZk_lP9lcg?si=SGQaeDHfDjoww5GV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowFullScreen className = {`PhyVideo rounded-lg video ${subTopic === 1 ? 'block' : 'hidden'}`}></iframe>
@@ -186,8 +186,26 @@ const Lectures = () => {
                                     <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-start">
                                         Description
                                     </h1>
-                                    <p className = "text-gray-600 text-lg">
-                                        In this lecture series, we will cover the fundamental data structures that are essential for any programmer. We will start with an introduction to data structures and their importance in computer science. Then, we will dive into specific data structures such as arrays, linked lists, stacks, queues, trees, graphs, hashing, sorting techniques, and searching techniques. We will also touch upon advanced data structures for those who want to explore further. Each lecture will include explanations, examples, and practical applications to help you understand how to use these data structures effectively in your programming projects.
+                                    <p className = {`text-gray-600 text-lg ${chapter === null ? 'block' : 'hidden'}`}>
+                                        We are going to learn about Physics. Physics is the branch of science concerned with the nature and properties of matter and energy. It encompasses a wide range of phenomena, from the smallest subatomic particles to the largest galaxies. In this course, we will explore various topics in physics, including mechanics, electromagnetism, thermodynamics, quantum mechanics, and more. Through lectures, demonstrations, and problem-solving sessions, we aim to develop a deep understanding of the fundamental principles that govern the physical world around us.
+                                    </p>
+                                    <p className = {`text-gray-600 text-lg ${chapter === 1 ? 'block' : 'hidden'}`}>
+                                        This lecture covers the fundamentals of optical fibres, including their structure, working principle, and applications. It also delves into the concept of numerical aperture, which is crucial for understanding light propagation in fibres. The lecture includes problem-solving sessions on numerical aperture, acceptance angle, V-number, modes of propagation, and the differences between step index and graded index fibres. By the end of this lecture, students will have a solid understanding of optical fibres and their significance in modern communication systems.
+                                    </p>
+                                    <p className={`text-gray-600 text-lg ${chapter === 2 ? 'block' : 'hidden'}`}>
+                                        This lecture provides an introduction to quantum mechanics, covering key concepts such as wave-particle duality, the uncertainty principle, and the time-dependent and time-independent Schrödinger equations. It also explores phase and group velocity, which are essential for understanding wave propagation in quantum systems. The lecture includes numerical problems to reinforce the theoretical concepts and enhance problem-solving skills in quantum mechanics.
+                                    </p>
+                                    <p className={`text-gray-600 text-lg ${chapter === 3 ? 'block' : 'hidden'}`}>
+                                        This lecture explores the phenomena of interference and diffraction, which are fundamental to understanding wave behavior. It covers the principles of superposition, constructive and destructive interference, and the conditions for observing interference patterns. The lecture also delves into diffraction, including single-slit and double-slit diffraction, as well as diffraction gratings. By the end of this lecture, students will have a comprehensive understanding of how waves interact and the resulting patterns that emerge.
+                                    </p>
+                                    <p className={`text-gray-600 text-lg ${chapter === 4 ? 'block' : 'hidden'}`}>
+                                        This lecture focuses on sensors, which are devices that detect and respond to changes in the environment. It covers various types of sensors, including temperature sensors, pressure sensors, and optical sensors. The lecture also explores the principles of sensor operation, signal processing, and applications in different fields such as healthcare, automotive, and industrial automation. By the end of this lecture, students will have a solid understanding of sensor technology and its significance in modern society.   
+                                    </p>
+                                    <p className={`text-gray-600 text-lg ${chapter === 5 ? 'block' : 'hidden'}`}>
+                                        This lecture provides an overview of lasers, covering their principles of operation, types, and applications. It explores the concept of stimulated emission, population inversion, and the different components of a laser system. The lecture also delves into various types of lasers, including solid-state lasers, gas lasers, and semiconductor lasers. By the end of this lecture, students will have a comprehensive understanding of laser technology and its wide-ranging applications in fields such as medicine, communication, and manufacturing.
+                                    </p>
+                                    <p className={`text-gray-600 text-lg ${chapter === 6 ? 'block' : 'hidden'}`}>
+                                        This lecture covers the fundamentals of electrodynamics, which is the study of electric and magnetic fields and their interactions with charged particles. It explores Maxwell's equations, which describe how electric and magnetic fields are generated and altered by charges and currents. The lecture also delves into electromagnetic waves, their propagation, and applications in communication systems. By the end of this lecture, students will have a solid understanding of electrodynamics and its significance in modern physics and engineering.
                                     </p>
                                 </div>
                                 <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 p-6 mt-4">
@@ -208,7 +226,7 @@ const Lectures = () => {
                                 </div>
                             </div>
                             <div className = {`fixed top-24 right-4 ${subTopicSidebarActive ? 'hidden' : 'block'}`}>
-                                    <button className = "flex justify-center bg-slate-900 text-white text-3xl rounded-lg shadow-lg shadow-slate-950/30 w-10 h-10" onClick={() => {setSubTopicSidebarActive(!subTopicSidebarActive); document.getElementsByClassName("PhyVideo")[subTopic === null ? 0 : subTopic - 1].width = 900; document.getElementsByClassName("PhyVideo")[subTopic === null ? 0 : subTopic - 1].height = 600}}>
+                                    <button className = {`flex justify-center bg-slate-900 text-white text-3xl rounded-lg shadow-lg shadow-slate-950/30 w-10 h-10 ${chapter === null ? 'hidden' : 'block'}`} onClick={() => {setSubTopicSidebarActive(!subTopicSidebarActive); document.getElementsByClassName("PhyVideo")[subTopic === null ? 0 : subTopic - 1].width = 900; document.getElementsByClassName("PhyVideo")[subTopic === null ? 0 : subTopic - 1].height = 600}}>
                                         {'<'}
                                     </button>     
                             </div>
