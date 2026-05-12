@@ -5,7 +5,7 @@ const Assignments = () => {
     const [sectionBtnActive, setSectionBtnActive] = useState(null);
     return (
         <>
-        <div className = "bg-gray-100 h-full flex flex-col justify-center items-center">
+        <div className = "bg-gray-100 h-full flex flex-col pt-[68px] justify-center items-center">
             <div className = "flex items-center justify-center gap-4 bg-white w-full shadow-lg rounded-lg p-2">
                 <button className = {`transition text-Slate-700 text-xl px-4 py-3 shadow-lg rounded-lg hover:bg-gray-300 ${sectionBtnActive === 1 ? 'bg-slate-900 text-white' : "hover:scale-[110%] hover:-translate-y-[5px]"}`} onClick={() => {
                     setSelectedSection('forthcoming');

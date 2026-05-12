@@ -20,7 +20,7 @@ const Lectures = () => {
     const java = ["1. Introduction to Java" , "2. Object-Oriented Programming" , "3. Inheritance and Polymorphism" , "4. Exception Handling" , "5. Collections Framework" , "6. Multithreading" , "7. JavaFX" , "8. JDBC" , "9. Servlets and JSP" , "10. Spring Framework" , "11. Hibernate" , "12. Design Patterns" , "13. Java Best Practices" , "14. Java Interview Questions" , "15. Java Projects"];
     return (
         <>
-            <div className = "bg-gray-100 h-full flex">
+            <div className = "bg-gray-100 pt-[60px] h-full flex">
                 <div className = "bg-white w-[350px] shadow-lg rounded-lg p-6">
                     <h1 className = "text-4xl font-bold mb-6 text-slate-900 items-center flex justify-center">
                         Subjects

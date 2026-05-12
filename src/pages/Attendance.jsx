@@ -33,7 +33,7 @@ const Attendance = () => {
 
     return (
         <>
-            <div className="bg-gray-100 h-screen">
+            <div className="bg-gray-100 pt-[60px] h-screen">
                 <div className="flex flex-col justify-center items-center">
 
                     <h1 className="text-3xl font-bold text-center pt-10">
