@@ -1,70 +1,213 @@
-# Getting Started with Create React App
+# 📚 EduDash
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern student dashboard built for simplifying academic life — featuring subject-wise learning resources, attendance analytics, interactive UI components, and an organized educational experience.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Features
 
-### `npm start`
+* 📖 Subject & chapter navigation
+* 🎥 Video/resource organization
+* 📊 Attendance calculator from PDF reports
+* 📂 PDF upload support
+* 🎨 Smooth dropdown animations
+* ⚡ Responsive UI with Tailwind CSS
+* 🔐 Login/logout state management
+* 📈 Attendance analytics & percentage calculation
+* 🧠 Clean React component architecture
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠️ Tech Stack
 
-### `npm test`
+### Frontend
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* React.js
+* Tailwind CSS
+* React Icons
 
-### `npm run build`
+### Backend (Planned / Integrated)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* FastAPI / Flask
+* Python
+* pdfplumber
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Other Tools
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* Git
+* GitHub
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 📸 Screenshots
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+*Add screenshots of your dashboard here.*
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Example:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```md id="7r1l5d"
+![Home Page](./screenshots/home.png)
+![Attendance Page](./screenshots/attendance.png)
+```
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 📂 Project Structure
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash id="38m1c1"
+EduDash/
+│
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── assets/
+│   │   └── App.jsx
+│
+├── backend/
+│   ├── main.py
+│   └── requirements.txt
+│
+└── README.md
+```
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## ⚙️ Installation
 
-### Analyzing the Bundle Size
+### 1️⃣ Clone the repository
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash id="mq6st9"
+git clone https://github.com/MananGohil23/EduDash.git
+```
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### 2️⃣ Navigate into the project
 
-### Advanced Configuration
+```bash id="7rfyy2"
+cd EduDash
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## 💻 Frontend Setup
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```bash id="6ikwws"
+npm install
+npm run dev
+```
 
-### `npm run build` fails to minify
+Runs the frontend on:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```txt id="mjlwmf"
+http://localhost:5173
+```
+
+---
+
+## 🐍 Backend Setup (Attendance PDF Processing)
+
+### Install dependencies
+
+```bash id="rz1vh2"
+pip install fastapi uvicorn pdfplumber python-multipart
+```
+
+### Run backend server
+
+```bash id="5g5b10"
+uvicorn main:app --reload
+```
+
+Runs backend on:
+
+```txt id="ypjlwm"
+http://127.0.0.1:8000
+```
+
+---
+
+## 📊 Attendance PDF Feature
+
+EduDash can automatically extract attendance data from uploaded PDF reports and calculate:
+
+* Subject-wise attendance
+* Lectures attended
+* Lectures conducted
+* Attendance percentage
+* Attendance shortage warnings
+
+Example formula used:
+
+\text{Attendance Percentage}=\frac{\text{Lectures Attended}}{\text{Lectures Conducted}}\times100
+
+---
+
+## 🎨 UI Features
+
+* Animated dropdown menus
+* Sidebar navigation
+* Responsive cards
+* Hover transitions
+* Interactive chapter selection
+
+---
+
+## 🔮 Future Improvements
+
+* 📅 Timetable integration
+* 📝 Assignment tracker
+* 📈 Attendance prediction system
+* 🌙 Dark mode
+* 🔔 Notifications
+* ☁️ Database integration
+* 🔑 Authentication system
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome!
+
+1. Fork the repository
+2. Create a new branch
+
+```bash id="7nfe3g"
+git checkout -b feature-name
+```
+
+3. Commit changes
+
+```bash id="q7nq4q"
+git commit -m "Added new feature"
+```
+
+4. Push to GitHub
+
+```bash id="qbj54h"
+git push origin feature-name
+```
+
+5. Open a Pull Request
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+## 👨‍💻 Author
+
+### Manan Gohil
+
+* GitHub: [MananGohil23](https://github.com/MananGohil23?utm_source=chatgpt.com)
+* Repository: [EduDash Repository](https://github.com/MananGohil23/EduDash?utm_source=chatgpt.com)
+
+---
+
+## ⭐ Support
+
+If you like this project, consider giving it a star ⭐ on GitHub!
