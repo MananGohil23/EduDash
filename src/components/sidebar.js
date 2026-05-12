@@ -76,7 +76,7 @@ const Sidebar = () => {
           </div>
         </nav>
       </div>
-      <header className="bg-slate-900 w-full shadow shadow-slate-950/30 text-white p-4">
+      <header className="bg-slate-900 w-full fixed z-50 shadow shadow-slate-950/30 text-white p-4">
         <div className="flex items-center  gap-4">
           <Link to="/">
             <h1 className="text-2xl font-bold">

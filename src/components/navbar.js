@@ -9,7 +9,7 @@ const Navbar = () => {
   const [incorrectLogin, setIncorrectLogin] = useState(false);
   return (
     <>
-      <nav className=" w-full bg-slate-900 text-white px-4 py-3 shadow-lg shadow-slate-950/30 z-50">
+      <nav className=" w-full bg-slate-900 fixed text-white px-4 py-3 shadow-lg shadow-slate-950/30 z-50">
         <div className="flex justify-between items-center gap-3">
           <Link
             to="/"

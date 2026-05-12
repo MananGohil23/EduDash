@@ -3,7 +3,7 @@ import Marquee from 'react-fast-marquee';
 const Home = () => {
     return (
         <>
-            <div className = "bg-gray-100 min-h-screen">
+            <div className = "bg-gray-100 pt-[60px] min-h-screen">
                 <h1 className = "w-full flex justify-center items-center text-4xl p-6 font-bold text-slate-800">
                    Hello, Welcome to EduDash.   
                 </h1>
