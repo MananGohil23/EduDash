@@ -2,9 +2,11 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 import LoginPage from "./LoginPage";
+import { useAuth } from "../context/AuthContext";
 
 const Navbar = () => {
-  const [isloggedin, setIsLoggedIn] = useState(false);
+  const { isLoggedIn, setIsLoggedIn, logout } = useAuth();
+
   const [loginCardActive, setLoginCardActive] = useState(false);
   const [incorrectLogin, setIncorrectLogin] = useState(false);
   return (
@@ -12,7 +14,7 @@ const Navbar = () => {
       <nav className=" w-full bg-slate-900 fixed text-white px-4 py-3 shadow-lg shadow-slate-950/30 z-50">
         <div className="flex justify-between items-center gap-3">
           <Link
-            to="/"
+            to="/home"
             className="text-lg font-semibold tracking-wide"
             title="Student Dashboard"
           >
@@ -28,43 +30,22 @@ const Navbar = () => {
           <div className="flex gap-2">
             <NavLink
               className={({ isActive }) =>
-                `rounded-full bg-slate-900 px-4 py-2 text-lg font-bold transition ${
-                  isActive
-                    ? "border-white bg-white text-slate-900"
-                    : "border-white/25 text-white hover:border-white hover:bg-blue-600 hover:scale-[110%] hover:-translate-y-[5px] "
-                }`
-              }
-              to="/attendance"
-            >
+                `relative px-4 py-2 text-lg font-bold transition-all duration-300 after:absolute after:left-0 after:bottom-0 after:h-[4px] after:bg-white after:rounded-lg after:transition-all after:duration-300 hover:after:w-full ${isActive ? "after:w-full text-blue-300" : "after:w-0 text-white"}`} to="/attendance">
               Attendance
             </NavLink>
             <NavLink
               className={({ isActive }) =>
-                `rounded-full bg-slate-900 px-4 py-2 text-lg font-bold transition ${
-                  isActive
-                    ? "border-white bg-white text-slate-900"
-                    : "border-white/25 text-white hover:border-white hover:bg-blue-600 hover:scale-[110%] hover:-translate-y-[5px] "
-                }`
-              }
-              to="/learning/Lectures"
-            >
+                `relative px-4 py-2 text-lg font-bold transition-all duration-300 after:absolute after:left-0 after:bottom-0 after:h-[4px] after:bg-white after:rounded-lg after:transition-all after:duration-300 hover:after:w-full ${isActive ? "after:w-full text-blue-300" : "after:w-0 text-white"}`} to="/learning/Lectures">
               Lectures
             </NavLink>
             <NavLink
               className={({ isActive }) =>
-                `rounded-full bg-slate-900 px-4 py-2 text-lg font-bold transition ${
-                  isActive
-                    ? "border-white bg-white text-slate-900"
-                    : "border-white/25 text-white hover:border-white hover:bg-blue-600 hover:scale-[110%] hover:-translate-y-[5px] "
-                }`
-              }
-              to="/learning/Assignments"
-            >
+                `relative px-4 py-2 text-lg font-bold transition-all duration-300 after:absolute after:left-0 after:bottom-0 after:h-[4px] after:bg-white after:rounded-lg after:transition-all after:duration-300 hover:after:w-full ${isActive ? "after:w-full text-blue-300" : "after:w-0 text-white"}`} to="/learning/Assignments">
               Assignments
             </NavLink>
           </div>
           <div
-            className={`flex items-center gap-2 ${isloggedin ? "hidden" : "block"}`}
+            className={`flex items-center gap-2 ${isLoggedIn ? "hidden" : "block"}`}
           >
             <button
               className="rounded-full bg-emerald-500 px-4 py-2 text-lg hover:scale-[110%] font-semibold text-white transition hover:bg-emerald-400 hover:-translate-y-[5px]"
@@ -79,13 +60,13 @@ const Navbar = () => {
             </button>
           </div>
           <div
-            className={`flex items-center gap-2 ${isloggedin ? "block" : "hidden"}`}
+            className={`flex items-center gap-2 ${isLoggedIn ? "block" : "hidden"}`}
           >
             <div className="flex items-center gap-2">
               <Link
                 to="/"
                 onClick={() => {
-                  setIsLoggedIn(false);
+                  logout();
                   alert("You have been logged out.");
                   document.getElementById("passwordInput").value = "";
                   document.getElementById("usernameInput").value = "";
@@ -106,7 +87,16 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-      <LoginPage username="Manan" password="123" isloggedin={isloggedin} setIsLoggedIn={setIsLoggedIn} loginCardActive={loginCardActive} setLoginCardActive={setLoginCardActive} incorrectLogin={incorrectLogin} setIncorrectLogin={setIncorrectLogin} />
+      <LoginPage
+        username="Manan"
+        password="123"
+        isLoggedIn={isLoggedIn}
+        setIsLoggedIn={setIsLoggedIn}
+        loginCardActive={loginCardActive}
+        setLoginCardActive={setLoginCardActive}
+        incorrectLogin={incorrectLogin}
+        setIncorrectLogin={setIncorrectLogin}
+      />
     </>
   );
 };

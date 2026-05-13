@@ -1,14 +1,17 @@
 import React from "react";
 import { X } from "lucide-react";
+import { useAuth } from "../context/AuthContext";
 
 const LoginPage = ({ username, password, isloggedin, setIsLoggedIn, loginCardActive, setLoginCardActive, incorrectLogin, setIncorrectLogin }) => {
+const { login, logout } = useAuth();
+
   const handleLogin = (enteredPassword, enteredUsername) => {
     if (enteredUsername === username && enteredPassword === password) {
-      setIsLoggedIn(true);
+      login();
       setLoginCardActive(false);
       alert("Login successful!");
     } else {
-      setIsLoggedIn(false);
+      logout();
       setIncorrectLogin(true);
       alert("Incorrect username or password. Please try again.");
     }

@@ -7,12 +7,7 @@ const Sidebar = () => {
       <div
         className={`z-10 fixed flex gap-3 flex-col w-64 bg-slate-900 h-full text-white p-4 -translate-x-64 shadow ${sidebar ? "translate-x-0" : "-translate-x-64"} transition-transform lg:translate-x-0`}
       >
-        <nav className="">
-          <header className="text-[20px] font-bold flex items-center justify-center gap-2 p-1 mb-5">
-            EduDash
-            <br />
-            -----------------------
-          </header>
+        <nav className="pt-[68px]">
           <div className="flex flex-col gap-3">
             <NavLink
               onClick={() => setSidebarOpen(!sidebar)}
@@ -77,18 +72,19 @@ const Sidebar = () => {
         </nav>
       </div>
       <header className="bg-slate-900 w-full fixed z-50 shadow shadow-slate-950/30 text-white p-4">
-        <div className="flex items-center  gap-4">
+        <div className="flex items-center gap-4">
           <Link to="/">
-            <h1 className="text-2xl font-bold">
+            <h1 className="text-2xl font-bold hover:scale-[110%] hover:-translate-y-[5px] transition">
               <img
                 src="/logo.png"
                 alt="Dashboard Icon"
                 className="h-8 w-8 inline-block mr-2"
               />
+              EduDash
             </h1>
           </Link>
           <button
-            className="text-white font-bold focus:outline-none lg:hidden ml-auto mr-2"
+            className="text-white font-bold focus:outline-none hover:scale-[110%] hover:-translate-y-[5px] transition lg:hidden ml-auto mr-2"
             onClick={() => setSidebarOpen(!sidebar)}
           >
             | | |

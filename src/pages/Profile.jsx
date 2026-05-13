@@ -2,7 +2,7 @@ import React from 'react'
 const Profile = () => {
     return (
         <>
-        <div className = "bg-gray-200 min-h-screen">
+        <div className = "bg-gray-200 min-h-screen pt-[60px]">
             <div className = "flex gap-10 p-10">
                 <img src="/profile_pic.jpg" alt="Profile" className="w-[400px] h-[400px] rounded-full mb-4 border-[6px] border-slate-900" />
                 <div>
