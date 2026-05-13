@@ -1,14 +1,9 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import { useState } from "react";
-import LoginPage from "./LoginPage";
 import { useAuth } from "../context/AuthContext";
 
 const Navbar = () => {
-  const { isLoggedIn, setIsLoggedIn, logout } = useAuth();
-
-  const [loginCardActive, setLoginCardActive] = useState(false);
-  const [incorrectLogin, setIncorrectLogin] = useState(false);
+  const { isLoggedIn, logout } = useAuth();
   return (
     <>
       <nav className=" w-full bg-slate-900 fixed text-white px-4 py-3 shadow-lg shadow-slate-950/30 z-50">
@@ -45,21 +40,6 @@ const Navbar = () => {
             </NavLink>
           </div>
           <div
-            className={`flex items-center gap-2 ${isLoggedIn ? "hidden" : "block"}`}
-          >
-            <button
-              className="rounded-full bg-emerald-500 px-4 py-2 text-lg hover:scale-[110%] font-semibold text-white transition hover:bg-emerald-400 hover:-translate-y-[5px]"
-              onClick={() => {
-                setLoginCardActive(true);
-                setIncorrectLogin(false);
-                document.getElementById("passwordInput").value = "";
-                document.getElementById("usernameInput").value = "";
-              }}
-            >
-              Login
-            </button>
-          </div>
-          <div
             className={`flex items-center gap-2 ${isLoggedIn ? "block" : "hidden"}`}
           >
             <div className="flex items-center gap-2">
@@ -68,8 +48,6 @@ const Navbar = () => {
                 onClick={() => {
                   logout();
                   alert("You have been logged out.");
-                  document.getElementById("passwordInput").value = "";
-                  document.getElementById("usernameInput").value = "";
                 }}
                 className="rounded-full bg-emerald-500 px-4 py-2 text-lg hover:scale-[110%] font-semibold text-white transition hover:bg-emerald-400 hover:-translate-y-[5px]"
               >
@@ -87,16 +65,6 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-      <LoginPage
-        username="Manan"
-        password="123"
-        isLoggedIn={isLoggedIn}
-        setIsLoggedIn={setIsLoggedIn}
-        loginCardActive={loginCardActive}
-        setLoginCardActive={setLoginCardActive}
-        incorrectLogin={incorrectLogin}
-        setIncorrectLogin={setIncorrectLogin}
-      />
     </>
   );
 };
