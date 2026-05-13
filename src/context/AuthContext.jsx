@@ -1,4 +1,4 @@
-import { createContext , useContext, useState } from "react";
+import { createContext , useContext, useEffect, useState } from "react";
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
@@ -6,11 +6,21 @@ export const AuthProvider = ({ children }) => {
     const username = "Manan";
     const password = "123";
 
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+
+        if (token) {
+            setIsLoggedIn(true);
+        }
+    }, [])
+
     const login = () => {
+        localStorage.setItem("token", "fake-jwt-token");
         setIsLoggedIn(true);
     };
 
     const logout = () => {
+        localStorage.removeItem("token");
         setIsLoggedIn(false);
     };
 
