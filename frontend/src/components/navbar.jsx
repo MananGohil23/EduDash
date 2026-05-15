@@ -59,6 +59,7 @@ const Navbar = () => {
               <Link
                 to="/profile"
                 className="rounded-full bg-emerald-500 px-4 py-2 text-lg hover:scale-[110%] font-semibold text-white transition hover:bg-emerald-400 hover:-translate-y-[5px]"
+                onClick={() => console.log(isLoggedIn)}
               >
                 Profile
               </Link>

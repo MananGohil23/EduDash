@@ -31,8 +31,9 @@ const LandingLogin = () => {
 
     return (
         <>
-            <div className={`flex flex-col bg-gray-300 items-center justify-center h-screen gap-10 ${isLoggedIn ? "hidden" : "block"}`}>
-                <img src={landingBG} alt="Login Background" className="fixed w-full h-full object-cover opacity-80" />
+        {!isLoggedIn && (
+            <div className={`flex flex-col items-center justify-center h-screen gap-10`}>
+                <img src={landingBG} alt="Login Background" className="fixed w-full h-full object-cover opacity-80 -z-10" />
                 <div className='bg-white rounded-lg relative p-10 w-[400px] text-center hover:shadow-2xl transition-shadow duration-300 z-10'>
                     <div className="flex justify-center gap-4">
                         <div className = "flex flex-col gap-4">
@@ -77,14 +78,30 @@ const LandingLogin = () => {
 
                     <button
                         className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition hover:scale-[110%] font-semibold"
-                        onClick={handleLogin}
+                        onClick={() => {handleLogin(); console.log(isLoggedIn)}}
                     >
                         Login
                     </button>
 
                 </div>
-
             </div>
+            )}
+        {isLoggedIn && (
+            <div className="flex flex-col items-center justify-center h-screen gap-10">
+                <h1 className="text-4xl text-slate-900 font-bold">
+                    Welcome to EduDash
+                </h1>
+                <p className="text-lg text-slate-700">
+                    You are successfully logged in!
+                </p>
+                <button
+                    className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition"
+                    onClick={() => navigate("/home")}
+                >
+                    Go to Home
+                </button>
+            </div>
+        )}
         </>
     )
 }
