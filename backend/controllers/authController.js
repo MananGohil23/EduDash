@@ -1,6 +1,10 @@
-const bcrypt = require('bcryptjs')
+const bcrypt = require('bcryptjs');
 
-const User = require('../models/User')
+const User = require('../models/User');
+
+const  generateToken = require('../utils/generateToken');
+
+const jwt = require('jsonwebtoken');
 
 const register = async (req, res) => {
 
@@ -23,9 +27,14 @@ const register = async (req, res) => {
       password: hashedPassword
     })
 
-    res.status(201).json(user)
+    res.status(201).json({
+      token: generateToken(user._id)
+    });
 
   } catch (err) {
+
+    console.log(err);
+    alert(err.response.data.message);
 
     res.status(500).json({
       message: err.message

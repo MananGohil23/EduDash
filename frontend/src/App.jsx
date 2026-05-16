@@ -7,6 +7,7 @@ import Lectures  from "./pages/learning/Lectures";
 import Assignments from "./pages/learning/Assignments";
 import ProtectedRoute from "./components/ProtectedRoute";
 import DashboardLayouts from "./layouts/DashboardLayouts";
+import Register from "./pages/auth/LandingRegi";
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
       <div>
         <Router>
           <Routes>
-            <Route path="/" element={<LandingLogin />} />
+            <Route path="/" element={<Register />} />
+            <Route path="/login" element={<LandingLogin />} />
             <Route element={<ProtectedRoute>
                               <DashboardLayouts/>
                             </ProtectedRoute> 

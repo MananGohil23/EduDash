@@ -2,30 +2,35 @@ import React, { useState } from 'react'
 import { useAuth } from '../../context/AuthContext'
 import { useNavigate } from 'react-router-dom'// Use navigate is use to get to the home page after successful login
 import landingBG from "../../assets/landingbg.png";
+import { loginUser } from '../../services/authService';
+import { Link } from 'react-router-dom';
 
 const LandingLogin = () => {
-    const { username, password, isLoggedIn, login, logout} = useAuth();
+    const {isLoggedIn, login, logout} = useAuth();
     const [incorrectLogin , setIncorrectLogin] = useState(false);
     const navigate = useNavigate();
 
     const [enteredUsername, setEnteredUsername] = useState("");//previously i was using direct DOM manipulation to get the values of username and password which is not a good practice in React. So i have replaced it with useState hooks to store the values of username and password and then use them in the handleLogin function.
     const [enteredPassword, setEnteredPassword] = useState("");
 
-    const handleLogin = () => {
-        if (
-            enteredUsername === username &&
-            enteredPassword === password
-        ) {
-            login();
-            alert("Login successful!");
-            setIncorrectLogin(false);
-            navigate("/home");
-        } 
-        
-        else {
-            logout();
-            setIncorrectLogin(true);    
-            alert("Incorrect username or password. Please try again.");
+    const handleLogin = async () => {
+
+        try {
+
+        const data = await loginUser({
+            username: enteredUsername,
+            password: enteredPassword
+        });
+
+        login(data.token);
+
+        navigate("/home");
+
+        }catch (err) {
+
+        console.log(err);
+
+        alert("Invalid credentials");
         }
     };
 
@@ -40,7 +45,7 @@ const LandingLogin = () => {
                             <h1 className="text-4xl text-slate-900 font-bold">
                                 EduDash
                             </h1>
-                            <h2 className = "text-md text-slate-700 mb-4">
+                            <h2 className = "text-md text-slate-600 mb-4">
                                 Please login to access the dashboard.
                             </h2>
                         </div>
@@ -77,12 +82,20 @@ const LandingLogin = () => {
                     </div>
 
                     <button
-                        className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition hover:scale-[110%] font-semibold"
+                        className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition-all duration-300 hover:scale-[110%] font-semibold"
                         onClick={() => {handleLogin(); console.log(isLoggedIn)}}
                     >
                         Login
                     </button>
-
+                    <p className="text-gray-600 text-center mt-6">
+                    Don't have an account?
+                    <Link
+                        to="/"
+                        className="text-blue-400 ml-2 hover:underline"
+                    >
+                        Register
+                    </Link>
+                    </p>
                 </div>
             </div>
             )}

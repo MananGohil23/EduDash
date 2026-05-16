@@ -14,8 +14,8 @@ export const AuthProvider = ({ children }) => {
         }
     }, [])
 
-    const login = () => {
-        localStorage.setItem("token", "fake-jwt-token");//storing a truthy value in localStorage
+    const login = (token) => {
+        localStorage.setItem("token", token);//storing a truthy value in localStorage
         setIsLoggedIn(true);
     };
 
