@@ -1,6 +1,6 @@
-import React, { useState , useEffect} from "react";
+import React, {useState} from "react";
 
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, Navigate } from "react-router-dom";
 
 import { registerUser } from "../../services/authService";
 
@@ -40,12 +40,9 @@ const Register = () => {
         }
     };
 
-    useEffect(() => {
-            if (isLoggedIn) {
-                navigate("/home");
-            }
-    }, [isLoggedIn, navigate]);
-
+    if(isLoggedIn) {
+       return <Navigate to="/home" />;
+    }
 
     return (
 

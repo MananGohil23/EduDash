@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useAuth } from '../../context/AuthContext'
-import { useNavigate } from 'react-router-dom'// Use navigate is use to get to the home page after successful login
+import { useNavigate , Navigate} from 'react-router-dom'// Use navigate is use to get to the home page after successful login
 import landingBG from "../../assets/landingbg.png";
 import { loginUser } from '../../services/authService';
 import { Link } from 'react-router-dom';
@@ -34,12 +34,10 @@ const LandingLogin = () => {
         }
     };
 
-    useEffect(() => {
-        if (isLoggedIn) {
-            navigate("/home");
-        }
-    }, [isLoggedIn, navigate]);
-    
+    if(isLoggedIn) {
+        return <Navigate to="/home" />;
+    }
+
     return (
         <>
         {!isLoggedIn && (
