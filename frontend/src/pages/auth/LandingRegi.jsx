@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 
 import { useNavigate, Link } from "react-router-dom";
 
@@ -11,7 +11,7 @@ const Register = () => {
 
     const navigate = useNavigate();
 
-    const { login } = useAuth();
+    const { login , isLoggedIn } = useAuth();
 
     const [enteredUsername, setEnteredUsername] =
         useState("");
@@ -39,6 +39,13 @@ const Register = () => {
             alert("Registration failed");
         }
     };
+
+    useEffect(() => {
+            if (isLoggedIn) {
+                navigate("/home");
+            }
+    }, [isLoggedIn, navigate]);
+
 
     return (
 

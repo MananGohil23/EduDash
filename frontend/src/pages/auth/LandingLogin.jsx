@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useAuth } from '../../context/AuthContext'
 import { useNavigate } from 'react-router-dom'// Use navigate is use to get to the home page after successful login
 import landingBG from "../../assets/landingbg.png";
@@ -6,8 +6,8 @@ import { loginUser } from '../../services/authService';
 import { Link } from 'react-router-dom';
 
 const LandingLogin = () => {
-    const {isLoggedIn, login, logout} = useAuth();
-    const [incorrectLogin , setIncorrectLogin] = useState(false);
+    const {isLoggedIn, login} = useAuth();
+    const [incorrectLogin] = useState(false);
     const navigate = useNavigate();
 
     const [enteredUsername, setEnteredUsername] = useState("");//previously i was using direct DOM manipulation to get the values of username and password which is not a good practice in React. So i have replaced it with useState hooks to store the values of username and password and then use them in the handleLogin function.
@@ -34,6 +34,12 @@ const LandingLogin = () => {
         }
     };
 
+    useEffect(() => {
+        if (isLoggedIn) {
+            navigate("/home");
+        }
+    }, [isLoggedIn, navigate]);
+    
     return (
         <>
         {!isLoggedIn && (
@@ -99,22 +105,6 @@ const LandingLogin = () => {
                 </div>
             </div>
             )}
-        {isLoggedIn && (
-            <div className="flex flex-col items-center justify-center h-screen gap-10">
-                <h1 className="text-4xl text-slate-900 font-bold">
-                    Welcome to EduDash
-                </h1>
-                <p className="text-lg text-slate-700">
-                    You are successfully logged in!
-                </p>
-                <button
-                    className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition"
-                    onClick={() => navigate("/home")}
-                >
-                    Go to Home
-                </button>
-            </div>
-        )}
         </>
     )
 }
