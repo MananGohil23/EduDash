@@ -3,8 +3,6 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
     const [isLoggedIn , setIsLoggedIn] = useState(false);
-    const username = "Manan";
-    const password = "123";
 
     useEffect(() => {//useEffect is used to check if the user is already logged in or not when the component reloads. It checks for the presence of a token in localStorage and sets the isLoggedIn state accordingly.
         const token = localStorage.getItem("token");
@@ -25,9 +23,9 @@ export const AuthProvider = ({ children }) => {
     };
 
 return (
-    <AuthContext.Provider value = {{username , password , isLoggedIn , login , logout}}>
+    <AuthContext.Provider value = {{isLoggedIn , login , logout}}>
         {children}
-        </AuthContext.Provider>
+    </AuthContext.Provider>
     );
 };
 

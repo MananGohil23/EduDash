@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import {FaChevronDown , FaChevronUp} from 'react-icons/fa';
+import  Physics  from '../../subjects/Physics';
 const Lectures = () => {
     const [selectedLecture, setSelectedLecture] = useState(null);
     const [subTopic , setSubTopic] = useState(null);
@@ -142,7 +143,8 @@ const Lectures = () => {
                     <h1 >Please select a subject to view its content</h1>
                 </div>
                 <div className = {`${selectedLecture === null ? 'hidden' : 'rounded-lg flex'}`}>
-                    <div className = {`text-4xl font-bold text-white ${selectedLecture === 1 ? 'block' : 'hidden'}`}>
+                    <Physics />
+                    {/* <div className = {`text-4xl font-bold text-white ${selectedLecture === 1 ? 'block' : 'hidden'}`}>
                         <div className = "flex justify-start m-5 gap-4">
                             <div className = "flex-1 w-full max-w-[1200px]">
                                 <div className = "rounded-lg text-slate-900 h-[600px] flex items-center justify-center">
@@ -300,7 +302,7 @@ const Lectures = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                     <div className = {`text-4xl font-bold text-white items-center flex justify-center ${selectedLecture === 2 ? 'block' : 'hidden'}`}>
                         <div className = "flex justify-start m-5 gap-4">
                             <div className = "flex-1 w-full max-w-[1200px]">
