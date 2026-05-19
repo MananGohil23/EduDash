@@ -174,18 +174,6 @@ All protected routes require an `Authorization: Bearer <token>` header.
 
 ---
 
-## 🔮 Roadmap
-
-- [ ] 📅 Timetable / schedule integration
-- [ ] 📄 PDF attendance report upload & auto-parsing
-- [ ] 📈 Attendance shortage warnings & predictions
-- [ ] 🌙 Dark mode toggle
-- [ ] 🔔 Push notifications for deadlines
-- [ ] ☁️ Cloud file storage for assignments
-- [ ] 📱 Progressive Web App (PWA) support
-
----
-
 ## 🤝 Contributing
 
 Contributions are welcome! Here's how to get started:
@@ -205,12 +193,6 @@ git push origin feature/your-feature-name
 ```
 
 Please keep PRs focused on a single concern and follow the existing code style.
-
----
-
-## 📄 License
-
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
 
 ---
 
