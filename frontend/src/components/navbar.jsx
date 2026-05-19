@@ -50,7 +50,7 @@ const Navbar = () => {
                   logout();
                   alert("You have been logged out.");
                 }}
-                className="rounded-full bg-emerald-500 px-4 py-2 text-lg hover:scale-[110%] font-semibold text-white transition hover:bg-emerald-400 hover:-translate-y-[5px]"
+                className="rounded-full bg-gradient-to-r from-emerald-400 to-emerald-700 px-4 py-2 text-lg hover:scale-[110%] font-semibold text-white transition hover:bg-emerald-400 hover:-translate-y-[5px]"
               >
                 Logout
               </Link>
@@ -58,7 +58,7 @@ const Navbar = () => {
             <div className="flex items-center gap-2">
               <Link
                 to="/profile"
-                className="rounded-full bg-emerald-500 px-4 py-2 text-lg hover:scale-[110%] font-semibold text-white transition hover:bg-emerald-400 hover:-translate-y-[5px]"
+                className="rounded-full bg-gradient-to-r from-emerald-400 to-emerald-700 px-4 py-2 text-lg hover:scale-[110%] font-semibold text-white transition hover:bg-emerald-400 hover:-translate-y-[5px]"
                 onClick={() => console.log(isLoggedIn)}
               >
                 Profile
