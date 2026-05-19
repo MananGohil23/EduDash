@@ -33,10 +33,10 @@ const Attendance = () => {
 
     return (
         <>
-            <div className="bg-gray-100 pt-[60px] h-screen">
+            <div className="bg-gradient-to-b from-slate-900 to-blue-800 pt-[60px] h-screen">
                 <div className="flex flex-col justify-center items-center">
 
-                    <h1 className="text-3xl font-bold text-center pt-10">
+                    <h1 className="text-3xl text-white font-bold text-center pt-10">
                         Check your Attendance.
                     </h1>
                     <input
@@ -58,8 +58,8 @@ const Attendance = () => {
                             mt-10 mx-20 p-10 cursor-pointer
                             transition-all duration-300
                             ${dragActive
-                                ? "bg-blue-100 border-blue-500"
-                                : "bg-gray-200 border-slate-900"}
+                                ? "bg-gradient-to-r from-blue-400 to-blue-600 border-blue-600"
+                                : "bg-gradient-to-r from-emerald-400 to-green-500 border-green-600"}
                         `}
                     >
 
@@ -76,7 +76,7 @@ const Attendance = () => {
 
                     </div>
 
-                    <button className="transition bg-slate-900 text-white text-xl px-4 py-4 rounded-lg mt-5 hover:bg-red-500 hover:scale-[110%] hover:-translate-y-[5px]">
+                    <button className="transition bg-gradient-to-r from-blue-400 to-blue-600 text-white text-xl px-4 py-4 rounded-lg mt-5 hover:scale-[110%] hover:-translate-y-[5px]">
                         Calculate Attendance
                     </button>
 

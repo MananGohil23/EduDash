@@ -6,15 +6,15 @@ import assignments from "../../assets/assignments.jpg";
 const Home = () => {
     return (
         <>
-            <div className = "bg-gradient-to-r from-slate-900 to-blue-900 pt-[60px] min-h-screen">
+            <div className = "bg-gradient-to-r from-slate-900 to-blue-800 pt-[60px] min-h-screen">
                 <h1 className = "w-full flex justify-center items-center text-4xl p-6 font-bold text-white">
                    Hello, Welcome to EduDash.   
                 </h1>
-                <Marquee speed = {100} className="mb-4 z-15">
-                    <div className = "rounded-lg text-white text-xl font-bold p-4 mr-4">
-                        <div className = "flex justify-center items-center text-2xl mb-2">
-                            Latest Announcements
-                        </div>
+                <div className = "flex text-white font-bold justify-center items-center text-2xl">
+                    Latest Announcements
+                </div>
+                <Marquee speed = {100} className="mb-8 z-15">
+                    <div className = "rounded-lg text-white text-xl font-bold p-3">
                         <div className = "flex text-black font-medium justify-between gap-4">
                             <div className = "bg-gradient-to-r from-blue-400 to-blue-600 rounded-lg shadow-md p-2 mt-2">
                                 Midterm exams will be held from 15th to 20th October. Please check the schedule and prepare accordingly.
