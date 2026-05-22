@@ -1,18 +1,8 @@
 import React from 'react'
-import { useState } from 'react';
-import {FaChevronDown , FaChevronUp} from 'react-icons/fa';
 import { useSubject } from '../context/SubjectContext';
 
 const Physics = () => {
-
-    const [selectedLecture, setSelectedLecture] = useState(null);
-    const [subTopic , setSubTopic] = useState(null);
-    const [buttonActive, setButtonActive] = useState(null);
-    const [buttonActiveLecture, setButtonActiveLecture] = useState(null);
-    const [subTopicSidebarActive , setSubTopicSidebarActive] = useState(true);
-    const [dropDown, setDropDown] = useState(null);
-    const [chapter , setChapter] = useState(null);
-    const [chapterActive , setChapterActive] = useState(null);
+    const { chapter, selectedLecture, subTopic, setSubTopic, buttonActive, setButtonActive, subTopicSidebarActive, setSubTopicSidebarActive } = useSubject();
 
   return (
     <>

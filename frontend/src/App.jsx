@@ -8,6 +8,7 @@ import Assignments from "./pages/learning/Assignments";
 import ProtectedRoute from "./components/ProtectedRoute";
 import DashboardLayouts from "./layouts/DashboardLayouts";
 import Register from "./pages/auth/LandingRegi";
+import { SubjectProvider } from "./context/SubjectContext";
 
 function App() {
   return (
@@ -24,7 +25,9 @@ function App() {
             >
               <Route path="/home" element={<Home />} />
               <Route path="/attendance" element={<Attendance />} />
-              <Route path="/learning/lectures" element={<Lectures />} />
+              <Route path="/learning/lectures" element={<SubjectProvider>
+                                                            <Lectures />
+                                                        </SubjectProvider>} />
               <Route path="/learning/assignments" element={<Assignments />} />
               <Route path="/profile" element={<Profile />} />
             </Route>
