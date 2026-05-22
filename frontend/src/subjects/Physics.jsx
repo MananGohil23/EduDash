@@ -6,11 +6,10 @@ const Physics = () => {
 
   return (
     <>
-        <div>
             <div className = {`text-4xl font-bold text-white ${selectedLecture === 1 ? 'block' : 'hidden'}`}>
                         <div className = "flex justify-start m-5 gap-4">
                             <div className = "flex-1 w-full max-w-[1200px]">
-                                <div className = "rounded-lg text-slate-900 h-[600px] flex items-center justify-center">
+                                <div className = "rounded-lg text-white h-[600px] flex items-center justify-center">
                                         <h2 className = {`text-3xl justify-center font-bold ${subTopic === null ? 'block' : 'hidden'}`}>
                                             Please select a Chapter to continue...
                                         </h2>
@@ -32,54 +31,54 @@ const Physics = () => {
                                 </div >
                                 <div className = {`${chapter === 1 ? 'block' : 'hidden'}`}>
                                     <div className = {`${subTopic === 1 ? 'block' : 'hidden'}`}>
-                                        <h1 className = "text-3xl font-bold text-slate-900 ml-4 mt-4"> Introduction to Optical Fibres </h1>
+                                        <h1 className = "text-3xl font-bold ml-4 mt-4"> Introduction to Optical Fibres </h1>
                                     </div>
                                     <div className = {`${subTopic === 2 ? 'block' : 'hidden'}`}>
-                                        <h1 className = "text-3xl font-bold text-slate-900 ml-4 mt-4"> Numerical Aperture of an Optical Fibre </h1>
+                                        <h1 className = "text-3xl font-bold ml-4 mt-4"> Numerical Aperture of an Optical Fibre </h1>
                                     </div>
                                     <div className = {`${subTopic === 3 ? 'block' : 'hidden'}`}>
-                                        <h1 className = "text-3xl font-bold text-slate-900 ml-4 mt-4"> Problems on Numerical Aperture and Acceptance Angle </h1>
+                                        <h1 className = "text-3xl font-bold  ml-4 mt-4"> Problems on Numerical Aperture and Acceptance Angle </h1>
                                     </div>
                                     <div className = {`${subTopic === 4 ? 'block' : 'hidden'}`}>
-                                        <h1 className = "text-3xl font-bold text-slate-900 ml-4 mt-4"> Problems on V-Number and Modes of Propagation </h1>
+                                        <h1 className = "text-3xl font-bold ml-4 mt-4"> Problems on V-Number and Modes of Propagation </h1>
                                     </div>
                                     <div className = {`${subTopic === 5 ? 'block' : 'hidden'}`}>
-                                        <h1 className = "text-3xl font-bold text-slate-900 ml-4 mt-4"> Step Index and Graded Index Fibres </h1>
+                                        <h1 className = "text-3xl font-bold ml-4 mt-4"> Step Index and Graded Index Fibres </h1>
                                     </div>
                                 </div>
-                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 p-6 mt-4">
-                                    <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-start">
+                                <div className = "rounded-lg shadow-lg ring-1 ring-blue-400 shadow-slate-950/30 p-6 mt-4">
+                                    <h1 className = "text-2xl font-bold text-white mb-4 flex items-center justify-start">
                                         Description
                                     </h1>
-                                    <p className = {`text-gray-600 text-lg ${chapter === null ? 'block' : 'hidden'}`}>
+                                    <p className = {`text-gray-300 text-lg ${chapter === null ? 'block' : 'hidden'}`}>
                                         We are going to learn about Physics. Physics is the branch of science concerned with the nature and properties of matter and energy. It encompasses a wide range of phenomena, from the smallest subatomic particles to the largest galaxies. In this course, we will explore various topics in physics, including mechanics, electromagnetism, thermodynamics, quantum mechanics, and more. Through lectures, demonstrations, and problem-solving sessions, we aim to develop a deep understanding of the fundamental principles that govern the physical world around us.
                                     </p>
-                                    <p className = {`text-gray-600 text-lg ${chapter === 1 ? 'block' : 'hidden'}`}>
+                                    <p className = {`text-gray-300 text-lg ${chapter === 1 ? 'block' : 'hidden'}`}>
                                         This lecture covers the fundamentals of optical fibres, including their structure, working principle, and applications. It also delves into the concept of numerical aperture, which is crucial for understanding light propagation in fibres. The lecture includes problem-solving sessions on numerical aperture, acceptance angle, V-number, modes of propagation, and the differences between step index and graded index fibres. By the end of this lecture, students will have a solid understanding of optical fibres and their significance in modern communication systems.
                                     </p>
-                                    <p className={`text-gray-600 text-lg ${chapter === 2 ? 'block' : 'hidden'}`}>
+                                    <p className={`text-gray-300 text-lg ${chapter === 2 ? 'block' : 'hidden'}`}>
                                         This lecture provides an introduction to quantum mechanics, covering key concepts such as wave-particle duality, the uncertainty principle, and the time-dependent and time-independent Schrödinger equations. It also explores phase and group velocity, which are essential for understanding wave propagation in quantum systems. The lecture includes numerical problems to reinforce the theoretical concepts and enhance problem-solving skills in quantum mechanics.
                                     </p>
-                                    <p className={`text-gray-600 text-lg ${chapter === 3 ? 'block' : 'hidden'}`}>
+                                    <p className={`text-gray-300 text-lg ${chapter === 3 ? 'block' : 'hidden'}`}>
                                         This lecture explores the phenomena of interference and diffraction, which are fundamental to understanding wave behavior. It covers the principles of superposition, constructive and destructive interference, and the conditions for observing interference patterns. The lecture also delves into diffraction, including single-slit and double-slit diffraction, as well as diffraction gratings. By the end of this lecture, students will have a comprehensive understanding of how waves interact and the resulting patterns that emerge.
                                     </p>
-                                    <p className={`text-gray-600 text-lg ${chapter === 4 ? 'block' : 'hidden'}`}>
+                                    <p className={`text-gray-300 text-lg ${chapter === 4 ? 'block' : 'hidden'}`}>
                                         This lecture focuses on sensors, which are devices that detect and respond to changes in the environment. It covers various types of sensors, including temperature sensors, pressure sensors, and optical sensors. The lecture also explores the principles of sensor operation, signal processing, and applications in different fields such as healthcare, automotive, and industrial automation. By the end of this lecture, students will have a solid understanding of sensor technology and its significance in modern society.   
                                     </p>
-                                    <p className={`text-gray-600 text-lg ${chapter === 5 ? 'block' : 'hidden'}`}>
+                                    <p className={`text-gray-300 text-lg ${chapter === 5 ? 'block' : 'hidden'}`}>
                                         This lecture provides an overview of lasers, covering their principles of operation, types, and applications. It explores the concept of stimulated emission, population inversion, and the different components of a laser system. The lecture also delves into various types of lasers, including solid-state lasers, gas lasers, and semiconductor lasers. By the end of this lecture, students will have a comprehensive understanding of laser technology and its wide-ranging applications in fields such as medicine, communication, and manufacturing.
                                     </p>
-                                    <p className={`text-gray-600 text-lg ${chapter === 6 ? 'block' : 'hidden'}`}>
+                                    <p className={`text-gray-300 text-lg ${chapter === 6 ? 'block' : 'hidden'}`}>
                                         This lecture covers the fundamentals of electrodynamics, which is the study of electric and magnetic fields and their interactions with charged particles. It explores Maxwell's equations, which describe how electric and magnetic fields are generated and altered by charges and currents. The lecture also delves into electromagnetic waves, their propagation, and applications in communication systems. By the end of this lecture, students will have a solid understanding of electrodynamics and its significance in modern physics and engineering.
                                     </p>
                                 </div>
-                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 p-6 mt-4">
-                                    <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-start">
+                                <div className = "ring-1 ring-blue-400 rounded-lg shadow-lg shadow-slate-950/30 p-6 mt-4">
+                                    <h1 className = "text-2xl font-bold text-white mb-4 flex items-center justify-start">
                                         Resources
                                     </h1>
                                 </div>
-                                <div className = "bg-white rounded-lg shadow-lg shadow-slate-950/30 p-6 mt-4">
-                                    <h1 className = "text-2xl font-bold text-slate-900 mb-4 flex items-center justify-start">
+                                <div className = "ring-1 ring-blue-400 rounded-lg shadow-lg shadow-slate-950/30 p-6 mt-4">
+                                    <h1 className = "text-2xl font-bold text-white mb-4 flex items-center justify-start">
                                         Comments
                                     </h1>
                                     <div className = "flex justify-between">
@@ -95,8 +94,8 @@ const Physics = () => {
                                         {'<'}
                                     </button>     
                             </div>
-                            <div className = {`bg-white rounded-lg shadow-lg shadow-slate-950/30 w-[300px] p-4 ${subTopicSidebarActive ? 'block' : 'hidden'} transition-all duration-300 ease-in-out`}>
-                                <div className = "flex bg-slate-900 rounded-lg text-white justify-start gap-8 p-2 mb-4"> 
+                            <div className = {`rounded-lg shadow-lg shadow-slate-950/30 w-[300px] p-4 ${subTopicSidebarActive ? 'block' : 'hidden'} transition-all duration-300 ease-in-out`}>
+                                <div className = "flex bg-gradient-to-r from-slate-900 to-blue-900 rounded-lg text-white justify-start gap-8 p-2 mb-4"> 
                                     <button className = "ml-2 mb-1 text-2xl" onClick={() => {setSubTopicSidebarActive(!subTopicSidebarActive); document.getElementsByClassName("PhyVideo")[subTopic === null ? 0 : subTopic - 1].width = 1200}}>
                                         |||
                                     </button>
@@ -105,59 +104,59 @@ const Physics = () => {
                                     </h1>
                                 </div>
                                 <div className = {`flex flex-col gap-4 ${chapter === 1 ? 'block' : 'hidden'}`}>
-                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 1 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                    <div className = {`rounded-lg shadow-md p-4 hover:scale-[110%] ${buttonActive === 1 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-blue-500'}`}>
                                         <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(1); setButtonActive(1)}}>
                                             Introduction to Optical Fibres
                                         </h2>
                                     </div>
-                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 2 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                    <div className = {`rounded-lg shadow-md p-4 hover:scale-[110%] ${buttonActive === 2 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-blue-500'}`}>
                                         <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(2); setButtonActive(2)}}>
                                             Numerical Aperture of an Optical Fibre
                                         </h2>
                                     </div>
-                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 3 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                    <div className = {`rounded-lg shadow-md p-4 hover:scale-[110%] ${buttonActive === 3 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-blue-500'}`}>
                                         <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(3); setButtonActive(3)}}>
                                             Problems on Numerical Aperture and Acceptance Angle
                                         </h2>
                                     </div>
-                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 4 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                    <div className = {`rounded-lg shadow-md p-4 hover:scale-[110%] ${buttonActive === 4 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-blue-500'}`}>
                                         <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(4); setButtonActive(4)}}>
                                             Problems on V-Number and Modes of Propagation
                                         </h2>
                                     </div>
-                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 5 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                    <div className = {`rounded-lg shadow-md p-4 hover:scale-[110%] ${buttonActive === 5 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-blue-500'}`}>
                                         <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(5); setButtonActive(5)}}>
                                             Step Index and Graded Index Fibres
                                         </h2>
                                     </div> 
                                 </div>
                                 <div className = {`flex flex-col gap-4 ${chapter === 2 ? 'block' : 'hidden'}`}>
-                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 6 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                    <div className = {`rounded-lg shadow-md p-4 hover:scale-[110%] ${buttonActive === 6 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-blue-500'}`}>
                                         <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(6); setButtonActive(6)}}>
                                             Introduction to Quantum Mechanics
                                         </h2>
                                     </div>
-                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 7 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                    <div className = {`rounded-lg shadow-md p-4 hover:scale-[110%] ${buttonActive === 7 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-blue-500'}`}>
                                         <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(7); setButtonActive(7)}}>
                                             Phase and Group Velocity
                                         </h2>
                                     </div>
-                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 8 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                    <div className = {`rounded-lg shadow-md p-4 hover:scale-[110%] ${buttonActive === 8 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-blue-500'}`}>
                                         <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(8); setButtonActive(8)}}>
                                             Heisenberg's Uncertainty Principle
                                         </h2>
                                     </div>
-                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 9 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                    <div className = {`rounded-lg shadow-md p-4 hover:scale-[110%] ${buttonActive === 9 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-blue-500'}`}>
                                         <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(9); setButtonActive(9)}}>
                                             Time Dependent Wave Equation
                                         </h2>
                                     </div>
-                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 10 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                    <div className = {`rounded-lg shadow-md p-4 hover:scale-[110%] ${buttonActive === 10 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-blue-500'}`}>
                                         <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(10); setButtonActive(10)}}>
                                             Time Independent Wave Equation
                                         </h2>
                                     </div> 
-                                    <div className = {`bg-gray-200 rounded-lg shadow-md text-gray-700 p-4 hover:scale-[110%] ${buttonActive === 11 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-gray-300'}`}>
+                                    <div className = {`rounded-lg shadow-md p-4 hover:scale-[110%] ${buttonActive === 11 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-blue-500'}`}>
                                         <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(11); setButtonActive(11)}}>
                                             Numericals
                                         </h2>
@@ -166,7 +165,6 @@ const Physics = () => {
                             </div>
                         </div>
                     </div>
-        </div>
     </>
   )
 }
