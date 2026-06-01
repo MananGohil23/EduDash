@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, {useState} from 'react'
 import { useAuth } from '../../context/AuthContext'
 import { useNavigate , Navigate} from 'react-router-dom'// Use navigate is use to get to the home page after successful login
 import landingBG from "../../assets/landingbg.png";
 import { loginUser } from '../../services/authService';
 import { Link } from 'react-router-dom';
+import { useUser } from '../../context/UserContext';
 
 const LandingLogin = () => {
-    const {isLoggedIn, login} = useAuth();
+    const { isLoggedIn, login } = useAuth();
+    const { setUser } = useUser();
     const [incorrectLogin] = useState(false);
     const navigate = useNavigate();
 
@@ -22,7 +24,11 @@ const LandingLogin = () => {
             password: enteredPassword
         });
 
+        console.log("Login successful, received data:", data);
+
         login(data.token);
+
+        setUser(data.username);
 
         navigate("/home");
 

@@ -3,12 +3,14 @@ import Marquee from 'react-fast-marquee';
 import attendance from "../../assets/attendance.jpg";
 import startLearning from "../../assets/startLearning.jpg";
 import assignments from "../../assets/assignments.jpg";
+import { useUser } from '../../context/UserContext';
 const Home = () => {
+    const { user } = useUser();
     return (
         <>
             <div className = "bg-gradient-to-r from-slate-900 to-blue-800 pt-[60px] min-h-screen">
                 <h1 className = "w-full flex justify-center items-center text-4xl p-6 font-bold text-white">
-                   Hello, Welcome to EduDash.   
+                   Hello {user}, Welcome to EduDash.   
                 </h1>
                 <div className = "flex text-white font-bold justify-center items-center text-2xl">
                     Latest Announcements

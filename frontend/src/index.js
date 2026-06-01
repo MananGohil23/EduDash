@@ -3,11 +3,17 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { AuthProvider } from "./context/AuthContext";
+import { AttendanceProvider } from "./context/AttendanceContext";
+import { UserProvider } from "./context/UserContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <AuthProvider>
-    <App />
+    <UserProvider>
+      <AttendanceProvider>
+        <App />
+      </AttendanceProvider>
+    </UserProvider>
   </AuthProvider>
 );
 

@@ -28,7 +28,8 @@ const register = async (req, res) => {
     })
 
     res.status(201).json({
-      token: generateToken(user._id)
+      token: generateToken(user._id),
+      username: user.username
     });
 
   } catch (err) {
@@ -77,7 +78,7 @@ const login = async (req, res) => {
       }
     )
 
-    res.json({ token })
+    res.json({ token, username: user.username });
 
   } catch (err) {
 
