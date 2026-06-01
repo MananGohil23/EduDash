@@ -3,7 +3,8 @@ import { useSubject } from '../context/SubjectContext';
 
 const Physics = () => {
     const { chapter, selectedLecture, subTopic, setSubTopic, buttonActive, setButtonActive, subTopicSidebarActive, setSubTopicSidebarActive } = useSubject();
-
+    const chapter1Content = ["Introduction to Optical Fibres", "Numerical Aperture of an Optical Fibre", "Problems on Numerical Aperture and Acceptance Angle", "Problems on V-Number and Modes of Propagation", "Step Index and Graded Index Fibres"];
+    const chapter2Content = ["Introduction to Quantum Mechanics", "Phase Velocity and Group Velocity", "Heisenberg's Uncertainty Principle", "Schrödinger's Equation (Time Dependent)", "Schrödinger's Equation (Time Independent)", "Numerical Problems on Phase and Group Velocity"];
   return (
     <>
             <div className = {`text-4xl font-bold text-white ${selectedLecture === 1 ? 'block' : 'hidden'}`}>
@@ -21,29 +22,48 @@ const Physics = () => {
                                             <iframe width="900" height="600" src="https://www.youtube.com/embed/dHv3wcLu55U?si=JHbzGMb3bKHdF63o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowFullScreen className = {`PhyVideo rounded-lg video ${subTopic === 5 ? 'block' : 'hidden'}`}></iframe>
                                         </div>
                                         <div className = {`${chapter === 2 ? 'block' : 'hidden'}`}>
-                                            <iframe width="900" height="600" src="https://www.youtube.com/embed/mDh7KWFBPXQ?si=87xbx7A0td8-LLSY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowFullScreen className = {`PhyVideo rounded-lg video ${subTopic === 6 ? 'block' : 'hidden'}`}></iframe>
-                                            <iframe width="900" height="600" src="https://www.youtube.com/embed/IMNDVXfI5ok?si=apVSfGxOvJxz2uPR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowFullScreen className = {`PhyVideo rounded-lg video ${subTopic === 7 ? 'block' : 'hidden'}`}></iframe>
-                                            <iframe width="900" height="600" src="https://www.youtube.com/embed/ZL7vK1H4s5Y?si=6Gaiah0fRd7yEV2T" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowFullScreen className = {`PhyVideo rounded-lg video ${subTopic === 8 ? 'block' : 'hidden'}`}></iframe>
-                                            <iframe width="900" height="600" src="https://www.youtube.com/embed/E-Lr3_LGTeY?si=x1jmQ30_hBj1R8Op" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowFullScreen className = {`PhyVideo rounded-lg video ${subTopic === 9 ? 'block' : 'hidden'}`}></iframe>
-                                            <iframe width="900" height="600" src="https://www.youtube.com/embed/tFsNT91wfG0?si=sA6dL7iQTQ3OfRZR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowFullScreen className = {`PhyVideo rounded-lg video ${subTopic === 10 ? 'block' : 'hidden'}`}></iframe>
-                                            <iframe width="900" height="600" src="https://www.youtube.com/embed/hF5ZYGqcREw?si=X82cd6k_31InnSKc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowFullScreen className = {`PhyVideo rounded-lg video ${subTopic === 11 ? 'block' : 'hidden'}`}></iframe>
+                                            <iframe width="900" height="600" src="https://www.youtube.com/embed/mDh7KWFBPXQ?si=87xbx7A0td8-LLSY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowFullScreen className = {`PhyVideo rounded-lg video ${subTopic === 1 ? 'block' : 'hidden'}`}></iframe>
+                                            <iframe width="900" height="600" src="https://www.youtube.com/embed/IMNDVXfI5ok?si=apVSfGxOvJxz2uPR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowFullScreen className = {`PhyVideo rounded-lg video ${subTopic === 2 ? 'block' : 'hidden'}`}></iframe>
+                                            <iframe width="900" height="600" src="https://www.youtube.com/embed/ZL7vK1H4s5Y?si=6Gaiah0fRd7yEV2T" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowFullScreen className = {`PhyVideo rounded-lg video ${subTopic === 3 ? 'block' : 'hidden'}`}></iframe>
+                                            <iframe width="900" height="600" src="https://www.youtube.com/embed/E-Lr3_LGTeY?si=x1jmQ30_hBj1R8Op" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowFullScreen className = {`PhyVideo rounded-lg video ${subTopic === 4 ? 'block' : 'hidden'}`}></iframe>
+                                            <iframe width="900" height="600" src="https://www.youtube.com/embed/tFsNT91wfG0?si=sA6dL7iQTQ3OfRZR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowFullScreen className = {`PhyVideo rounded-lg video ${subTopic === 5 ? 'block' : 'hidden'}`}></iframe>
+                                            <iframe width="900" height="600" src="https://www.youtube.com/embed/hF5ZYGqcREw?si=X82cd6k_31InnSKc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowFullScreen className = {`PhyVideo rounded-lg video ${subTopic === 6 ? 'block' : 'hidden'}`}></iframe>
                                         </div>
                                 </div >
                                 <div className = {`${chapter === 1 ? 'block' : 'hidden'}`}>
-                                    <div className = {`${subTopic === 1 ? 'block' : 'hidden'}`}>
-                                        <h1 className = "text-3xl font-bold ml-4 mt-4"> Introduction to Optical Fibres </h1>
+                                    <div> {chapter1Content.map((subtopic , index) => (
+                                        <h1 className = {`text-3xl font-bold ml-4 mt-4 ${subTopic === index+1 ? 'block' : 'hidden'}`} key = {index}> {subtopic} </h1>
+                                        ))}
                                     </div>
-                                    <div className = {`${subTopic === 2 ? 'block' : 'hidden'}`}>
-                                        <h1 className = "text-3xl font-bold ml-4 mt-4"> Numerical Aperture of an Optical Fibre </h1>
+                                </div>
+                                <div className = {`${chapter === 2 ? 'block' : 'hidden'}`}>
+                                    <div> {chapter2Content.map((subtopic , index) => (
+                                        <h1 className = {`text-3xl font-bold ml-4 mt-4 ${subTopic === index+1 ? 'block' : 'hidden'}`} key = {index}> {subtopic} </h1>
+                                        ))}
                                     </div>
-                                    <div className = {`${subTopic === 3 ? 'block' : 'hidden'}`}>
-                                        <h1 className = "text-3xl font-bold  ml-4 mt-4"> Problems on Numerical Aperture and Acceptance Angle </h1>
+                                </div>
+                                <div className = {`${chapter === 3 ? 'block' : 'hidden'}`}>
+                                    <div> {chapter1Content.map((subtopic , index) => (
+                                        <h1 className = {`text-3xl font-bold ml-4 mt-4 ${subTopic === index+1 ? 'block' : 'hidden'}`} key = {index}> {subtopic} </h1>
+                                        ))}
                                     </div>
-                                    <div className = {`${subTopic === 4 ? 'block' : 'hidden'}`}>
-                                        <h1 className = "text-3xl font-bold ml-4 mt-4"> Problems on V-Number and Modes of Propagation </h1>
+                                </div>
+                                <div className = {`${chapter === 4 ? 'block' : 'hidden'}`}>
+                                    <div> {chapter1Content.map((subtopic , index) => (
+                                        <h1 className = {`text-3xl font-bold ml-4 mt-4 ${subTopic === index+1 ? 'block' : 'hidden'}`} key = {index}> {subtopic} </h1>
+                                        ))}
                                     </div>
-                                    <div className = {`${subTopic === 5 ? 'block' : 'hidden'}`}>
-                                        <h1 className = "text-3xl font-bold ml-4 mt-4"> Step Index and Graded Index Fibres </h1>
+                                </div>
+                                <div className = {`${chapter === 5 ? 'block' : 'hidden'}`}>
+                                    <div> {chapter1Content.map((subtopic , index) => (
+                                        <h1 className = {`text-3xl font-bold ml-4 mt-4 ${subTopic === index+1 ? 'block' : 'hidden'}`} key = {index}> {subtopic} </h1>
+                                        ))}
+                                    </div>
+                                </div>
+                                <div className = {`${chapter === 6 ? 'block' : 'hidden'}`}>
+                                    <div> {chapter1Content.map((subtopic , index) => (
+                                        <h1 className = {`text-3xl font-bold ml-4 mt-4 ${subTopic === index+1 ? 'block' : 'hidden'}`} key = {index}> {subtopic} </h1>
+                                        ))}
                                     </div>
                                 </div>
                                 <div className = "rounded-lg shadow-lg ring-1 ring-blue-400 shadow-slate-950/30 p-6 mt-4">
@@ -103,63 +123,20 @@ const Physics = () => {
                                         Sub-Topics
                                     </h1>
                                 </div>
-                                <div className = {`flex flex-col gap-4 ${chapter === 1 ? 'block' : 'hidden'}`}>
-                                    <div className = {`rounded-lg shadow-md p-4 hover:scale-[110%] ${buttonActive === 1 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-blue-500'}`}>
-                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(1); setButtonActive(1)}}>
-                                            Introduction to Optical Fibres
-                                        </h2>
+                                <div className = {`${chapter === 1 ? 'block' : 'hidden'}`}>
+                                    <div className = {`flex flex-col gap-4`}>{chapter1Content.map((subtopic, index) => (
+                                            <h2 className = {`rounded-lg p-4 text-xl font-bold ${buttonActive === index+1 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-blue-500'}`} onClick = {() => {setSubTopic(index + 1); setButtonActive(index + 1)}} key = {index}>
+                                                {subtopic}
+                                            </h2>
+                                        ))}
                                     </div>
-                                    <div className = {`rounded-lg shadow-md p-4 hover:scale-[110%] ${buttonActive === 2 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-blue-500'}`}>
-                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(2); setButtonActive(2)}}>
-                                            Numerical Aperture of an Optical Fibre
-                                        </h2>
-                                    </div>
-                                    <div className = {`rounded-lg shadow-md p-4 hover:scale-[110%] ${buttonActive === 3 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-blue-500'}`}>
-                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(3); setButtonActive(3)}}>
-                                            Problems on Numerical Aperture and Acceptance Angle
-                                        </h2>
-                                    </div>
-                                    <div className = {`rounded-lg shadow-md p-4 hover:scale-[110%] ${buttonActive === 4 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-blue-500'}`}>
-                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(4); setButtonActive(4)}}>
-                                            Problems on V-Number and Modes of Propagation
-                                        </h2>
-                                    </div>
-                                    <div className = {`rounded-lg shadow-md p-4 hover:scale-[110%] ${buttonActive === 5 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-blue-500'}`}>
-                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(5); setButtonActive(5)}}>
-                                            Step Index and Graded Index Fibres
-                                        </h2>
-                                    </div> 
                                 </div>
-                                <div className = {`flex flex-col gap-4 ${chapter === 2 ? 'block' : 'hidden'}`}>
-                                    <div className = {`rounded-lg shadow-md p-4 hover:scale-[110%] ${buttonActive === 6 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-blue-500'}`}>
-                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(6); setButtonActive(6)}}>
-                                            Introduction to Quantum Mechanics
-                                        </h2>
-                                    </div>
-                                    <div className = {`rounded-lg shadow-md p-4 hover:scale-[110%] ${buttonActive === 7 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-blue-500'}`}>
-                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(7); setButtonActive(7)}}>
-                                            Phase and Group Velocity
-                                        </h2>
-                                    </div>
-                                    <div className = {`rounded-lg shadow-md p-4 hover:scale-[110%] ${buttonActive === 8 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-blue-500'}`}>
-                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(8); setButtonActive(8)}}>
-                                            Heisenberg's Uncertainty Principle
-                                        </h2>
-                                    </div>
-                                    <div className = {`rounded-lg shadow-md p-4 hover:scale-[110%] ${buttonActive === 9 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-blue-500'}`}>
-                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(9); setButtonActive(9)}}>
-                                            Time Dependent Wave Equation
-                                        </h2>
-                                    </div>
-                                    <div className = {`rounded-lg shadow-md p-4 hover:scale-[110%] ${buttonActive === 10 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-blue-500'}`}>
-                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(10); setButtonActive(10)}}>
-                                            Time Independent Wave Equation
-                                        </h2>
-                                    </div> 
-                                    <div className = {`rounded-lg shadow-md p-4 hover:scale-[110%] ${buttonActive === 11 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-blue-500'}`}>
-                                        <h2 className = "text-lg font-medium" onClick = {() => {setSubTopic(11); setButtonActive(11)}}>
-                                            Numericals
-                                        </h2>
+                                <div className = {`${chapter === 2 ? 'block' : 'hidden'}`}>
+                                    <div className = {`flex flex-col gap-4`}>{chapter2Content.map((subtopic, index) => (
+                                            <h2 className = {`rounded-lg p-4 text-xl font-bold ${buttonActive === index+1 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-blue-500'}`} onClick = {() => {setSubTopic(index + 1); setButtonActive(index + 1)}} key = {index}>
+                                                {subtopic}
+                                            </h2>
+                                        ))}
                                     </div>
                                 </div>
                             </div>
