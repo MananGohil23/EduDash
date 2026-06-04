@@ -4,8 +4,8 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
     const [isLoggedIn , setIsLoggedIn] = useState(false);
 
-    useEffect(() => {//useEffect is used to check if the user is already logged in or not when the component reloads. It checks for the presence of a token in localStorage and sets the isLoggedIn state accordingly.
-        const token = localStorage.getItem("token");
+    useEffect(() => {//useEffect is used to check if the user is already logged in or not when the component reloads. It checks for the presence of a token in sessionStorage and sets the isLoggedIn state accordingly.
+        const token = sessionStorage.getItem("token");
 
         if (token) {
             setIsLoggedIn(true);
@@ -13,12 +13,12 @@ export const AuthProvider = ({ children }) => {
     }, [])
 
     const login = (token) => {
-        localStorage.setItem("token", token);
+        sessionStorage.setItem("token", token);
         setIsLoggedIn(true);
     };
 
     const logout = () => {
-        localStorage.removeItem("token");
+        sessionStorage.removeItem("token");
         setIsLoggedIn(false);
     };
 

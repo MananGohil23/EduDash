@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import axios from 'axios';
 import { useAttendance } from '../../context/AttendanceContext';
 
+
 const Attendance = () => {
     const { attendanceData, setAttendanceData } = useAttendance();
 
@@ -73,7 +74,6 @@ const Attendance = () => {
         setDragActive(false);
     };
 
-    console.log("Current attendance data:", attendanceData);
     return (
         <>
             <div className="bg-gradient-to-b from-slate-900 to-blue-800 pt-[60px] min-h-screen">
