@@ -1,10 +1,55 @@
-import React from 'react'
+import React , {useState , useEffect} from 'react'
 import { useSubject } from '../context/SubjectContext';
 
-const Physics = () => {
+const playlists = {
+        1: "PLgwJf8NK-2e4d2AyXC7pvXtgJ51qz-HWV",
+        2: "PL81b_GzVmpj9NFwavO_SpM8uSFfpbUPLP",
+        3: "PLnU_6InKwomHnK2BzUmB1GD4LEG4dAAUS",
+        4: "PLm5sdXlz-wPmbrgB5XQJWufmS0ffMtFTp",
+        5: "PL81b_GzVmpj8ECOVlzS4ov-FC1j-YHdMC",
+        6: "PLm5sdXlz-wPnF73Q-AAnC8FtO92Jpc9JA"
+    }
+
+
+
+const Java = () => {
+    const [videos , setVideos] = useState([]);
     const { chapter, selectedLecture, subTopic, setSubTopic, buttonActive, setButtonActive, subTopicSidebarActive, setSubTopicSidebarActive } = useSubject();
-    const chapter1Content = ["Introduction to Optical Fibres", "Numerical Aperture of an Optical Fibre", "Problems on Numerical Aperture and Acceptance Angle", "Problems on V-Number and Modes of Propagation", "Step Index and Graded Index Fibres"];
-    const chapter2Content = ["Introduction to Quantum Mechanics", "Phase Velocity and Group Velocity", "Heisenberg's Uncertainty Principle", "Schrödinger's Equation (Time Dependent)", "Schrödinger's Equation (Time Independent)", "Numerical Problems on Phase and Group Velocity"];
+
+    useEffect(() => {
+    if (!chapter || !playlists[chapter]) return;
+
+    const fetchVideos = async () => {
+        try {
+            const response = await fetch(
+                `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=${playlists[chapter]}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`
+            );
+
+                const data = await response.json();
+
+                const fetchedVideos = data.items.map(item => ({
+                    title: item.snippet.title,
+                    description: item.snippet.description,
+                    videoId: item.snippet.resourceId.videoId
+                }));
+
+                setVideos(fetchedVideos);
+            }
+        catch(error) {
+            console.error(error);
+                }
+            };
+
+            fetchVideos();
+    }, [chapter]);
+
+    useEffect(() => {
+        setSubTopic(null);
+        setButtonActive(null);
+    }, [chapter , setSubTopic , setButtonActive]  );
+
+    const chapterContent = videos.map(video => video.title);
+
   return (
     <>
             <div className = {`text-4xl font-bold text-white ${selectedLecture === 7 ? 'block' : 'hidden'}`}>
@@ -14,57 +59,30 @@ const Physics = () => {
                                         <h2 className = {`text-3xl justify-center font-bold ${subTopic === null ? 'block' : 'hidden'}`}>
                                             Please select a Chapter to continue...
                                         </h2>
-                                        <div className = {`${chapter === 1 ? 'block' : 'hidden'}`}>
-                                            <iframe width="900" height="600" src="https://www.youtube.com/embed/4nZk_lP9lcg?si=SGQaeDHfDjoww5GV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowFullScreen className = {`PhyVideo rounded-lg video ${subTopic === 1 ? 'block' : 'hidden'}`}></iframe>
-                                            <iframe width="900" height="600" src="https://www.youtube.com/embed/jbwu6_cajoQ?si=cDdIfNJDH4eUm8DP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowFullScreen className={`PhyVideo rounded-lg video ${subTopic === 2 ? 'block' : 'hidden'}`}></iframe>
-                                            <iframe width="900" height="600" src="https://www.youtube.com/embed/YXeO0o1DU6s?si=qKUuQNj3Btg5aKcc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowFullScreen className = {`PhyVideo rounded-lg video ${subTopic === 3 ? 'block' : 'hidden'}`}></iframe>
-                                            <iframe width="900" height="600" src="https://www.youtube.com/embed/WbCMAQPpeMw?si=o4lJsG9_wj6L78A0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowFullScreen className = {`PhyVideo rounded-lg video ${subTopic === 4 ? 'block' : 'hidden'}`}></iframe>
-                                            <iframe width="900" height="600" src="https://www.youtube.com/embed/dHv3wcLu55U?si=JHbzGMb3bKHdF63o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowFullScreen className = {`PhyVideo rounded-lg video ${subTopic === 5 ? 'block' : 'hidden'}`}></iframe>
-                                        </div>
-                                        <div className = {`${chapter === 2 ? 'block' : 'hidden'}`}>
-                                            <iframe width="900" height="600" src="https://www.youtube.com/embed/mDh7KWFBPXQ?si=87xbx7A0td8-LLSY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowFullScreen className = {`PhyVideo rounded-lg video ${subTopic === 1 ? 'block' : 'hidden'}`}></iframe>
-                                            <iframe width="900" height="600" src="https://www.youtube.com/embed/IMNDVXfI5ok?si=apVSfGxOvJxz2uPR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowFullScreen className = {`PhyVideo rounded-lg video ${subTopic === 2 ? 'block' : 'hidden'}`}></iframe>
-                                            <iframe width="900" height="600" src="https://www.youtube.com/embed/ZL7vK1H4s5Y?si=6Gaiah0fRd7yEV2T" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowFullScreen className = {`PhyVideo rounded-lg video ${subTopic === 3 ? 'block' : 'hidden'}`}></iframe>
-                                            <iframe width="900" height="600" src="https://www.youtube.com/embed/E-Lr3_LGTeY?si=x1jmQ30_hBj1R8Op" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowFullScreen className = {`PhyVideo rounded-lg video ${subTopic === 4 ? 'block' : 'hidden'}`}></iframe>
-                                            <iframe width="900" height="600" src="https://www.youtube.com/embed/tFsNT91wfG0?si=sA6dL7iQTQ3OfRZR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowFullScreen className = {`PhyVideo rounded-lg video ${subTopic === 5 ? 'block' : 'hidden'}`}></iframe>
-                                            <iframe width="900" height="600" src="https://www.youtube.com/embed/hF5ZYGqcREw?si=X82cd6k_31InnSKc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowFullScreen className = {`PhyVideo rounded-lg video ${subTopic === 6 ? 'block' : 'hidden'}`}></iframe>
-                                        </div>
+                                        {videos.length > 0 && subTopic !== null && (
+                                            <iframe
+                                                width="900"
+                                                height="600"
+                                                src={`https://www.youtube.com/embed/${videos[subTopic - 1]?.videoId}`}
+                                                title="YouTube video player"
+                                                frameBorder="0"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                allowFullScreen
+                                                className="PhyVideo rounded-lg"
+                                            />
+                                        )}
                                 </div >
-                                <div className = {`${chapter === 1 ? 'block' : 'hidden'}`}>
-                                    <div> {chapter1Content.map((subtopic , index) => (
-                                        <h1 className = {`text-3xl font-bold ml-4 mt-4 ${subTopic === index+1 ? 'block' : 'hidden'}`} key = {index}> {subtopic} </h1>
-                                        ))}
-                                    </div>
-                                </div>
-                                <div className = {`${chapter === 2 ? 'block' : 'hidden'}`}>
-                                    <div> {chapter2Content.map((subtopic , index) => (
-                                        <h1 className = {`text-3xl font-bold ml-4 mt-4 ${subTopic === index+1 ? 'block' : 'hidden'}`} key = {index}> {subtopic} </h1>
-                                        ))}
-                                    </div>
-                                </div>
-                                <div className = {`${chapter === 3 ? 'block' : 'hidden'}`}>
-                                    <div> {chapter1Content.map((subtopic , index) => (
-                                        <h1 className = {`text-3xl font-bold ml-4 mt-4 ${subTopic === index+1 ? 'block' : 'hidden'}`} key = {index}> {subtopic} </h1>
-                                        ))}
-                                    </div>
-                                </div>
-                                <div className = {`${chapter === 4 ? 'block' : 'hidden'}`}>
-                                    <div> {chapter1Content.map((subtopic , index) => (
-                                        <h1 className = {`text-3xl font-bold ml-4 mt-4 ${subTopic === index+1 ? 'block' : 'hidden'}`} key = {index}> {subtopic} </h1>
-                                        ))}
-                                    </div>
-                                </div>
-                                <div className = {`${chapter === 5 ? 'block' : 'hidden'}`}>
-                                    <div> {chapter1Content.map((subtopic , index) => (
-                                        <h1 className = {`text-3xl font-bold ml-4 mt-4 ${subTopic === index+1 ? 'block' : 'hidden'}`} key = {index}> {subtopic} </h1>
-                                        ))}
-                                    </div>
-                                </div>
-                                <div className = {`${chapter === 6 ? 'block' : 'hidden'}`}>
-                                    <div> {chapter1Content.map((subtopic , index) => (
-                                        <h1 className = {`text-3xl font-bold ml-4 mt-4 ${subTopic === index+1 ? 'block' : 'hidden'}`} key = {index}> {subtopic} </h1>
-                                        ))}
-                                    </div>
+                                <div>
+                                    {videos.map((video, index) => (
+                                        <h1
+                                            key={index}
+                                            className={`text-3xl font-bold ml-4 mt-4 ${
+                                                subTopic === index + 1 ? 'block' : 'hidden'
+                                            }`}
+                                        >
+                                            {video.title}
+                                        </h1>
+                                    ))}
                                 </div>
                                 <div className = "rounded-lg shadow-lg ring-1 ring-blue-400 shadow-slate-950/30 p-6 mt-4">
                                     <h1 className = "text-2xl font-bold text-white mb-4 flex items-center justify-start">
@@ -123,21 +141,23 @@ const Physics = () => {
                                         Sub-Topics
                                     </h1>
                                 </div>
-                                <div className = {`${chapter === 1 ? 'block' : 'hidden'}`}>
-                                    <div className = {`flex flex-col gap-4`}>{chapter1Content.map((subtopic, index) => (
-                                            <h2 className = {`rounded-lg p-4 text-xl font-bold ${buttonActive === index+1 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-blue-500'}`} onClick = {() => {setSubTopic(index + 1); setButtonActive(index + 1)}} key = {index}>
-                                                {subtopic}
-                                            </h2>
-                                        ))}
-                                    </div>
-                                </div>
-                                <div className = {`${chapter === 2 ? 'block' : 'hidden'}`}>
-                                    <div className = {`flex flex-col gap-4`}>{chapter2Content.map((subtopic, index) => (
-                                            <h2 className = {`rounded-lg p-4 text-xl font-bold ${buttonActive === index+1 ? 'bg-slate-900 text-white scale-[110%]' : 'hover:bg-blue-500'}`} onClick = {() => {setSubTopic(index + 1); setButtonActive(index + 1)}} key = {index}>
-                                                {subtopic}
-                                            </h2>
-                                        ))}
-                                    </div>
+                                <div className="flex flex-col gap-4">
+                                    {chapterContent.map((subtopic, index) => (
+                                        <h2
+                                            key={index}
+                                            className={`rounded-lg p-4 text-xl font-bold ${
+                                                buttonActive === index + 1
+                                                    ? 'bg-slate-900 text-white scale-[110%]'
+                                                    : 'hover:bg-blue-500'
+                                            }`}
+                                            onClick={() => {
+                                                setSubTopic(index + 1);
+                                                setButtonActive(index + 1);
+                                            }}
+                                        >
+                                            {subtopic}
+                                        </h2>
+                                    ))}
                                 </div>
                             </div>
                         </div>
@@ -146,4 +166,4 @@ const Physics = () => {
   )
 }
 
-export default Physics
+export default Java

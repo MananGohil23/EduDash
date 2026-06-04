@@ -13,7 +13,7 @@ const Lectures = () => {
     
 
     const physics = ["1. Fibre Optics" , "2. Quantum Mechanics" , "3. Interference and Diffraction" , "4. Sensors" , "5. Lasers" , "6. Electodynamics"];
-    const maths = ["1. Algebra" , "2. Calculus" , "3. Geometry" , "4. Trigonometry"];
+    const maths = ["1. Matrices" , "2. Complex Numbers, Hyperbolic function and Logarithm of Complex Numbers" , "3. Partial Differentiation" , "4. Application of Partial Differentiation" , "5. Numerical Methods" , "6. Beta and Gamma Functions and DUIS" , "7. Multiple Integrals" , "8. Differential Equations of First Order and First Degree" , "9. Higher Order Linear Differential Equations with Constant Coefficients and Variable Coefficients"];
     const bee = ["1. AC Circuits" , "2. Digital Electronics" , "3. Logic Gates" , "4. Communication Systems"];
     const cem = ["1. Strength of Materials" , "2. Fluid Mechanics" , "3. Structural Analysis" , "4. Geotechnical Engineering"];
     const chem = ["1. Organic Chemistry" , "2. Inorganic Chemistry" , "3. Physical Chemistry" , "4. Analytical Chemistry"];
@@ -28,7 +28,7 @@ const Lectures = () => {
                     </h1>
                     <div className = "flex flex-col gap-4 transition">
                         <div className = {`rounded-lg shadow-md text-white p-4 hover:scale-[110%] ${buttonActiveLecture === 1 ? 'bg-gradient-to-r from-blue-500 to-blue-700 text-white scale-[110%]' : 'hover:bg-blue-600 hover:text-white'}`} onClick={() => {setSelectedLecture(1); setSubTopic(null)}}>
-                            <div className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(1); document.getElementsByClassName("PhyVideo")[0].width = 900; document.getElementsByClassName("video").height = 600}}>
+                            <div className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(1)}}>
                                 <div className = "flex flex-col gap-2">
                                     <div className = "flex items-center justify-between gap-2" onClick = {() => {setSubTopicSidebarActive(false); setChapter(null); setChapterActive(null);}}>   
                                         <h1 className = "cursor-pointer" onClick={() =>setDropDown(null)}>Physics</h1>
@@ -44,7 +44,7 @@ const Lectures = () => {
                             </div>    
                         </div>
                         <div className = {`rounded-lg shadow-md text-white p-4 hover:scale-[110%] ${buttonActiveLecture === 2 ? 'bg-gradient-to-r from-blue-500 to-blue-700 text-white scale-[110%]' : 'hover:bg-blue-600 hover:text-white'}`} onClick={() => {setSelectedLecture(2); setSubTopic(null)}}>
-                            <div className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(2); document.getElementsByClassName("video")[0].width = 900; document.getElementsByClassName("video").height = 600}}>
+                            <div className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(2)}}>
                                 <div className = "flex flex-col gap-2">
                                     <div className = "flex items-center justify-between gap-2" onClick = {() => {setSubTopicSidebarActive(false); setChapter(null); setChapterActive(null);}}>   
                                         <h1 className = "cursor-pointer" onClick = {() => setDropDown(null)}>Mathematics</h1>
@@ -53,14 +53,14 @@ const Lectures = () => {
                                         </button>
                                     </div>
                                     <div className={`overflow-hidden transition-all duration-300 ease-in-out ${dropDown === 2 ? 'max-h-96 opacity-100 overflow-y-auto' : 'max-h-0 opacity-0'}`}>
-                                        <div className = "flex flex-col gap-2 text-white p-2 border border-blue-400 rounded-md cursor-pointer">{maths.map((item , index) => ( <p className = {`text-lg p-2 rounded-md ${chapterActive === index+1 ? 'bg-gradient-to-r from-emerald-400 to-emerald-600' : 'hover:bg-emerald-400'} `} onClick = {() => {setChapter(index+1); setSubTopic(null); setButtonActive(null); setChapterActive(index+1)}} key={index}>{item}</p>))}
+                                        <div className = "flex flex-col gap-2 text-white p-2 border border-blue-400 rounded-md cursor-pointer">{maths.map((item , index) => ( <p className = {`text-lg p-2 rounded-md ${chapterActive === index+1 ? 'bg-gradient-to-r from-emerald-400 to-emerald-600' : 'hover:bg-emerald-400'} `} onClick = {() => {setChapter(index+1); setSubTopic(null); setButtonActive(null); setChapterActive(index+1); setSubTopicSidebarActive(true)}} key={index}>{item}</p>))}
                                         </div>
                                     </div>
                                 </div>
                             </div>    
                         </div>
                         <div className = {`rounded-lg shadow-md text-white p-4 hover:scale-[110%] ${buttonActiveLecture === 3 ? 'bg-gradient-to-r from-blue-500 to-blue-700 text-white scale-[110%]' : 'hover:bg-blue-600 hover:text-white'}`} onClick={() => {setSelectedLecture(3); setSubTopic(null)}}>
-                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(3); document.getElementsByClassName("video")[0].width = 900; document.getElementsByClassName("video").height = 600}}>
+                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(3)}}>
                                 <div className = "flex flex-col gap-2">
                                     <div className = "flex items-center justify-between gap-2"  onClick = {() => {setSubTopicSidebarActive(false); setChapter(null); setChapterActive(null);}}>   
                                         <h1 className = "cursor-pointer" onClick = {() => setDropDown(null)}>BEE&DE</h1>
@@ -69,14 +69,14 @@ const Lectures = () => {
                                         </button>
                                     </div>
                                     <div className={`overflow-hidden transition-all duration-300 ease-in-out ${dropDown === 3 ? 'max-h-96 opacity-100 overflow-y-auto' : 'max-h-0 opacity-0'}`}>
-                                        <div className = "flex flex-col gap-2 text-white p-2 border border-blue-400 rounded-md cursor-pointer">{bee.map((item , index) => ( <p className = {`text-lg p-2 rounded-md ${chapterActive === index+1 ? 'bg-gradient-to-r from-emerald-400 to-emerald-600' : 'hover:bg-emerald-400'} `} onClick = {() => {setChapter(index+1); setSubTopic(null); setButtonActive(null); setChapterActive(index+1)}} key={index}>{item}</p>))}
+                                        <div className = "flex flex-col gap-2 text-white p-2 border border-blue-400 rounded-md cursor-pointer">{bee.map((item , index) => ( <p className = {`text-lg p-2 rounded-md ${chapterActive === index+1 ? 'bg-gradient-to-r from-emerald-400 to-emerald-600' : 'hover:bg-emerald-400'} `} onClick = {() => {setChapter(index+1); setSubTopic(null); setButtonActive(null); setChapterActive(index+1); setSubTopicSidebarActive(true)}} key={index}>{item}</p>))}
                                         </div>
                                     </div>
                                 </div>
                             </h2>    
                         </div>
                         <div className = {`rounded-lg shadow-md text-white p-4 hover:scale-[110%] ${buttonActiveLecture === 4 ? 'bg-gradient-to-r from-blue-500 to-blue-700 text-white scale-[110%]' : 'hover:bg-blue-600 hover:text-white'}`} onClick={() => {setSelectedLecture(4); setSubTopic(null)}}>
-                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(4); document.getElementsByClassName("video")[0].width = 900; document.getElementsByClassName("video").height = 600}}>
+                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(4)}}>
                                 <div className = "flex flex-col gap-2">
                                     <div className = "flex items-center justify-between gap-2"  onClick = {() => {setSubTopicSidebarActive(false); setChapter(null); setChapterActive(null);}}>   
                                         <h1 className = "cursor-pointer" onClick={() => setDropDown(null)}>CEM</h1>
@@ -85,14 +85,14 @@ const Lectures = () => {
                                         </button>
                                     </div>
                                     <div className={`overflow-hidden transition-all duration-300 ease-in-out ${dropDown === 4 ? 'max-h-96 opacity-100 overflow-y-auto' : 'max-h-0 opacity-0'}`}>
-                                        <div className = "flex flex-col gap-2 text-white p-2 border border-blue-400 rounded-md cursor-pointer">{cem.map((item , index) => ( <p className = {`text-lg p-2 rounded-md ${chapterActive === index+1 ? 'bg-gradient-to-r from-emerald-400 to-emerald-600' : 'hover:bg-emerald-400'} `} onClick = {() => {setChapter(index+1); setSubTopic(null); setButtonActive(null); setChapterActive(index+1)}} key={index}>{item}</p>))}
+                                        <div className = "flex flex-col gap-2 text-white p-2 border border-blue-400 rounded-md cursor-pointer">{cem.map((item , index) => ( <p className = {`text-lg p-2 rounded-md ${chapterActive === index+1 ? 'bg-gradient-to-r from-emerald-400 to-emerald-600' : 'hover:bg-emerald-400'} `} onClick = {() => {setChapter(index+1); setSubTopic(null); setButtonActive(null); setChapterActive(index+1); setSubTopicSidebarActive(true)}} key={index}>{item}</p>))}
                                         </div>
                                     </div>
                                 </div>
                             </h2>    
                         </div>
                         <div className = {`rounded-lg shadow-md text-white p-4 hover:scale-[110%] ${buttonActiveLecture === 5 ? 'bg-gradient-to-r from-blue-500 to-blue-700 text-white scale-[110%]' : 'hover:bg-blue-600 hover:text-white'}`} onClick={() => {setSelectedLecture(5); setSubTopic(null)}}>
-                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(5); document.getElementsByClassName("video")[0].width = 900; document.getElementsByClassName("video").height = 600}}>
+                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(5)}}>
                                 <div className = "flex flex-col gap-2">
                                     <div className = "flex items-center justify-between gap-2"  onClick = {() => {setSubTopicSidebarActive(false); setChapter(null); setChapterActive(null);}}>   
                                         <h1 className = "cursor-pointer" onClick={() => setDropDown(null)}>Chemistry</h1>
@@ -101,14 +101,14 @@ const Lectures = () => {
                                         </button>
                                     </div>
                                     <div className={`overflow-hidden transition-all duration-300 ease-in-out ${dropDown === 5 ? 'max-h-96 opacity-100 overflow-y-auto' : 'max-h-0 opacity-0'}`}>
-                                        <div className = "flex flex-col gap-2 text-white p-2 border border-blue-400 rounded-md cursor-pointer">{chem.map((item , index) => ( <p className = {`text-lg p-2 rounded-md ${chapterActive === index+1 ? 'bg-gradient-to-r from-emerald-400 to-emerald-600' : 'hover:bg-emerald-400'} `} onClick = {() => {setChapter(index+1); setSubTopic(null); setButtonActive(null); setChapterActive(index+1)}} key={index}>{item}</p>))}
+                                        <div className = "flex flex-col gap-2 text-white p-2 border border-blue-400 rounded-md cursor-pointer">{chem.map((item , index) => ( <p className = {`text-lg p-2 rounded-md ${chapterActive === index+1 ? 'bg-gradient-to-r from-emerald-400 to-emerald-600' : 'hover:bg-emerald-400'} `} onClick = {() => {setChapter(index+1); setSubTopic(null); setButtonActive(null); setChapterActive(index+1); setSubTopicSidebarActive(true)}} key={index}>{item}</p>))}
                                         </div>
                                     </div>
                                 </div>
                             </h2>    
                         </div>
                         <div className = {`rounded-lg shadow-md text-white p-4 hover:scale-[110%] ${buttonActiveLecture === 6 ? 'bg-gradient-to-r from-blue-500 to-blue-700 text-white scale-[110%]' : 'hover:bg-blue-600 hover:text-white'}`} onClick={() => {setSelectedLecture(6); setSubTopic(null)}}>
-                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(6); document.getElementsByClassName("video")[0].width = 900; document.getElementsByClassName("video").height = 600}}>
+                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(6)}}>
                                 <div className = "flex flex-col gap-2">
                                     <div className = "flex items-center justify-between gap-2"  onClick = {() => {setSubTopicSidebarActive(false); setChapter(null); setChapterActive(null);}}>   
                                         <h1 className = "cursor-pointer" onClick={() => setDropDown(null)}>C Programming</h1>
@@ -117,14 +117,14 @@ const Lectures = () => {
                                         </button>
                                     </div>
                                     <div className={`overflow-hidden transition-all duration-300 ease-in-out ${dropDown === 6 ? 'max-h-96 opacity-100 overflow-y-auto' : 'max-h-0 opacity-0'}`}>
-                                        <div className = "flex flex-col gap-2 text-white p-2 border border-blue-400 rounded-md cursor-pointer">{clanguage.map((item , index) => ( <p className = {`text-lg p-2 rounded-md ${chapterActive === index+1 ? 'bg-gradient-to-r from-emerald-400 to-emerald-600' : 'hover:bg-emerald-400'} `} onClick = {() => {setChapter(index+1); setSubTopic(null); setButtonActive(null); setChapterActive(index+1)}} key={index}>{item}</p>))}
+                                        <div className = "flex flex-col gap-2 text-white p-2 border border-blue-400 rounded-md cursor-pointer">{clanguage.map((item , index) => ( <p className = {`text-lg p-2 rounded-md ${chapterActive === index+1 ? 'bg-gradient-to-r from-emerald-400 to-emerald-600' : 'hover:bg-emerald-400'} `} onClick = {() => {setChapter(index+1); setSubTopic(null); setButtonActive(null); setChapterActive(index+1); setSubTopicSidebarActive(true)}} key={index}>{item}</p>))}
                                         </div>
                                     </div>
                                 </div>
                             </h2>    
                         </div>
                         <div className = {`rounded-lg shadow-md text-white p-4 hover:scale-[110%] ${buttonActiveLecture === 7 ? 'bg-gradient-to-r from-blue-500 to-blue-700 text-white scale-[110%]' : 'hover:bg-blue-600 hover:text-white'}`} onClick={() => {setSelectedLecture(7); setSubTopic(null)}}>
-                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(7); document.getElementsByClassName("video")[0].width = 900; document.getElementsByClassName("video").height = 600}}>
+                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(7)}}>
                                 <div className = "flex items-center justify-between gap-2"  onClick = {() => {setSubTopicSidebarActive(false); setChapter(null); setChapterActive(null);}}>   
                                         <h1 className = "cursor-pointer" onClick={() => setDropDown(null)}>OOP Using Java</h1>
                                         <button onClick={() => setDropDown(dropDown === 7 ? 0 : 7)}>
@@ -132,7 +132,7 @@ const Lectures = () => {
                                         </button>
                                     </div>
                                     <div className={`overflow-hidden transition-all duration-300 ease-in-out ${dropDown === 7 ? 'max-h-96 opacity-100 overflow-y-auto' : 'max-h-0 opacity-0'}`}>
-                                        <div className = "flex flex-col gap-2 text-white p-2 border border-blue-400 rounded-md cursor-pointer">{java.map((item , index) => ( <p className = {`text-lg p-2 rounded-md ${chapterActive === index+1 ? 'bg-gradient-to-r from-emerald-400 to-emerald-600' : 'hover:bg-emerald-400'} `} onClick = {() => {setChapter(index+1); setSubTopic(null); setButtonActive(null); setChapterActive(index+1)}} key={index}>{item}</p>))}
+                                        <div className = "flex flex-col gap-2 text-white p-2 border border-blue-400 rounded-md cursor-pointer">{java.map((item , index) => ( <p className = {`text-lg p-2 rounded-md ${chapterActive === index+1 ? 'bg-gradient-to-r from-emerald-400 to-emerald-600' : 'hover:bg-emerald-400'} `} onClick = {() => {setChapter(index+1); setSubTopic(null); setButtonActive(null); setChapterActive(index+1); setSubTopicSidebarActive(true)}} key={index}>{item}</p>))}
                                         </div>
                                     </div>
                             </h2>    
