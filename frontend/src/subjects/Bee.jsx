@@ -141,7 +141,7 @@ const Bee = () => {
                                         Sub-Topics
                                     </h1>
                                 </div>
-                                <div className="flex flex-col gap-4">
+                                <div className="flex flex-col gap-4 overflow-hidden overflow-y-auto h-[1000px] pr-2">
                                     {chapterContent.map((subtopic, index) => (
                                         <h2
                                             key={index}
