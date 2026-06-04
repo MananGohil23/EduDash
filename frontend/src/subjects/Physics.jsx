@@ -1,8 +1,9 @@
 import React from 'react'
 import { useSubject } from '../context/SubjectContext';
+import { Star , StarOff } from 'lucide-react';
 
 const Physics = () => {
-    const { chapter, selectedLecture, subTopic, setSubTopic, buttonActive, setButtonActive, subTopicSidebarActive, setSubTopicSidebarActive } = useSubject();
+    const { chapter, selectedLecture, subTopic, setSubTopic, buttonActive, setButtonActive, subTopicSidebarActive, setSubTopicSidebarActive , starred, setStarred } = useSubject();
     const chapter1Content = ["Introduction to Optical Fibres", "Numerical Aperture of an Optical Fibre", "Problems on Numerical Aperture and Acceptance Angle", "Problems on V-Number and Modes of Propagation", "Step Index and Graded Index Fibres"];
     const chapter2Content = ["Introduction to Quantum Mechanics", "Phase Velocity and Group Velocity", "Heisenberg's Uncertainty Principle", "Schrödinger's Equation (Time Dependent)", "Schrödinger's Equation (Time Independent)", "Numerical Problems on Phase and Group Velocity"];
   return (
@@ -32,8 +33,10 @@ const Physics = () => {
                                 </div >
                                 <div className = {`${chapter === 1 ? 'block' : 'hidden'}`}>
                                     <div> {chapter1Content.map((subtopic , index) => (
-                                        <h1 className = {`text-3xl font-bold ml-4 mt-4 ${subTopic === index+1 ? 'block' : 'hidden'}`} key = {index}> {subtopic} </h1>
-                                        ))}
+                                        <h1 className = {`text-3xl font-bold ml-4 mt-4 flex justify-between ${subTopic === index+1 ? 'block' : 'hidden'}`} key = {index}> {subtopic}
+                                        {starred === index + 1 ? <StarOff className="mt-1" onClick={() => setStarred(null)}/> : <Star className="mt-1" color="gold" onClick={() => setStarred(index + 1)}/>}
+                                         </h1>
+                                        ))}  
                                     </div>
                                 </div>
                                 <div className = {`${chapter === 2 ? 'block' : 'hidden'}`}>

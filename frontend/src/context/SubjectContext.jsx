@@ -11,10 +11,11 @@ export const SubjectProvider = ({ children }) => {
     const [dropDown, setDropDown] = useState(null);
     const [chapter , setChapter] = useState(0);
     const [chapterActive , setChapterActive] = useState(null);
+    const [starred , setStarred] = useState(0);
 
 
     return (
-        <SubjectContext.Provider value={{ chapter, setChapter, selectedLecture, setSelectedLecture, subTopic, setSubTopic, buttonActive, setButtonActive, buttonActiveLecture, setButtonActiveLecture, subTopicSidebarActive, setSubTopicSidebarActive, dropDown, setDropDown, chapterActive, setChapterActive }}>
+        <SubjectContext.Provider value={{ chapter, setChapter, selectedLecture, setSelectedLecture, subTopic, setSubTopic, buttonActive, setButtonActive, buttonActiveLecture, setButtonActiveLecture, subTopicSidebarActive, setSubTopicSidebarActive, dropDown, setDropDown, chapterActive, setChapterActive, starred, setStarred }}>
             {children}
         </SubjectContext.Provider>
     );

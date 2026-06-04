@@ -2,7 +2,9 @@ import React from 'react'
 import { useSubject } from '../context/SubjectContext';
 
 const Physics = () => {
-    const { chapter, selectedLecture, subTopic, setSubTopic, buttonActive, setButtonActive, subTopicSidebarActive, setSubTopicSidebarActive } = useSubject();
+    const { chapter, selectedLecture, subTopic, setSubTopic, buttonActive, setButtonActive, subTopicSidebarActive, setSubTopicSidebarActive , setStarred
+        
+    } = useSubject();
     const chapter1Content = ["Introduction to Optical Fibres", "Numerical Aperture of an Optical Fibre", "Problems on Numerical Aperture and Acceptance Angle", "Problems on V-Number and Modes of Propagation", "Step Index and Graded Index Fibres"];
     const chapter2Content = ["Introduction to Quantum Mechanics", "Phase Velocity and Group Velocity", "Heisenberg's Uncertainty Principle", "Schrödinger's Equation (Time Dependent)", "Schrödinger's Equation (Time Independent)", "Numerical Problems on Phase and Group Velocity"];
   return (

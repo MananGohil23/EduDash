@@ -4,6 +4,7 @@ import attendance from "../../assets/attendance.jpg";
 import startLearning from "../../assets/startLearning.jpg";
 import assignments from "../../assets/assignments.jpg";
 import { useUser } from '../../context/UserContext';
+
 const Home = () => {
     const { user } = useUser();
     return (
