@@ -2,14 +2,11 @@ import React , {useState , useEffect} from 'react'
 import { useSubject } from '../context/SubjectContext';
 
 const playlists = {
-        1: "PLgwJf8NK-2e4d2AyXC7pvXtgJ51qz-HWV",
-        2: "PL81b_GzVmpj9NFwavO_SpM8uSFfpbUPLP",
-        3: "PLnU_6InKwomHnK2BzUmB1GD4LEG4dAAUS",
-        4: "PLm5sdXlz-wPmbrgB5XQJWufmS0ffMtFTp",
-        5: "PL81b_GzVmpj8ECOVlzS4ov-FC1j-YHdMC",
-        6: "PLm5sdXlz-wPnF73Q-AAnC8FtO92Jpc9JA"
+        1: "PL81b_GzVmpj_hN39sNfcpzssXM4G7dDSj",
+        2: "PL81b_GzVmpj_iPibA0J-aBNb-bitJHz2w",
+        3: "PLgwJf8NK-2e6bxsyFDqkSjn9pDhk7J-q8",
+        4: "PL81b_GzVmpj-OT81FF03ERn8ooCMVgycH"
     }
-
 
 
 const Bee = () => {
@@ -61,7 +58,7 @@ const Bee = () => {
                                         </h2>
                                         {videos.length > 0 && subTopic !== null && (
                                             <iframe
-                                                width="900"
+                                                width={subTopicSidebarActive ? "900" : "1200"}
                                                 height="600"
                                                 src={`https://www.youtube.com/embed/${videos[subTopic - 1]?.videoId}`}
                                                 title="YouTube video player"
@@ -89,25 +86,19 @@ const Bee = () => {
                                         Description
                                     </h1>
                                     <p className = {`text-gray-300 text-lg ${chapter === null ? 'block' : 'hidden'}`}>
-                                        We are going to learn about Physics. Physics is the branch of science concerned with the nature and properties of matter and energy. It encompasses a wide range of phenomena, from the smallest subatomic particles to the largest galaxies. In this course, we will explore various topics in physics, including mechanics, electromagnetism, thermodynamics, quantum mechanics, and more. Through lectures, demonstrations, and problem-solving sessions, we aim to develop a deep understanding of the fundamental principles that govern the physical world around us.
+                                        Basic Electrical Engineering (BEE) is a fundamental course that introduces students to the principles and applications of electrical engineering. The course covers a wide range of topics, including DC circuits, AC circuits, logic gates, latches and flip-flops, and communication systems. Through lectures, problem-solving sessions, and practical applications, students will gain a solid understanding of electrical engineering concepts and their relevance in various fields such as electronics, telecommunications, and power systems. By the end of this course, students will be equipped with the knowledge and skills necessary to analyze and design basic electrical circuits and systems.
                                     </p>
                                     <p className = {`text-gray-300 text-lg ${chapter === 1 ? 'block' : 'hidden'}`}>
-                                        This lecture covers the fundamentals of optical fibres, including their structure, working principle, and applications. It also delves into the concept of numerical aperture, which is crucial for understanding light propagation in fibres. The lecture includes problem-solving sessions on numerical aperture, acceptance angle, V-number, modes of propagation, and the differences between step index and graded index fibres. By the end of this lecture, students will have a solid understanding of optical fibres and their significance in modern communication systems.
+                                        DC Circuits are fundamental to understanding the flow of electric current in a circuit. This lecture covers the basic components of DC circuits, including resistors, capacitors, and inductors, as well as Ohm's Law and Kirchhoff's Laws. Students will learn how to analyze simple DC circuits using techniques such as series and parallel combinations, voltage division, and current division. The lecture also includes numerical problems to reinforce the theoretical concepts and enhance problem-solving skills in DC circuit analysis.
                                     </p>
                                     <p className={`text-gray-300 text-lg ${chapter === 2 ? 'block' : 'hidden'}`}>
-                                        This lecture provides an introduction to quantum mechanics, covering key concepts such as wave-particle duality, the uncertainty principle, and the time-dependent and time-independent Schrödinger equations. It also explores phase and group velocity, which are essential for understanding wave propagation in quantum systems. The lecture includes numerical problems to reinforce the theoretical concepts and enhance problem-solving skills in quantum mechanics.
+                                        AC Circuits are essential for understanding the behavior of electric circuits that operate with alternating current. This lecture covers the fundamental concepts of AC circuits, including sinusoidal waveforms, phasors, impedance, and power in AC circuits. Students will learn how to analyze AC circuits using techniques such as phasor diagrams, complex impedance, and power factor correction. The lecture also includes numerical problems to reinforce the theoretical concepts and enhance problem-solving skills in AC circuit analysis.
                                     </p>
                                     <p className={`text-gray-300 text-lg ${chapter === 3 ? 'block' : 'hidden'}`}>
-                                        This lecture explores the phenomena of interference and diffraction, which are fundamental to understanding wave behavior. It covers the principles of superposition, constructive and destructive interference, and the conditions for observing interference patterns. The lecture also delves into diffraction, including single-slit and double-slit diffraction, as well as diffraction gratings. By the end of this lecture, students will have a comprehensive understanding of how waves interact and the resulting patterns that emerge.
+                                        Logic Gates are the building blocks of digital circuits. This lecture covers the basic logic gates, including AND, OR, NOT, NAND, NOR, XOR, and XNOR gates. Students will learn how to analyze and design combinational logic circuits using these gates, as well as how to simplify logic expressions using Boolean algebra and Karnaugh maps. The lecture also includes numerical problems to reinforce the theoretical concepts and enhance problem-solving skills in digital logic design.
                                     </p>
                                     <p className={`text-gray-300 text-lg ${chapter === 4 ? 'block' : 'hidden'}`}>
-                                        This lecture focuses on sensors, which are devices that detect and respond to changes in the environment. It covers various types of sensors, including temperature sensors, pressure sensors, and optical sensors. The lecture also explores the principles of sensor operation, signal processing, and applications in different fields such as healthcare, automotive, and industrial automation. By the end of this lecture, students will have a solid understanding of sensor technology and its significance in modern society.   
-                                    </p>
-                                    <p className={`text-gray-300 text-lg ${chapter === 5 ? 'block' : 'hidden'}`}>
-                                        This lecture provides an overview of lasers, covering their principles of operation, types, and applications. It explores the concept of stimulated emission, population inversion, and the different components of a laser system. The lecture also delves into various types of lasers, including solid-state lasers, gas lasers, and semiconductor lasers. By the end of this lecture, students will have a comprehensive understanding of laser technology and its wide-ranging applications in fields such as medicine, communication, and manufacturing.
-                                    </p>
-                                    <p className={`text-gray-300 text-lg ${chapter === 6 ? 'block' : 'hidden'}`}>
-                                        This lecture covers the fundamentals of electrodynamics, which is the study of electric and magnetic fields and their interactions with charged particles. It explores Maxwell's equations, which describe how electric and magnetic fields are generated and altered by charges and currents. The lecture also delves into electromagnetic waves, their propagation, and applications in communication systems. By the end of this lecture, students will have a solid understanding of electrodynamics and its significance in modern physics and engineering.
+                                        Latches and Flip-Flops are fundamental components of sequential logic circuits. This lecture covers the basic types of latches and flip-flops, including SR latch, D latch, JK flip-flop, and T flip-flop. Students will learn how to analyze and design sequential logic circuits using these components, as well as how to create state diagrams and timing diagrams for sequential circuits. The lecture also includes numerical problems to reinforce the theoretical concepts and enhance problem-solving skills in sequential logic design.   
                                     </p>
                                 </div>
                                 <div className = "ring-1 ring-blue-400 rounded-lg shadow-lg shadow-slate-950/30 p-6 mt-4">
@@ -128,13 +119,13 @@ const Bee = () => {
                                 </div>
                             </div>
                             <div className = {`fixed top-24 right-4 ${subTopicSidebarActive ? 'hidden' : 'block'}`}>
-                                    <button className = {`flex justify-center bg-slate-900 text-white text-3xl rounded-lg shadow-lg shadow-slate-950/30 w-10 h-10 ${chapter === null ? 'hidden' : 'block'}`} onClick={() => {setSubTopicSidebarActive(!subTopicSidebarActive); document.getElementsByClassName("PhyVideo")[subTopic === null ? 0 : subTopic - 1].width = 900; document.getElementsByClassName("PhyVideo")[subTopic === null ? 0 : subTopic - 1].height = 600}}>
+                                    <button className = {`flex justify-center bg-slate-900 text-white text-3xl rounded-lg shadow-lg shadow-slate-950/30 w-10 h-10 ${chapter === null ? 'hidden' : 'block'}`} onClick={() => {setSubTopicSidebarActive(!subTopicSidebarActive)}}>
                                         {'<'}
                                     </button>     
                             </div>
                             <div className = {`rounded-lg shadow-lg shadow-slate-950/30 w-[300px] p-4 ${subTopicSidebarActive ? 'block' : 'hidden'} transition-all duration-300 ease-in-out`}>
                                 <div className = "flex bg-gradient-to-r from-slate-900 to-blue-900 rounded-lg text-white justify-start gap-8 p-2 mb-4"> 
-                                    <button className = "ml-2 mb-1 text-2xl" onClick={() => {setSubTopicSidebarActive(!subTopicSidebarActive); document.getElementsByClassName("PhyVideo")[subTopic === null ? 0 : subTopic - 1].width = 1200}}>
+                                    <button className = "ml-2 mb-1 text-2xl" onClick={() => {setSubTopicSidebarActive(!subTopicSidebarActive)}}>
                                         |||
                                     </button>
                                     <h1 className = "text-2xl font-bold">

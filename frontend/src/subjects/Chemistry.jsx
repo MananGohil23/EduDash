@@ -2,12 +2,12 @@ import React , {useState , useEffect} from 'react'
 import { useSubject } from '../context/SubjectContext';
 
 const playlists = {
-        1: "PLgwJf8NK-2e4d2AyXC7pvXtgJ51qz-HWV",
-        2: "PL81b_GzVmpj9NFwavO_SpM8uSFfpbUPLP",
-        3: "PLnU_6InKwomHnK2BzUmB1GD4LEG4dAAUS",
-        4: "PLm5sdXlz-wPmbrgB5XQJWufmS0ffMtFTp",
-        5: "PL81b_GzVmpj8ECOVlzS4ov-FC1j-YHdMC",
-        6: "PLm5sdXlz-wPnF73Q-AAnC8FtO92Jpc9JA"
+        1: "PLiYAH68F-CTBTtumVFNH8exEvjWtUYdw_",
+        2: "PLLf6O8XdGj03fkukqcW7HOTSK8u_up7nJ",
+        3: "PLHWPZcIu1IxAvwCMNUukY5b0jJlNkxbw-",
+        4: "PLLf6O8XdGj00RTPIi8Gn0zXuaaZvcUDj4",
+        5: "PLLf6O8XdGj01keitLZ0scBnH80-MnNdu4",
+        6: "PLT3bOBUU3L9j-0wblhAeSTODcI_uQNL5R"
     }
 
 
@@ -61,7 +61,7 @@ const Chemistry = () => {
                                         </h2>
                                         {videos.length > 0 && subTopic !== null && (
                                             <iframe
-                                                width="900"
+                                                width={subTopicSidebarActive ? "900" : "1200"}
                                                 height="600"
                                                 src={`https://www.youtube.com/embed/${videos[subTopic - 1]?.videoId}`}
                                                 title="YouTube video player"
@@ -128,13 +128,13 @@ const Chemistry = () => {
                                 </div>
                             </div>
                             <div className = {`fixed top-24 right-4 ${subTopicSidebarActive ? 'hidden' : 'block'}`}>
-                                    <button className = {`flex justify-center bg-slate-900 text-white text-3xl rounded-lg shadow-lg shadow-slate-950/30 w-10 h-10 ${chapter === null ? 'hidden' : 'block'}`} onClick={() => {setSubTopicSidebarActive(!subTopicSidebarActive); document.getElementsByClassName("PhyVideo")[subTopic === null ? 0 : subTopic - 1].width = 900; document.getElementsByClassName("PhyVideo")[subTopic === null ? 0 : subTopic - 1].height = 600}}>
+                                    <button className = {`flex justify-center bg-slate-900 text-white text-3xl rounded-lg shadow-lg shadow-slate-950/30 w-10 h-10 ${chapter === null ? 'hidden' : 'block'}`} onClick={() => {setSubTopicSidebarActive(!subTopicSidebarActive)}}>
                                         {'<'}
                                     </button>     
                             </div>
                             <div className = {`rounded-lg shadow-lg shadow-slate-950/30 w-[300px] p-4 ${subTopicSidebarActive ? 'block' : 'hidden'} transition-all duration-300 ease-in-out`}>
                                 <div className = "flex bg-gradient-to-r from-slate-900 to-blue-900 rounded-lg text-white justify-start gap-8 p-2 mb-4"> 
-                                    <button className = "ml-2 mb-1 text-2xl" onClick={() => {setSubTopicSidebarActive(!subTopicSidebarActive); document.getElementsByClassName("PhyVideo")[subTopic === null ? 0 : subTopic - 1].width = 1200}}>
+                                    <button className = "ml-2 mb-1 text-2xl" onClick={() => {setSubTopicSidebarActive(!subTopicSidebarActive)}}>
                                         |||
                                     </button>
                                     <h1 className = "text-2xl font-bold">

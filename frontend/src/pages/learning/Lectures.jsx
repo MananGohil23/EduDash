@@ -14,11 +14,11 @@ const Lectures = () => {
 
     const physics = ["1. Fibre Optics" , "2. Quantum Mechanics" , "3. Interference and Diffraction" , "4. Sensors" , "5. Lasers" , "6. Electodynamics"];
     const maths = ["1. Matrices" , "2. Complex Numbers, Hyperbolic function and Logarithm of Complex Numbers" , "3. Partial Differentiation" , "4. Application of Partial Differentiation" , "5. Numerical Methods" , "6. Beta and Gamma Functions and DUIS" , "7. Multiple Integrals" , "8. Differential Equations of First Order and First Degree" , "9. Higher Order Linear Differential Equations with Constant Coefficients and Variable Coefficients"];
-    const bee = ["1. AC Circuits" , "2. Digital Electronics" , "3. Logic Gates" , "4. Communication Systems"];
-    const cem = ["1. Strength of Materials" , "2. Fluid Mechanics" , "3. Structural Analysis" , "4. Geotechnical Engineering"];
-    const chem = ["1. Organic Chemistry" , "2. Inorganic Chemistry" , "3. Physical Chemistry" , "4. Analytical Chemistry"];
-    const clanguage = ["1. Introduction to C" , "2. Variables and Data Types" , "3. Arrays" , "4. Pointers" , "5. Functions" , "6. Structures" , "7. File Handling"];
-    const java = ["1. Introduction to Java" , "2. Object-Oriented Programming" , "3. Inheritance and Polymorphism" , "4. Exception Handling" , "5. Collections Framework" , "6. Multithreading" , "7. JavaFX" , "8. JDBC" , "9. Servlets and JSP" , "10. Spring Framework" , "11. Hibernate" , "12. Design Patterns" , "13. Java Best Practices" , "14. Java Interview Questions" , "15. Java Projects"];
+    const bee = ["1. DC Circuits" , "2. AC Circuits" , "3. Logic Gates" , "4. Latches and Flip-Flops"];
+    const cem = ["1. System of Forces" , "2. Equilibrium of Rigid Bodies" , "3. Friction" , "4. Robot Kinematics (ICR)"];
+    const chem = ["1. Spectroscopic Techniques and Applications" , "2. Green Chemistry" , "3. Polymers" , "4. Fuels and Combustion" , "5. Phase Rule and Applications" , "6. Water Technology"];
+    const clanguage = ["1. C Programming (Pradeep Giri)" , "2. C Programming (Apna College 10hr One Shot)"];
+    const java = ["1. OOP using Java (Kunal Kushwaha)" , "2. Java and DSA with Java (Apna College)"];
     return (
         <>
             <div className = "bg-gradient-to-r from-slate-900 to-blue-700 pt-[60px] min-h-screen flex">

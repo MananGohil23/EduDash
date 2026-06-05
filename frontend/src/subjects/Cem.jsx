@@ -2,12 +2,10 @@ import React , {useState , useEffect} from 'react'
 import { useSubject } from '../context/SubjectContext';
 
 const playlists = {
-        1: "PLgwJf8NK-2e4d2AyXC7pvXtgJ51qz-HWV",
-        2: "PL81b_GzVmpj9NFwavO_SpM8uSFfpbUPLP",
-        3: "PLnU_6InKwomHnK2BzUmB1GD4LEG4dAAUS",
-        4: "PLm5sdXlz-wPmbrgB5XQJWufmS0ffMtFTp",
-        5: "PL81b_GzVmpj8ECOVlzS4ov-FC1j-YHdMC",
-        6: "PLm5sdXlz-wPnF73Q-AAnC8FtO92Jpc9JA"
+        1: "PLT3bOBUU3L9jVJYwDCDE8FOJDvr0cU6U0",
+        2: "PLT3bOBUU3L9gUQNXoRtPX-wW9QXq31c4r",
+        3: "PLT3bOBUU3L9jJXGSFC_BQczz7nZpmcjO6",
+        4: "PL81b_GzVmpj_f5oVMbGVzS757qTB94UDo"
     }
 
 
@@ -61,7 +59,7 @@ const Cem = () => {
                                         </h2>
                                         {videos.length > 0 && subTopic !== null && (
                                             <iframe
-                                                width="900"
+                                                width={subTopicSidebarActive ? "900" : "1200"}
                                                 height="600"
                                                 src={`https://www.youtube.com/embed/${videos[subTopic - 1]?.videoId}`}
                                                 title="YouTube video player"
@@ -89,25 +87,19 @@ const Cem = () => {
                                         Description
                                     </h1>
                                     <p className = {`text-gray-300 text-lg ${chapter === null ? 'block' : 'hidden'}`}>
-                                        We are going to learn about Physics. Physics is the branch of science concerned with the nature and properties of matter and energy. It encompasses a wide range of phenomena, from the smallest subatomic particles to the largest galaxies. In this course, we will explore various topics in physics, including mechanics, electromagnetism, thermodynamics, quantum mechanics, and more. Through lectures, demonstrations, and problem-solving sessions, we aim to develop a deep understanding of the fundamental principles that govern the physical world around us.
+                                        Computational Engineering Mechanics (CEM) is a multidisciplinary field that combines principles of engineering, mathematics, and computer science to analyze and solve complex problems in various engineering domains. It involves the use of computational methods and simulations to model and predict the behavior of physical systems, such as structures, fluids, and materials. CEM is widely used in industries such as aerospace, automotive, civil engineering, and manufacturing to optimize designs, improve performance, and reduce costs. By leveraging advanced algorithms and high-performance computing, CEM enables engineers to gain insights into the behavior of complex systems and make informed decisions in the design and analysis process.
                                     </p>
                                     <p className = {`text-gray-300 text-lg ${chapter === 1 ? 'block' : 'hidden'}`}>
-                                        This lecture covers the fundamentals of optical fibres, including their structure, working principle, and applications. It also delves into the concept of numerical aperture, which is crucial for understanding light propagation in fibres. The lecture includes problem-solving sessions on numerical aperture, acceptance angle, V-number, modes of propagation, and the differences between step index and graded index fibres. By the end of this lecture, students will have a solid understanding of optical fibres and their significance in modern communication systems.
+                                        System of Forces is a fundamental concept in engineering mechanics that involves analyzing the forces acting on a body or structure. It encompasses the study of equilibrium, where the sum of forces and moments must equal zero for a system to be in a state of balance. This topic covers various types of forces, including gravitational, normal, frictional, and applied forces, as well as their interactions and effects on structures. Understanding the system of forces is crucial for designing safe and efficient structures, as it allows engineers to predict how a structure will respond to different loading conditions and ensure its stability and integrity.
                                     </p>
                                     <p className={`text-gray-300 text-lg ${chapter === 2 ? 'block' : 'hidden'}`}>
-                                        This lecture provides an introduction to quantum mechanics, covering key concepts such as wave-particle duality, the uncertainty principle, and the time-dependent and time-independent Schrödinger equations. It also explores phase and group velocity, which are essential for understanding wave propagation in quantum systems. The lecture includes numerical problems to reinforce the theoretical concepts and enhance problem-solving skills in quantum mechanics.
+                                        Equilibrium of Rigid Bodies is a fundamental topic in engineering mechanics that focuses on the conditions necessary for a rigid body to be in a state of equilibrium. It involves analyzing the forces and moments acting on a body and ensuring that they balance each other out. This topic covers concepts such as free-body diagrams, the principles of statics, and the application of equilibrium equations to solve for unknown forces and moments. Understanding the equilibrium of rigid bodies is essential for designing structures and mechanical systems that can withstand various loading conditions without collapsing or experiencing excessive deformation.
                                     </p>
                                     <p className={`text-gray-300 text-lg ${chapter === 3 ? 'block' : 'hidden'}`}>
-                                        This lecture explores the phenomena of interference and diffraction, which are fundamental to understanding wave behavior. It covers the principles of superposition, constructive and destructive interference, and the conditions for observing interference patterns. The lecture also delves into diffraction, including single-slit and double-slit diffraction, as well as diffraction gratings. By the end of this lecture, students will have a comprehensive understanding of how waves interact and the resulting patterns that emerge.
+                                        Friction is a force that opposes the relative motion or tendency of motion between two surfaces in contact. It plays a crucial role in engineering mechanics, as it affects the behavior of structures and mechanical systems. This topic covers different types of friction, including static friction, kinetic friction, and rolling friction, as well as their characteristics and applications. Understanding friction is essential for designing systems that can effectively manage and utilize this force, such as brakes, clutches, and tires, to ensure safety and performance in various engineering applications.
                                     </p>
                                     <p className={`text-gray-300 text-lg ${chapter === 4 ? 'block' : 'hidden'}`}>
-                                        This lecture focuses on sensors, which are devices that detect and respond to changes in the environment. It covers various types of sensors, including temperature sensors, pressure sensors, and optical sensors. The lecture also explores the principles of sensor operation, signal processing, and applications in different fields such as healthcare, automotive, and industrial automation. By the end of this lecture, students will have a solid understanding of sensor technology and its significance in modern society.   
-                                    </p>
-                                    <p className={`text-gray-300 text-lg ${chapter === 5 ? 'block' : 'hidden'}`}>
-                                        This lecture provides an overview of lasers, covering their principles of operation, types, and applications. It explores the concept of stimulated emission, population inversion, and the different components of a laser system. The lecture also delves into various types of lasers, including solid-state lasers, gas lasers, and semiconductor lasers. By the end of this lecture, students will have a comprehensive understanding of laser technology and its wide-ranging applications in fields such as medicine, communication, and manufacturing.
-                                    </p>
-                                    <p className={`text-gray-300 text-lg ${chapter === 6 ? 'block' : 'hidden'}`}>
-                                        This lecture covers the fundamentals of electrodynamics, which is the study of electric and magnetic fields and their interactions with charged particles. It explores Maxwell's equations, which describe how electric and magnetic fields are generated and altered by charges and currents. The lecture also delves into electromagnetic waves, their propagation, and applications in communication systems. By the end of this lecture, students will have a solid understanding of electrodynamics and its significance in modern physics and engineering.
+                                        Kinematics of Rigid Bodies is a fundamental topic in engineering mechanics that focuses on the motion of rigid bodies without considering the forces that cause the motion. It involves analyzing the position, velocity, and acceleration of rigid bodies in two or three-dimensional space. This topic covers concepts such as relative motion, angular velocity, and the use of coordinate systems to describe the motion of rigid bodies. Understanding kinematics is essential for designing and analyzing mechanical systems, as it allows engineers to predict how a body will move under various conditions and ensure its proper functioning in applications such as robotics, vehicle dynamics, and machinery design.   
                                     </p>
                                 </div>
                                 <div className = "ring-1 ring-blue-400 rounded-lg shadow-lg shadow-slate-950/30 p-6 mt-4">
@@ -128,20 +120,20 @@ const Cem = () => {
                                 </div>
                             </div>
                             <div className = {`fixed top-24 right-4 ${subTopicSidebarActive ? 'hidden' : 'block'}`}>
-                                    <button className = {`flex justify-center bg-slate-900 text-white text-3xl rounded-lg shadow-lg shadow-slate-950/30 w-10 h-10 ${chapter === null ? 'hidden' : 'block'}`} onClick={() => {setSubTopicSidebarActive(!subTopicSidebarActive); document.getElementsByClassName("PhyVideo")[subTopic === null ? 0 : subTopic - 1].width = 900; document.getElementsByClassName("PhyVideo")[subTopic === null ? 0 : subTopic - 1].height = 600}}>
+                                    <button className = {`flex justify-center bg-slate-900 text-white text-3xl rounded-lg shadow-lg shadow-slate-950/30 w-10 h-10 ${chapter === null ? 'hidden' : 'block'}`} onClick={() => {setSubTopicSidebarActive(!subTopicSidebarActive)}}>
                                         {'<'}
                                     </button>     
                             </div>
                             <div className = {`rounded-lg shadow-lg shadow-slate-950/30 w-[300px] p-4 ${subTopicSidebarActive ? 'block' : 'hidden'} transition-all duration-300 ease-in-out`}>
                                 <div className = "flex bg-gradient-to-r from-slate-900 to-blue-900 rounded-lg text-white justify-start gap-8 p-2 mb-4"> 
-                                    <button className = "ml-2 mb-1 text-2xl" onClick={() => {setSubTopicSidebarActive(!subTopicSidebarActive); document.getElementsByClassName("PhyVideo")[subTopic === null ? 0 : subTopic - 1].width = 1200}}>
+                                    <button className = "ml-2 mb-1 text-2xl" onClick={() => {setSubTopicSidebarActive(!subTopicSidebarActive)}}>
                                         |||
                                     </button>
                                     <h1 className = "text-2xl font-bold">
                                         Sub-Topics
                                     </h1>
                                 </div>
-                                <div className="flex flex-col gap-4 overflow-hidden overflow-y-auto h-[500px] pr-2">
+                                <div className="flex flex-col gap-4 overflow-hidden overflow-y-auto h-[1000px] pr-2">
                                     {chapterContent.map((subtopic, index) => (
                                         <h2
                                             key={index}

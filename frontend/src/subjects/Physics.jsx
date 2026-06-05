@@ -144,7 +144,7 @@ const Physics = () => {
                                             key={index}
                                             className={`rounded-lg p-4 text-xl font-bold ${
                                                 buttonActive === index + 1
-                                                    ? 'bg-slate-900 text-white scale-[110%]'
+                                                    ? 'bg-slate-900 rounded-lg text-white scale-[110%]'
                                                     : 'hover:bg-blue-500'
                                             }`}
                                             onClick={() => {
