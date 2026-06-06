@@ -65,11 +65,6 @@ const Assignments = () => {
             a => a.status === "Submitted"
         ).length;
 
-        const pending =
-        assignments.filter(
-            a => a.status === "Pending"
-        ).length;
-
         const overdue =
         assignments.filter(
             a =>
@@ -138,7 +133,7 @@ const Assignments = () => {
                     }
                     className="w-full p-2 mb-4 rounded-lg text-black"
                 />
-                
+
                 <p>
                     Due Date:
                 </p>
