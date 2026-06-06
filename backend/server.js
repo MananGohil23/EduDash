@@ -11,6 +11,8 @@ const connectDB = require('./config/db')
 
 const authRoutes = require('./routes/authRoutes')
 
+const assignmentRoutes = require("./routes/assignmentRoutes");
+
 dotenv.config()
 
 connectDB()
@@ -24,6 +26,8 @@ app.use(express.json())
 app.use('/api/auth', authRoutes)
 
 app.use("/api/attendance", attendanceRoutes);
+
+app.use("/api/assignments", assignmentRoutes);
 
 app.get('/', (req, res) => {
   res.json({ message: 'Backend running' })
