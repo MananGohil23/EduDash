@@ -27,10 +27,14 @@ const Lectures = () => {
                         Subjects
                     </h1>
                     <div className = "flex flex-col gap-4 transition">
-                        <div className = {`rounded-lg shadow-md text-white p-4 hover:scale-[110%] ${buttonActiveLecture === 1 ? 'bg-gradient-to-r from-blue-500 to-blue-700 text-white scale-[110%]' : 'hover:bg-blue-600 hover:text-white'}`} onClick={() => {setSelectedLecture(1); setSubTopic(null)}}>
+                        <div className = {`rounded-lg shadow-md text-white p-4 hover:scale-[110%] ${buttonActiveLecture === 1 ? 'bg-gradient-to-r from-blue-500 to-blue-700 text-white scale-[110%]' : 'hover:bg-blue-600 hover:text-white'}`} onClick={() => {setSelectedLecture(1); if(selectedLecture !== 1){
+                            setChapter(null);
+                            setSubTopic(null);
+                            setChapterActive(null);
+                        }}}>
                             <div className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(1)}}>
                                 <div className = "flex flex-col gap-2">
-                                    <div className = "flex items-center justify-between gap-2" onClick = {() => {setSubTopicSidebarActive(false); setChapter(null); setChapterActive(null);}}>   
+                                    <div className = "flex items-center justify-between">   
                                         <h1 className = "cursor-pointer" onClick={() =>setDropDown(null)}>Physics</h1>
                                         <button onClick={() => setDropDown(dropDown === 1 ? 0 : 1)}>
                                             {dropDown === 1 ? <FaChevronUp /> : <FaChevronDown />}
@@ -43,7 +47,12 @@ const Lectures = () => {
                                 </div>
                             </div>    
                         </div>
-                        <div className = {`rounded-lg shadow-md text-white p-4 hover:scale-[110%] ${buttonActiveLecture === 2 ? 'bg-gradient-to-r from-blue-500 to-blue-700 text-white scale-[110%]' : 'hover:bg-blue-600 hover:text-white'}`} onClick={() => {setSelectedLecture(2); setSubTopic(null)}}>
+                        <div className = {`rounded-lg shadow-md text-white p-4 hover:scale-[110%] ${buttonActiveLecture === 2 ? 'bg-gradient-to-r from-blue-500 to-blue-700 text-white scale-[110%]' : 'hover:bg-blue-600 hover:text-white'}`} onClick={() => {setSelectedLecture(2); if(selectedLecture !== 2){
+                                    setChapter(null);
+                                    setSubTopic(null);
+                                    setChapterActive(null);
+                                }
+                        }}>
                             <div className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(2)}}>
                                 <div className = "flex flex-col gap-2">
                                     <div className = "flex items-center justify-between gap-2" onClick = {() => {setSubTopicSidebarActive(false); setChapter(null); setChapterActive(null);}}>   
@@ -59,7 +68,12 @@ const Lectures = () => {
                                 </div>
                             </div>    
                         </div>
-                        <div className = {`rounded-lg shadow-md text-white p-4 hover:scale-[110%] ${buttonActiveLecture === 3 ? 'bg-gradient-to-r from-blue-500 to-blue-700 text-white scale-[110%]' : 'hover:bg-blue-600 hover:text-white'}`} onClick={() => {setSelectedLecture(3); setSubTopic(null)}}>
+                        <div className = {`rounded-lg shadow-md text-white p-4 hover:scale-[110%] ${buttonActiveLecture === 3 ? 'bg-gradient-to-r from-blue-500 to-blue-700 text-white scale-[110%]' : 'hover:bg-blue-600 hover:text-white'}`} onClick={() => {setSelectedLecture(3); if(selectedLecture !== 3){
+                                    setChapter(null);
+                                    setSubTopic(null);
+                                    setChapterActive(null);
+                                }
+                            }}>
                             <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(3)}}>
                                 <div className = "flex flex-col gap-2">
                                     <div className = "flex items-center justify-between gap-2"  onClick = {() => {setSubTopicSidebarActive(false); setChapter(null); setChapterActive(null);}}>   
@@ -75,7 +89,12 @@ const Lectures = () => {
                                 </div>
                             </h2>    
                         </div>
-                        <div className = {`rounded-lg shadow-md text-white p-4 hover:scale-[110%] ${buttonActiveLecture === 4 ? 'bg-gradient-to-r from-blue-500 to-blue-700 text-white scale-[110%]' : 'hover:bg-blue-600 hover:text-white'}`} onClick={() => {setSelectedLecture(4); setSubTopic(null)}}>
+                        <div className = {`rounded-lg shadow-md text-white p-4 hover:scale-[110%] ${buttonActiveLecture === 4 ? 'bg-gradient-to-r from-blue-500 to-blue-700 text-white scale-[110%]' : 'hover:bg-blue-600 hover:text-white'}`} onClick={() => {setSelectedLecture(4); if(selectedLecture !== 4){
+                                    setChapter(null);
+                                    setSubTopic(null);
+                                    setChapterActive(null);
+                                }
+                            }}>
                             <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(4)}}>
                                 <div className = "flex flex-col gap-2">
                                     <div className = "flex items-center justify-between gap-2"  onClick = {() => {setSubTopicSidebarActive(false); setChapter(null); setChapterActive(null);}}>   
@@ -91,7 +110,12 @@ const Lectures = () => {
                                 </div>
                             </h2>    
                         </div>
-                        <div className = {`rounded-lg shadow-md text-white p-4 hover:scale-[110%] ${buttonActiveLecture === 5 ? 'bg-gradient-to-r from-blue-500 to-blue-700 text-white scale-[110%]' : 'hover:bg-blue-600 hover:text-white'}`} onClick={() => {setSelectedLecture(5); setSubTopic(null)}}>
+                        <div className = {`rounded-lg shadow-md text-white p-4 hover:scale-[110%] ${buttonActiveLecture === 5 ? 'bg-gradient-to-r from-blue-500 to-blue-700 text-white scale-[110%]' : 'hover:bg-blue-600 hover:text-white'}`} onClick={() => {setSelectedLecture(5); if(selectedLecture !== 5){
+                                    setChapter(null);
+                                    setSubTopic(null);
+                                    setChapterActive(null);
+                                }
+                            }}>
                             <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(5)}}>
                                 <div className = "flex flex-col gap-2">
                                     <div className = "flex items-center justify-between gap-2"  onClick = {() => {setSubTopicSidebarActive(false); setChapter(null); setChapterActive(null);}}>   
@@ -107,7 +131,12 @@ const Lectures = () => {
                                 </div>
                             </h2>    
                         </div>
-                        <div className = {`rounded-lg shadow-md text-white p-4 hover:scale-[110%] ${buttonActiveLecture === 6 ? 'bg-gradient-to-r from-blue-500 to-blue-700 text-white scale-[110%]' : 'hover:bg-blue-600 hover:text-white'}`} onClick={() => {setSelectedLecture(6); setSubTopic(null)}}>
+                        <div className = {`rounded-lg shadow-md text-white p-4 hover:scale-[110%] ${buttonActiveLecture === 6 ? 'bg-gradient-to-r from-blue-500 to-blue-700 text-white scale-[110%]' : 'hover:bg-blue-600 hover:text-white'}`} onClick={() => {setSelectedLecture(6); if(selectedLecture !== 6){
+                                    setChapter(null);
+                                    setSubTopic(null);
+                                    setChapterActive(null);
+                                }
+                            }}>
                             <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(6)}}>
                                 <div className = "flex flex-col gap-2">
                                     <div className = "flex items-center justify-between gap-2"  onClick = {() => {setSubTopicSidebarActive(false); setChapter(null); setChapterActive(null);}}>   
@@ -123,7 +152,12 @@ const Lectures = () => {
                                 </div>
                             </h2>    
                         </div>
-                        <div className = {`rounded-lg shadow-md text-white p-4 hover:scale-[110%] ${buttonActiveLecture === 7 ? 'bg-gradient-to-r from-blue-500 to-blue-700 text-white scale-[110%]' : 'hover:bg-blue-600 hover:text-white'}`} onClick={() => {setSelectedLecture(7); setSubTopic(null)}}>
+                        <div className = {`rounded-lg shadow-md text-white p-4 hover:scale-[110%] ${buttonActiveLecture === 7 ? 'bg-gradient-to-r from-blue-500 to-blue-700 text-white scale-[110%]' : 'hover:bg-blue-600 hover:text-white'}`} onClick={() => {setSelectedLecture(7); if(selectedLecture !== 7){
+                                    setChapter(null);
+                                    setSubTopic(null);
+                                    setChapterActive(null);
+                                }
+                            }}>
                             <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(7)}}>
                                 <div className = "flex items-center justify-between gap-2"  onClick = {() => {setSubTopicSidebarActive(false); setChapter(null); setChapterActive(null);}}>   
                                         <h1 className = "cursor-pointer" onClick={() => setDropDown(null)}>OOP Using Java</h1>
