@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API =
-"http://localhost:5000/api/assignments";
+"https://edudash-hyka.onrender.com/api/assignments";
 
 const getToken = () =>
     sessionStorage.getItem("token");
