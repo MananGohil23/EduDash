@@ -18,8 +18,9 @@ export const AuthProvider = ({ children }) => {
     };
 
     const logout = () => {
-        sessionStorage.removeItem("token");
+        sessionStorage.clear();
         setIsLoggedIn(false);
+        window.location.href = "/";
     };
 
 return (

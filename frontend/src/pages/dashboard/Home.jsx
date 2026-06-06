@@ -11,7 +11,7 @@ const Home = () => {
         <>
             <div className = "bg-gradient-to-r from-slate-900 to-blue-800 pt-[60px] min-h-screen">
                 <h1 className = "w-full flex justify-center items-center text-4xl p-6 font-bold text-white">
-                   Hello {user}, Welcome to EduDash.   
+                   Hello {user?.username || "User"}, Welcome to EduDash.   
                 </h1>
                 <div className = "flex text-white font-bold justify-center items-center text-2xl">
                     Latest Announcements

@@ -5,9 +5,18 @@ import { useNavigate, Link, Navigate } from "react-router-dom";
 import { registerUser } from "../../services/authService";
 
 import { useAuth } from "../../context/AuthContext";
+
 import landingBG from "../../assets/landingbg.png"
 
+import { useUser } from "../../context/UserContext";
+
+
 const Register = () => {
+
+    const [studentID, setStudentID] = useState("");
+    const [collegeName, setCollegeName] = useState("");
+
+    const { setUser } = useUser();
 
     const navigate = useNavigate();
 
@@ -18,6 +27,8 @@ const Register = () => {
 
     const [enteredPassword, setEnteredPassword] =
         useState("");
+    
+    
 
     const handleRegister = async () => {
 
@@ -25,10 +36,18 @@ const Register = () => {
 
             const data = await registerUser({
                 username: enteredUsername,
-                password: enteredPassword
+                password: enteredPassword,
+                studentID: studentID,
+                collegeName: collegeName
             });
 
             login(data.token);
+
+            setUser({
+                username: data.username,
+                studentID: data.studentID,
+                collegeName: data.collegeName
+            });
 
             navigate("/home");
 
@@ -62,6 +81,8 @@ const Register = () => {
                     onClick={() => {
                         setEnteredUsername("");
                         setEnteredPassword("");
+                        setStudentID("");
+                        setCollegeName("");
                     }}
                 >
                     clear
@@ -83,7 +104,25 @@ const Register = () => {
                     onChange={(e) =>
                         setEnteredPassword(e.target.value)
                     }
-                    className="w-full px-4 py-2 border border-gray-300 rounded mb-8 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-2 border border-gray-300 rounded mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+                <input
+                    type="text"
+                    placeholder="Enter Student ID"
+                    value={studentID}
+                    onChange={(e) =>
+                        setStudentID(e.target.value)
+                    }
+                    className="w-full px-4 py-2 border border-gray-300 rounded mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+                <input
+                    type="text"
+                    placeholder="Enter College Name"
+                    value={collegeName}
+                    onChange={(e) =>
+                        setCollegeName(e.target.value)
+                    }
+                    className="w-full px-4 py-2 border border-gray-300 rounded mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
 
                 <button

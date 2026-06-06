@@ -10,7 +10,7 @@ const register = async (req, res) => {
 
   try {
 
-    const { username, password } = req.body
+    const { username, password , studentID, collegeName } = req.body
 
     const existingUser = await User.findOne({ username })
 
@@ -24,12 +24,16 @@ const register = async (req, res) => {
 
     const user = await User.create({
       username,
-      password: hashedPassword
+      password: hashedPassword,
+      studentID,
+      collegeName
     })
 
     res.status(201).json({
       token: generateToken(user._id),
-      username: user.username
+      username: user.username,
+      studentID: user.studentID,
+      collegeName: user.collegeName
     });
 
   } catch (err) {
@@ -78,7 +82,7 @@ const login = async (req, res) => {
       }
     )
 
-    res.json({ token, username: user.username });
+    res.json({ token, username: user.username, studentID: user.studentID, collegeName: user.collegeName });
 
   } catch (err) {
 

@@ -8,15 +8,16 @@ export const UserProvider = ({children}) => {
     );
 
     const saveUser = (userData) => {
-        setUser(userData);
-        sessionStorage.setItem(
-            "user",
-            JSON.stringify(userData)
-        );
-    };
+            setUser(userData);
+            sessionStorage.setItem(
+                "user",
+                JSON.stringify(userData)
+            );
+        };
+
 
     return (
-        <UserContext.Provider value={{ user, setUser: saveUser}}>
+        <UserContext.Provider value={{ user, setUser: saveUser }}>
             {children}
         </UserContext.Provider>
     );

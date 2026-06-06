@@ -21,14 +21,18 @@ const LandingLogin = () => {
 
         const data = await loginUser({
             username: enteredUsername,
-            password: enteredPassword
+            password: enteredPassword,  
         });
 
         console.log("Login successful, received data:", data);
 
         login(data.token);
 
-        setUser(data.username);
+        setUser({
+            username: data.username,
+            studentID: data.studentID,
+            collegeName: data.collegeName
+        });
 
         navigate("/home");
 
