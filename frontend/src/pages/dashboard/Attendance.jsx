@@ -43,7 +43,7 @@ const Attendance = () => {
 
         formData.append("attendanceFile", file);
 
-        const res = await axios.post("http://localhost:5000/api/attendance/upload", formData);
+        const res = await axios.post("https://edudash-hyka.onrender.com/api/attendance/upload", formData);
 
         setAttendanceData(res.data);
 
