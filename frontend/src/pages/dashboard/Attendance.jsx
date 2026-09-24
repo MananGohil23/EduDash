@@ -48,7 +48,7 @@ const Attendance = () => {
       ? Number(((overall.present / overall.total) * 100).toFixed(2))
       : 0;
 
-  const hasData = Object.keys(attendanceData).length > 0;
+  const hasData = subjects.length > 0;
 
   const handleUpload = async () => {
     if (!file) {
@@ -74,7 +74,19 @@ const Attendance = () => {
         }
       );
 
-      setAttendanceData(res.data);
+      const parsed = res.data || {};
+      const validSubjects = Object.keys(parsed).filter(
+        (name) => name.trim() !== ""
+      );
+
+      if (validSubjects.length === 0) {
+        setError(
+          "No subjects were found in this PDF. Please upload your institution's Detailed Attendance report."
+        );
+        return;
+      }
+
+      setAttendanceData(parsed);
       setSuccess(true);
     } catch (err) {
       console.log(err);
