@@ -101,7 +101,7 @@ const Lectures = () => {
                     expanded ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
                   }`}
                 >
-                  <div className="space-y-1 overflow-y-auto border-t border-slate-100 p-2 dark:border-slate-800">
+                  <div className="max-h-80 space-y-1 overflow-y-auto border-t border-slate-100 p-2 dark:border-slate-800">
                     {subject.chapters.map((title, index) => {
                       const active = chapterActive === index + 1;
                       return (
