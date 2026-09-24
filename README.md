@@ -244,7 +244,7 @@ All protected routes require an `Authorization: Bearer <token>` header.
 ## 🔮 Roadmap
 
 - [ ] 📅 Timetable / schedule integration
-- [ ] 📈 Attendance shortage prediction (lectures needed to hit 75%)
+- [x] 📈 Attendance shortage prediction (lectures needed to hit 75%)
 - [x] 🌙 Dark mode toggle
 - [ ] 🔔 Push notifications for deadlines
 - [ ] ☁️ Cloud file storage for assignment uploads

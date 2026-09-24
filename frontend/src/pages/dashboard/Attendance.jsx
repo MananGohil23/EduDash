@@ -10,6 +10,7 @@ import {
   FaInfoCircle,
 } from "react-icons/fa";
 import { useAttendance } from "../../context/AttendanceContext";
+import { getMissable, formatMissable } from "../../utils/attendance";
 
 const Attendance = () => {
   const { attendanceData, setAttendanceData } = useAttendance();
@@ -47,6 +48,8 @@ const Attendance = () => {
     overall.total > 0
       ? Number(((overall.present / overall.total) * 100).toFixed(2))
       : 0;
+
+  const overallMiss = getMissable(overall.present, overall.total);
 
   const hasData = subjects.length > 0;
 
@@ -253,6 +256,9 @@ const Attendance = () => {
                     ? "Great job — you are comfortably above the 75% requirement."
                     : "Warning: your overall attendance is below the 75% requirement."}
                 </p>
+                <p className="mt-4 inline-flex items-center gap-2 rounded-full bg-white/15 px-3.5 py-1.5 text-sm font-bold backdrop-blur">
+                  {formatMissable(overallMiss)}
+                </p>
               </div>
 
               <div className="grid grid-cols-3 gap-4 sm:gap-8">
@@ -287,6 +293,7 @@ const Attendance = () => {
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {subjects.map(([subject, data]) => {
                 const safe = data.percentage >= 75;
+                const miss = getMissable(data.present, data.total);
                 return (
                   <div
                     key={subject}
@@ -335,6 +342,16 @@ const Attendance = () => {
                         </p>
                         Total
                       </div>
+                    </div>
+
+                    <div
+                      className={`mt-4 rounded-lg px-3 py-2 text-center text-xs font-bold ${
+                        miss.isSafe
+                          ? "bg-emerald-50 text-emerald-600 dark:bg-emerald-900/40 dark:text-emerald-300"
+                          : "bg-rose-50 text-rose-600 dark:bg-rose-900/40 dark:text-rose-300"
+                      }`}
+                    >
+                      {formatMissable(miss)}
                     </div>
                   </div>
                 );

@@ -16,6 +16,7 @@ import startLearning from "../../assets/startLearning.jpg";
 import assignments from "../../assets/assignments.jpg";
 import { useUser } from "../../context/UserContext";
 import { useAttendance } from "../../context/AttendanceContext";
+import { announcements } from "../../data/announcements";
 
 const Home = () => {
   const { user } = useUser();
@@ -47,21 +48,6 @@ const Home = () => {
     month: "long",
     day: "numeric",
   });
-
-  const announcements = [
-    {
-      text: "Midterm exams will be held from 15th to 20th October. Check the schedule and prepare accordingly.",
-      tone: "bg-brand-500",
-    },
-    {
-      text: "Assignment 3 deadline has been extended to next week.",
-      tone: "bg-amber-500",
-    },
-    {
-      text: "New lecture on Data Structures has been uploaded.",
-      tone: "bg-emerald-500",
-    },
-  ];
 
   const features = [
     {

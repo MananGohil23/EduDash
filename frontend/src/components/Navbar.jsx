@@ -1,9 +1,10 @@
-import React from "react";
-import { useLocation } from "react-router-dom";
+import React, { useEffect, useRef, useState } from "react";
+import { useLocation, Link } from "react-router-dom";
 import { FaBars, FaBell, FaSignOutAlt } from "react-icons/fa";
 import { useAuth } from "../context/AuthContext";
 import { useUser } from "../context/UserContext";
 import ThemeToggle from "./ThemeToggle";
+import { announcements } from "../data/announcements";
 
 const pageTitles = {
   "/home": { title: "Dashboard", subtitle: "Your academic overview at a glance" },
@@ -27,8 +28,40 @@ const Navbar = ({ onMenuClick }) => {
   const { logout } = useAuth();
   const { user } = useUser();
 
+  const [notificationsOpen, setNotificationsOpen] = useState(false);
+  const [unread, setUnread] = useState(true);
+  const notificationsRef = useRef(null);
+
   const meta = pageTitles[pathname] || { title: "EduDash", subtitle: "" };
   const initial = (user?.username || "U").charAt(0).toUpperCase();
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        notificationsRef.current &&
+        !notificationsRef.current.contains(event.target)
+      ) {
+        setNotificationsOpen(false);
+      }
+    };
+
+    const handleEscape = (event) => {
+      if (event.key === "Escape") setNotificationsOpen(false);
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleEscape);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleEscape);
+    };
+  }, []);
+
+  const toggleNotifications = () => {
+    setNotificationsOpen((open) => !open);
+    setUnread(false);
+  };
 
   return (
     <header className="sticky top-0 z-30 border-b border-slate-200 bg-white/80 backdrop-blur-md dark:border-slate-800 dark:bg-slate-900/80">
@@ -52,14 +85,70 @@ const Navbar = ({ onMenuClick }) => {
 
         <ThemeToggle />
 
-        <button
-          className="relative hidden rounded-xl border border-slate-200 p-2.5 text-slate-500 transition hover:bg-slate-100 dark:border-slate-700 dark:text-slate-400 dark:hover:bg-slate-800 sm:block"
-          aria-label="Notifications"
-          title="Notifications"
-        >
-          <FaBell className="h-4 w-4" />
-          <span className="absolute right-2 top-2 h-2 w-2 rounded-full bg-rose-500 ring-2 ring-white dark:ring-slate-900" />
-        </button>
+        <div className="relative hidden sm:block" ref={notificationsRef}>
+          <button
+            className="relative rounded-xl border border-slate-200 p-2.5 text-slate-500 transition hover:bg-slate-100 dark:border-slate-700 dark:text-slate-400 dark:hover:bg-slate-800"
+            onClick={toggleNotifications}
+            aria-label="Notifications"
+            aria-haspopup="true"
+            aria-expanded={notificationsOpen}
+            title="Notifications"
+          >
+            <FaBell className="h-4 w-4" />
+            {unread && (
+              <span className="absolute right-2 top-2 h-2 w-2 rounded-full bg-rose-500 ring-2 ring-white dark:ring-slate-900" />
+            )}
+          </button>
+
+          {notificationsOpen && (
+            <div className="absolute right-0 top-full z-50 mt-2 w-80 max-w-[calc(100vw-2rem)] overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-card dark:border-slate-800 dark:bg-slate-900">
+              <div className="flex items-center justify-between border-b border-slate-100 px-4 py-3 dark:border-slate-800">
+                <h3 className="text-sm font-extrabold text-slate-900 dark:text-white">
+                  Notifications
+                </h3>
+                <span className="rounded-full bg-brand-50 px-2 py-0.5 text-xs font-bold text-brand-700 dark:bg-brand-900/40 dark:text-brand-300">
+                  {announcements.length} new
+                </span>
+              </div>
+
+              <ul className="max-h-80 overflow-y-auto">
+                {announcements.map((item) => (
+                  <li
+                    key={item.id}
+                    className="flex gap-3 border-b border-slate-50 px-4 py-3 last:border-0 dark:border-slate-800/60"
+                  >
+                    <span
+                      className={`mt-1.5 h-2.5 w-2.5 shrink-0 rounded-full ${item.tone}`}
+                    />
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-start justify-between gap-2">
+                        <p className="text-sm font-bold text-slate-800 dark:text-slate-100">
+                          {item.title}
+                        </p>
+                        <span className="shrink-0 text-xs text-slate-400 dark:text-slate-500">
+                          {item.time}
+                        </span>
+                      </div>
+                      <p className="mt-0.5 text-xs leading-relaxed text-slate-500 dark:text-slate-400">
+                        {item.text}
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="border-t border-slate-100 px-4 py-2.5 text-center dark:border-slate-800">
+                <Link
+                  to="/home"
+                  onClick={() => setNotificationsOpen(false)}
+                  className="text-xs font-bold text-brand-600 hover:underline dark:text-brand-400"
+                >
+                  View all announcements
+                </Link>
+              </div>
+            </div>
+          )}
+        </div>
 
         <div className="hidden items-center gap-3 rounded-2xl border border-slate-200 py-1.5 pl-1.5 pr-3 dark:border-slate-700 md:flex">
           <span className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-brand-500 to-brand-700 text-sm font-bold text-white">
