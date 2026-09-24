@@ -6,16 +6,19 @@ import reportWebVitals from "./reportWebVitals";
 import { AuthProvider } from "./context/AuthContext";
 import { AttendanceProvider } from "./context/AttendanceContext";
 import { UserProvider } from "./context/UserContext";
+import { ThemeProvider } from "./context/ThemeContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <AuthProvider>
-    <UserProvider>
-      <AttendanceProvider>
-        <App />
-      </AttendanceProvider>
-    </UserProvider>
-  </AuthProvider>
+  <ThemeProvider>
+    <AuthProvider>
+      <UserProvider>
+        <AttendanceProvider>
+          <App />
+        </AttendanceProvider>
+      </UserProvider>
+    </AuthProvider>
+  </ThemeProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

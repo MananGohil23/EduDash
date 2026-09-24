@@ -131,76 +131,78 @@ const Home = () => {
       </section>
 
       <section className="grid gap-4 sm:grid-cols-3">
-        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-card">
+        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-card dark:border-slate-800 dark:bg-slate-900">
           <div className="flex items-center justify-between">
-            <span className="text-sm font-semibold text-slate-500">
+            <span className="text-sm font-semibold text-slate-500 dark:text-slate-400">
               Overall attendance
             </span>
-            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-50 text-brand-600">
+            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-50 text-brand-600 dark:bg-brand-900/40 dark:text-brand-300">
               <FaChartLine />
             </span>
           </div>
-          <p className="mt-4 text-3xl font-extrabold text-slate-900">
+          <p className="mt-4 text-3xl font-extrabold text-slate-900 dark:text-white">
             {overall !== null ? `${overall}%` : "—"}
           </p>
-          <p className="mt-1 text-sm text-slate-400">
+          <p className="mt-1 text-sm text-slate-400 dark:text-slate-500">
             {overall !== null
               ? "Across all uploaded subjects"
               : "Upload a report to see this"}
           </p>
         </div>
 
-        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-card">
+        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-card dark:border-slate-800 dark:bg-slate-900">
           <div className="flex items-center justify-between">
-            <span className="text-sm font-semibold text-slate-500">
+            <span className="text-sm font-semibold text-slate-500 dark:text-slate-400">
               Subjects tracked
             </span>
-            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600">
+            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600 dark:bg-indigo-900/40 dark:text-indigo-300">
               <FaBookOpen />
             </span>
           </div>
-          <p className="mt-4 text-3xl font-extrabold text-slate-900">
+          <p className="mt-4 text-3xl font-extrabold text-slate-900 dark:text-white">
             {subjects.length}
           </p>
-          <p className="mt-1 text-sm text-slate-400">
+          <p className="mt-1 text-sm text-slate-400 dark:text-slate-500">
             Subjects in your latest upload
           </p>
         </div>
 
-        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-card">
+        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-card dark:border-slate-800 dark:bg-slate-900">
           <div className="flex items-center justify-between">
-            <span className="text-sm font-semibold text-slate-500">
+            <span className="text-sm font-semibold text-slate-500 dark:text-slate-400">
               Below 75%
             </span>
             <span
               className={`flex h-10 w-10 items-center justify-center rounded-xl ${
                 belowThreshold > 0
-                  ? "bg-rose-50 text-rose-600"
-                  : "bg-emerald-50 text-emerald-600"
+                  ? "bg-rose-50 text-rose-600 dark:bg-rose-900/40 dark:text-rose-300"
+                  : "bg-emerald-50 text-emerald-600 dark:bg-emerald-900/40 dark:text-emerald-300"
               }`}
             >
               <FaExclamationTriangle />
             </span>
           </div>
-          <p className="mt-4 text-3xl font-extrabold text-slate-900">
+          <p className="mt-4 text-3xl font-extrabold text-slate-900 dark:text-white">
             {belowThreshold}
           </p>
-          <p className="mt-1 text-sm text-slate-400">
+          <p className="mt-1 text-sm text-slate-400 dark:text-slate-500">
             Subjects needing attention
           </p>
         </div>
       </section>
 
-      <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-card">
+      <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-card dark:border-slate-800 dark:bg-slate-900">
         <div className="mb-4 flex items-center gap-3">
-          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-50 text-amber-600">
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-50 text-amber-600 dark:bg-amber-900/40 dark:text-amber-300">
             <FaBullhorn />
           </span>
           <div>
-            <h2 className="text-lg font-extrabold text-slate-900">
+            <h2 className="text-lg font-extrabold text-slate-900 dark:text-white">
               Latest announcements
             </h2>
-            <p className="text-sm text-slate-400">Campus & course updates</p>
+            <p className="text-sm text-slate-400 dark:text-slate-500">
+              Campus & course updates
+            </p>
           </div>
         </div>
 
@@ -208,10 +210,10 @@ const Home = () => {
           {announcements.map((item, index) => (
             <div
               key={index}
-              className="mr-4 flex max-w-xl items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-5 py-3"
+              className="mr-4 flex max-w-xl items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-5 py-3 dark:border-slate-700 dark:bg-slate-800"
             >
               <span className={`h-2.5 w-2.5 shrink-0 rounded-full ${item.tone}`} />
-              <span className="text-sm font-medium text-slate-700">
+              <span className="text-sm font-medium text-slate-700 dark:text-slate-200">
                 {item.text}
               </span>
             </div>
@@ -220,7 +222,7 @@ const Home = () => {
       </section>
 
       <section>
-        <h2 className="mb-4 text-xl font-extrabold text-slate-900">
+        <h2 className="mb-4 text-xl font-extrabold text-slate-900 dark:text-white">
           Jump back in
         </h2>
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
@@ -230,7 +232,7 @@ const Home = () => {
               <Link
                 key={feature.to}
                 to={feature.to}
-                className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-soft"
+                className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-soft dark:border-slate-800 dark:bg-slate-900"
               >
                 <div className="relative h-44 overflow-hidden">
                   <img
@@ -245,13 +247,13 @@ const Home = () => {
                   </span>
                 </div>
                 <div className="flex flex-1 flex-col p-6">
-                  <h3 className="text-lg font-extrabold text-slate-900">
+                  <h3 className="text-lg font-extrabold text-slate-900 dark:text-white">
                     {feature.title}
                   </h3>
-                  <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-500">
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-500 dark:text-slate-400">
                     {feature.description}
                   </p>
-                  <span className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-brand-600">
+                  <span className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-brand-600 dark:text-brand-400">
                     Open
                     <FaArrowRight className="h-3 w-3 transition group-hover:translate-x-1" />
                   </span>

@@ -115,12 +115,12 @@ const Attendance = () => {
 
   return (
     <div className="space-y-8">
-      <section className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-card">
-        <div className="border-b border-slate-100 p-6 sm:p-8">
-          <h2 className="text-xl font-extrabold text-slate-900">
+      <section className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-card dark:border-slate-800 dark:bg-slate-900">
+        <div className="border-b border-slate-100 p-6 dark:border-slate-800 sm:p-8">
+          <h2 className="text-xl font-extrabold text-slate-900 dark:text-white">
             Upload attendance report
           </h2>
-          <p className="mt-1 text-sm text-slate-500">
+          <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
             Provide the Detailed Attendance PDF issued by your institution for
             accurate subject-wise analytics.
           </p>
@@ -147,29 +147,31 @@ const Attendance = () => {
             }
             className={`flex cursor-pointer flex-col items-center justify-center rounded-2xl border-2 border-dashed px-6 py-12 text-center transition sm:py-16 ${
               dragActive
-                ? "border-brand-500 bg-brand-50"
-                : "border-slate-300 bg-slate-50 hover:border-brand-400 hover:bg-brand-50/50"
+                ? "border-brand-500 bg-brand-50 dark:bg-brand-900/20"
+                : "border-slate-300 bg-slate-50 hover:border-brand-400 hover:bg-brand-50/50 dark:border-slate-700 dark:bg-slate-800/50 dark:hover:border-brand-600 dark:hover:bg-slate-800"
             }`}
           >
-            <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white text-2xl text-brand-600 shadow-card">
+            <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white text-2xl text-brand-600 shadow-card dark:bg-slate-900 dark:text-brand-400">
               <FaCloudUploadAlt />
             </span>
-            <p className="mt-5 text-base font-bold text-slate-800">
+            <p className="mt-5 text-base font-bold text-slate-800 dark:text-slate-100">
               Drag & drop your PDF here, or{" "}
-              <span className="text-brand-600">browse files</span>
+              <span className="text-brand-600 dark:text-brand-400">
+                browse files
+              </span>
             </p>
-            <p className="mt-2 max-w-md text-sm text-slate-500">
+            <p className="mt-2 max-w-md text-sm text-slate-500 dark:text-slate-400">
               Only PDF files are accepted. Upload the Detailed Attendance Sheet
               provided by your institution.
             </p>
           </div>
 
           {file && (
-            <div className="mt-5 flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 p-3">
-              <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-rose-50 text-rose-600">
+            <div className="mt-5 flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 p-3 dark:border-slate-700 dark:bg-slate-800">
+              <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-rose-50 text-rose-600 dark:bg-rose-900/40 dark:text-rose-300">
                 <FaFilePdf />
               </span>
-              <span className="min-w-0 flex-1 truncate text-sm font-semibold text-slate-700">
+              <span className="min-w-0 flex-1 truncate text-sm font-semibold text-slate-700 dark:text-slate-200">
                 {file.name}
               </span>
               <button
@@ -178,7 +180,7 @@ const Attendance = () => {
                   setSuccess(false);
                   if (fileInputRef.current) fileInputRef.current.value = "";
                 }}
-                className="rounded-lg p-2 text-slate-400 transition hover:bg-slate-200 hover:text-slate-700"
+                className="rounded-lg p-2 text-slate-400 transition hover:bg-slate-200 hover:text-slate-700 dark:hover:bg-slate-700 dark:hover:text-slate-200"
                 aria-label="Remove file"
               >
                 <FaTimes />
@@ -187,14 +189,14 @@ const Attendance = () => {
           )}
 
           {error && (
-            <div className="mt-5 flex items-center gap-3 rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm font-medium text-rose-700">
+            <div className="mt-5 flex items-center gap-3 rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm font-medium text-rose-700 dark:border-rose-900 dark:bg-rose-900/20 dark:text-rose-300">
               <FaExclamationTriangle className="shrink-0" />
               {error}
             </div>
           )}
 
           {success && (
-            <div className="mt-5 flex items-center gap-3 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-medium text-emerald-700">
+            <div className="mt-5 flex items-center gap-3 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-medium text-emerald-700 dark:border-emerald-900 dark:bg-emerald-900/20 dark:text-emerald-300">
               <FaCheckCircle className="shrink-0" />
               Attendance parsed successfully.
             </div>
@@ -262,10 +264,10 @@ const Attendance = () => {
 
           <div>
             <div className="mb-4 flex items-center justify-between">
-              <h2 className="text-lg font-extrabold text-slate-900">
+              <h2 className="text-lg font-extrabold text-slate-900 dark:text-white">
                 Subject-wise breakdown
               </h2>
-              <span className="text-sm text-slate-400">
+              <span className="text-sm text-slate-400 dark:text-slate-500">
                 {subjects.length} subjects
               </span>
             </div>
@@ -276,22 +278,24 @@ const Attendance = () => {
                 return (
                   <div
                     key={subject}
-                    className="rounded-2xl border border-slate-200 bg-white p-5 shadow-card transition hover:-translate-y-0.5 hover:shadow-soft"
+                    className="rounded-2xl border border-slate-200 bg-white p-5 shadow-card transition hover:-translate-y-0.5 hover:shadow-soft dark:border-slate-800 dark:bg-slate-900"
                   >
                     <div className="flex items-start justify-between gap-3">
-                      <h3 className="font-bold text-slate-900">{subject}</h3>
+                      <h3 className="font-bold text-slate-900 dark:text-white">
+                        {subject}
+                      </h3>
                       <span
                         className={`rounded-full px-2.5 py-1 text-xs font-bold ${
                           safe
-                            ? "bg-emerald-50 text-emerald-600"
-                            : "bg-rose-50 text-rose-600"
+                            ? "bg-emerald-50 text-emerald-600 dark:bg-emerald-900/40 dark:text-emerald-300"
+                            : "bg-rose-50 text-rose-600 dark:bg-rose-900/40 dark:text-rose-300"
                         }`}
                       >
                         {data.percentage}%
                       </span>
                     </div>
 
-                    <div className="mt-4 h-2 w-full overflow-hidden rounded-full bg-slate-100">
+                    <div className="mt-4 h-2 w-full overflow-hidden rounded-full bg-slate-100 dark:bg-slate-800">
                       <div
                         className={`h-full rounded-full ${
                           safe ? "bg-emerald-500" : "bg-rose-500"
@@ -300,21 +304,21 @@ const Attendance = () => {
                       />
                     </div>
 
-                    <div className="mt-4 flex justify-between text-center text-xs font-semibold text-slate-500">
+                    <div className="mt-4 flex justify-between text-center text-xs font-semibold text-slate-500 dark:text-slate-400">
                       <div>
-                        <p className="text-base font-extrabold text-slate-900">
+                        <p className="text-base font-extrabold text-slate-900 dark:text-white">
                           {data.present}
                         </p>
                         Present
                       </div>
                       <div>
-                        <p className="text-base font-extrabold text-slate-900">
+                        <p className="text-base font-extrabold text-slate-900 dark:text-white">
                           {data.absent}
                         </p>
                         Absent
                       </div>
                       <div>
-                        <p className="text-base font-extrabold text-slate-900">
+                        <p className="text-base font-extrabold text-slate-900 dark:text-white">
                           {data.total}
                         </p>
                         Total
@@ -329,8 +333,8 @@ const Attendance = () => {
       )}
 
       {!hasData && !loading && (
-        <div className="flex items-start gap-3 rounded-2xl border border-slate-200 bg-white p-5 text-sm text-slate-500 shadow-card">
-          <FaInfoCircle className="mt-0.5 shrink-0 text-brand-500" />
+        <div className="flex items-start gap-3 rounded-2xl border border-slate-200 bg-white p-5 text-sm text-slate-500 shadow-card dark:border-slate-800 dark:bg-slate-900 dark:text-slate-400">
+          <FaInfoCircle className="mt-0.5 shrink-0 text-brand-500 dark:text-brand-400" />
           Upload a report above to see your overall attendance, subject-wise
           breakdown and shortage warnings.
         </div>

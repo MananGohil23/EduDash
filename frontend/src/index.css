@@ -13,6 +13,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+html.dark body {
+  background-color: #020617;
+  color: #e2e8f0;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -21,6 +26,11 @@ code {
 ::selection {
   background-color: #c7d2fe;
   color: #1e1b4b;
+}
+
+html.dark ::selection {
+  background-color: #3730a3;
+  color: #e0e7ff;
 }
 
 /* Scrollbars */
@@ -42,6 +52,16 @@ code {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
+  background-clip: content-box;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+  background-clip: content-box;
+}
+
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: #475569;
   background-clip: content-box;
 }
 

@@ -44,10 +44,12 @@ const Lectures = () => {
 
   return (
     <div className="grid gap-6 xl:grid-cols-[20rem_1fr] xl:items-start">
-      <aside className="rounded-2xl border border-slate-200 bg-white p-4 shadow-card xl:sticky xl:top-24">
+      <aside className="rounded-2xl border border-slate-200 bg-white p-4 shadow-card dark:border-slate-800 dark:bg-slate-900 xl:sticky xl:top-24">
         <div className="flex items-center gap-2 px-2 pb-3 pt-1">
-          <FaBookOpen className="text-brand-600" />
-          <h2 className="font-extrabold text-slate-900">Subjects</h2>
+          <FaBookOpen className="text-brand-600 dark:text-brand-400" />
+          <h2 className="font-extrabold text-slate-900 dark:text-white">
+            Subjects
+          </h2>
         </div>
 
         <div className="space-y-2">
@@ -60,8 +62,8 @@ const Lectures = () => {
                 key={subject.id}
                 className={`overflow-hidden rounded-xl border transition ${
                   selected
-                    ? "border-brand-200 bg-brand-50/60"
-                    : "border-slate-200 bg-white"
+                    ? "border-brand-200 bg-brand-50/60 dark:border-brand-800 dark:bg-brand-900/20"
+                    : "border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900"
                 }`}
               >
                 <button
@@ -76,12 +78,14 @@ const Lectures = () => {
                   <span className="min-w-0 flex-1">
                     <span
                       className={`block truncate text-sm font-bold ${
-                        selected ? "text-brand-700" : "text-slate-800"
+                        selected
+                          ? "text-brand-700 dark:text-brand-300"
+                          : "text-slate-800 dark:text-slate-100"
                       }`}
                     >
                       {subject.name}
                     </span>
-                    <span className="block text-xs text-slate-400">
+                    <span className="block text-xs text-slate-400 dark:text-slate-500">
                       {subject.chapters.length} chapters
                     </span>
                   </span>
@@ -97,7 +101,7 @@ const Lectures = () => {
                     expanded ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
                   }`}
                 >
-                  <div className="space-y-1 overflow-y-auto border-t border-slate-100 p-2">
+                  <div className="space-y-1 overflow-y-auto border-t border-slate-100 p-2 dark:border-slate-800">
                     {subject.chapters.map((title, index) => {
                       const active = chapterActive === index + 1;
                       return (
@@ -107,12 +111,14 @@ const Lectures = () => {
                           className={`flex w-full items-start gap-2 rounded-lg px-3 py-2 text-left text-sm transition ${
                             active
                               ? "bg-brand-600 text-white"
-                              : "text-slate-600 hover:bg-slate-100"
+                              : "text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
                           }`}
                         >
                           <span
                             className={`mt-0.5 text-xs font-bold ${
-                              active ? "text-white/80" : "text-slate-400"
+                              active
+                                ? "text-white/80"
+                                : "text-slate-400 dark:text-slate-500"
                             }`}
                           >
                             {index + 1}
@@ -131,14 +137,14 @@ const Lectures = () => {
 
       <div className="min-w-0">
         {!activeSubject ? (
-          <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-slate-300 bg-white px-6 py-20 text-center shadow-card">
-            <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-brand-50 text-3xl text-brand-500">
+          <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-slate-300 bg-white px-6 py-20 text-center shadow-card dark:border-slate-700 dark:bg-slate-900">
+            <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-brand-50 text-3xl text-brand-500 dark:bg-brand-900/40 dark:text-brand-300">
               <FaBookOpen />
             </span>
-            <h2 className="mt-5 text-xl font-extrabold text-slate-900">
+            <h2 className="mt-5 text-xl font-extrabold text-slate-900 dark:text-white">
               Select a subject to start learning
             </h2>
-            <p className="mt-2 max-w-sm text-sm text-slate-500">
+            <p className="mt-2 max-w-sm text-sm text-slate-500 dark:text-slate-400">
               Choose a subject from the list, pick a chapter, then select a
               sub-topic to load the embedded lecture player.
             </p>
@@ -148,7 +154,7 @@ const Lectures = () => {
         )}
 
         {activeSubject && !chapter && (
-          <p className="mt-4 text-center text-sm text-slate-400">
+          <p className="mt-4 text-center text-sm text-slate-400 dark:text-slate-500">
             Tip: open a subject's chapters and choose one to load its lectures.
           </p>
         )}

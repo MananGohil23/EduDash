@@ -43,8 +43,8 @@ EduDash/
 │       │   ├── auth/                 # Login & Registration
 │       │   ├── dashboard/            # Home, Attendance, Profile
 │       │   └── learning/             # Lectures & Assignments
-│       ├── components/               # Navbar, Sidebar, ProtectedRoute
-│       ├── context/                  # Auth, Attendance, User & Subject contexts
+│       ├── components/               # Navbar, Sidebar, ProtectedRoute, ThemeToggle
+│       ├── context/                  # Auth, Attendance, User, Subject & Theme contexts
 │       ├── layouts/                  # DashboardLayout wrapper
 │       ├── services/                 # Axios API service layer (auth + assignments)
 │       └── subjects/                 # Per-subject lecture components
@@ -81,6 +81,7 @@ EduDash/
 | 🛡️ **Protected Routes** | Route guards — unauthenticated users are redirected to login |
 | 💾 **Session Persistence** | Attendance data and user info persist in `sessionStorage` across page reloads |
 | 📱 **Responsive UI** | Tailwind CSS with animated sidebar, drag-and-drop PDF upload, and smooth transitions |
+| 🌗 **Light / Dark Theme** | One-click theme toggle with system-preference detection and persistence across reloads |
 | ☁️ **Deployed** | Frontend on Vercel, backend API on Render |
 
 ---
@@ -244,7 +245,7 @@ All protected routes require an `Authorization: Bearer <token>` header.
 
 - [ ] 📅 Timetable / schedule integration
 - [ ] 📈 Attendance shortage prediction (lectures needed to hit 75%)
-- [ ] 🌙 Dark mode toggle
+- [x] 🌙 Dark mode toggle
 - [ ] 🔔 Push notifications for deadlines
 - [ ] ☁️ Cloud file storage for assignment uploads
 - [ ] 💬 Working comments section on lecture pages

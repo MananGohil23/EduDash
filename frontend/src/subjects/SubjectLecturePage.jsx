@@ -118,10 +118,10 @@ const SubjectLecturePage = ({ subject }) => {
   };
 
   const subtopicList = (
-    <div className="flex h-full flex-col">
-      <div className="flex items-center justify-between border-b border-slate-100 px-4 py-4">
-        <div className="flex items-center gap-2 text-slate-800">
-          <FaListUl className="text-brand-600" />
+    <div className="flex h-full min-h-0 flex-col">
+      <div className="flex shrink-0 items-center justify-between border-b border-slate-100 px-4 py-4 dark:border-slate-800">
+        <div className="flex items-center gap-2 text-slate-800 dark:text-slate-100">
+          <FaListUl className="text-brand-600 dark:text-brand-400" />
           <h3 className="font-extrabold">Sub-topics</h3>
         </div>
         <button
@@ -129,23 +129,23 @@ const SubjectLecturePage = ({ subject }) => {
             setSubTopicSidebarActive(false);
             setDrawerOpen(false);
           }}
-          className="rounded-lg p-2 text-slate-400 hover:bg-slate-100 hover:text-slate-700 xl:hidden"
+          className="rounded-lg p-2 text-slate-400 hover:bg-slate-100 hover:text-slate-700 dark:hover:bg-slate-800 dark:hover:text-slate-200 xl:hidden"
           aria-label="Close sub-topics"
         >
           <FaTimes />
         </button>
         <button
           onClick={() => setSubTopicSidebarActive(false)}
-          className="hidden rounded-lg p-2 text-slate-400 hover:bg-slate-100 hover:text-slate-700 xl:block"
+          className="hidden rounded-lg p-2 text-slate-400 hover:bg-slate-100 hover:text-slate-700 dark:hover:bg-slate-800 dark:hover:text-slate-200 xl:block"
           aria-label="Collapse sub-topics"
         >
           <FaTimes />
         </button>
       </div>
 
-      <div className="flex-1 space-y-2 overflow-y-auto p-3">
+      <div className="min-h-0 flex-1 space-y-2 overflow-y-auto p-3">
         {videos.length === 0 && !loading && (
-          <p className="px-2 py-6 text-center text-sm text-slate-400">
+          <p className="px-2 py-6 text-center text-sm text-slate-400 dark:text-slate-500">
             {apiUnavailable
               ? "Sub-topic list unavailable — playing the full chapter playlist."
               : "No sub-topics found for this chapter."}
@@ -161,12 +161,14 @@ const SubjectLecturePage = ({ subject }) => {
               className={`flex w-full items-start gap-3 rounded-xl p-3 text-left text-sm transition ${
                 active
                   ? "bg-brand-600 text-white shadow-soft"
-                  : "text-slate-600 hover:bg-slate-100"
+                  : "text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
               }`}
             >
               <span
                 className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-xs font-bold ${
-                  active ? "bg-white/20 text-white" : "bg-slate-100 text-slate-500"
+                  active
+                    ? "bg-white/20 text-white"
+                    : "bg-slate-100 text-slate-500 dark:bg-slate-800 dark:text-slate-400"
                 }`}
               >
                 {index + 1}
@@ -241,7 +243,7 @@ const SubjectLecturePage = ({ subject }) => {
         </div>
 
         {error && (
-          <div className="flex items-center gap-3 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm font-medium text-amber-700">
+          <div className="flex items-center gap-3 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm font-medium text-amber-700 dark:border-amber-900 dark:bg-amber-900/20 dark:text-amber-300">
             <FaExclamationTriangle className="shrink-0" />
             {error}
           </div>
@@ -249,10 +251,10 @@ const SubjectLecturePage = ({ subject }) => {
 
         {chapter && (
           <div>
-            <p className="text-xs font-bold uppercase tracking-wider text-brand-600">
+            <p className="text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">
               {subject.name} · Chapter {chapter}
             </p>
-            <h2 className="mt-1 text-xl font-extrabold text-slate-900 sm:text-2xl">
+            <h2 className="mt-1 text-xl font-extrabold text-slate-900 dark:text-white sm:text-2xl">
               {activeVideo ? activeVideo.title : activeChapterTitle}
             </h2>
           </div>
@@ -261,41 +263,43 @@ const SubjectLecturePage = ({ subject }) => {
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <button
             onClick={() => setSubTopicSidebarActive(!subTopicSidebarActive)}
-            className="hidden items-center gap-2 self-start rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-bold text-slate-600 shadow-card transition hover:bg-slate-50 xl:inline-flex"
+            className="hidden items-center gap-2 self-start rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-bold text-slate-600 shadow-card transition hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 xl:inline-flex"
           >
             <FaListUl className="h-3.5 w-3.5" />
             {subTopicSidebarActive ? "Hide sub-topics" : "Show sub-topics"}
           </button>
         </div>
 
-        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-card">
-          <h3 className="text-lg font-extrabold text-slate-900">Description</h3>
-          <p className="mt-3 text-sm leading-relaxed text-slate-600">
+        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-card dark:border-slate-800 dark:bg-slate-900">
+          <h3 className="text-lg font-extrabold text-slate-900 dark:text-white">
+            Description
+          </h3>
+          <p className="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
             {description}
           </p>
         </div>
 
-        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-card">
-          <div className="flex items-center gap-2 text-slate-800">
-            <FaRegFileAlt className="text-brand-600" />
+        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-card dark:border-slate-800 dark:bg-slate-900">
+          <div className="flex items-center gap-2 text-slate-800 dark:text-slate-100">
+            <FaRegFileAlt className="text-brand-600 dark:text-brand-400" />
             <h3 className="font-extrabold">Resources</h3>
           </div>
-          <p className="mt-3 text-sm text-slate-500">
+          <p className="mt-3 text-sm text-slate-500 dark:text-slate-400">
             Notes, references and downloadable material for this chapter will
             appear here soon.
           </p>
         </div>
 
-        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-card">
-          <div className="flex items-center gap-2 text-slate-800">
-            <FaRegComment className="text-brand-600" />
+        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-card dark:border-slate-800 dark:bg-slate-900">
+          <div className="flex items-center gap-2 text-slate-800 dark:text-slate-100">
+            <FaRegComment className="text-brand-600 dark:text-brand-400" />
             <h3 className="font-extrabold">Comments</h3>
           </div>
           <div className="mt-4 flex flex-col gap-3 sm:flex-row">
             <input
               type="text"
               placeholder="Add a comment…"
-              className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-brand-500 focus:bg-white focus:ring-4 focus:ring-brand-100"
+              className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-brand-500 focus:bg-white focus:ring-4 focus:ring-brand-100 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:placeholder:text-slate-500 dark:focus:bg-slate-800 dark:focus:ring-brand-900/40"
             />
             <button className="rounded-xl bg-brand-600 px-5 py-3 text-sm font-bold text-white transition hover:bg-brand-700 sm:w-auto">
               Post
@@ -305,8 +309,8 @@ const SubjectLecturePage = ({ subject }) => {
       </div>
 
       {subTopicSidebarActive && (
-        <aside className="hidden w-80 shrink-0 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-card xl:block">
-          <div className="max-h-[calc(100vh-8rem)]">{subtopicList}</div>
+        <aside className="hidden h-[calc(100vh-8rem)] w-80 shrink-0 flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-card dark:border-slate-800 dark:bg-slate-900 xl:sticky xl:top-24 xl:flex">
+          {subtopicList}
         </aside>
       )}
 
@@ -323,7 +327,7 @@ const SubjectLecturePage = ({ subject }) => {
           onClick={() => setDrawerOpen(false)}
         />
         <div
-          className={`absolute inset-y-0 right-0 w-80 max-w-[85%] bg-white shadow-2xl transition-transform duration-300 ${
+          className={`absolute inset-y-0 right-0 w-80 max-w-[85%] bg-white shadow-2xl transition-transform duration-300 dark:bg-slate-900 ${
             drawerOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >

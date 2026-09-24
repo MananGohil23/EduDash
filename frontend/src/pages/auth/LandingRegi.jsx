@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { useNavigate, Link, Navigate } from "react-router-dom";
-import {
-  FaEye,
-  FaEyeSlash,
-  FaUserGraduate,
-} from "react-icons/fa";
+import { FaEye, FaEyeSlash, FaUserGraduate } from "react-icons/fa";
 import { useAuth } from "../../context/AuthContext";
 import { useUser } from "../../context/UserContext";
 import { registerUser } from "../../services/authService";
+import ThemeToggle from "../../components/ThemeToggle";
 import logo from "../../assets/logo.png";
+
+const inputClass =
+  "w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-brand-500 focus:ring-4 focus:ring-brand-100 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:placeholder:text-slate-500 dark:focus:ring-brand-900/40";
 
 const Register = () => {
   const { isLoggedIn, login } = useAuth();
@@ -70,7 +70,11 @@ const Register = () => {
   }
 
   return (
-    <div className="grid min-h-screen bg-slate-100 lg:grid-cols-2">
+    <div className="relative grid min-h-screen bg-slate-100 dark:bg-slate-950 lg:grid-cols-2">
+      <div className="absolute right-5 top-5 z-20">
+        <ThemeToggle />
+      </div>
+
       <div className="relative hidden overflow-hidden bg-gradient-to-br from-brand-700 via-brand-600 to-indigo-900 p-12 text-white lg:flex lg:flex-col lg:justify-between">
         <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-white/10" />
         <div className="absolute -bottom-32 -left-20 h-80 w-80 rounded-full bg-white/10" />
@@ -104,19 +108,21 @@ const Register = () => {
             <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-600">
               <img src={logo} alt="EduDash" className="h-6 w-6" />
             </span>
-            <span className="text-xl font-extrabold text-slate-900">EduDash</span>
+            <span className="text-xl font-extrabold text-slate-900 dark:text-white">
+              EduDash
+            </span>
           </div>
 
-          <h1 className="text-3xl font-extrabold tracking-tight text-slate-900">
+          <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">
             Create your account
           </h1>
-          <p className="mt-2 text-slate-500">
+          <p className="mt-2 text-slate-500 dark:text-slate-400">
             Set up your student dashboard in a few steps.
           </p>
 
           <form onSubmit={handleRegister} className="mt-8 space-y-4">
             {error && (
-              <div className="rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm font-medium text-rose-700">
+              <div className="rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm font-medium text-rose-700 dark:border-rose-900 dark:bg-rose-900/20 dark:text-rose-300">
                 {error}
               </div>
             )}
@@ -124,7 +130,7 @@ const Register = () => {
             <div>
               <label
                 htmlFor="username"
-                className="mb-2 block text-sm font-semibold text-slate-700"
+                className="mb-2 block text-sm font-semibold text-slate-700 dark:text-slate-300"
               >
                 Username
               </label>
@@ -135,14 +141,14 @@ const Register = () => {
                 placeholder="Choose a username"
                 value={enteredUsername}
                 onChange={(e) => setEnteredUsername(e.target.value)}
-                className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-brand-500 focus:ring-4 focus:ring-brand-100"
+                className={inputClass}
               />
             </div>
 
             <div>
               <label
                 htmlFor="password"
-                className="mb-2 block text-sm font-semibold text-slate-700"
+                className="mb-2 block text-sm font-semibold text-slate-700 dark:text-slate-300"
               >
                 Password
               </label>
@@ -154,12 +160,12 @@ const Register = () => {
                   placeholder="At least 6 characters"
                   value={enteredPassword}
                   onChange={(e) => setEnteredPassword(e.target.value)}
-                  className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 pr-12 text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-brand-500 focus:ring-4 focus:ring-brand-100"
+                  className={`${inputClass} pr-12`}
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword((v) => !v)}
-                  className="absolute inset-y-0 right-0 flex items-center px-4 text-slate-400 hover:text-slate-600"
+                  className="absolute inset-y-0 right-0 flex items-center px-4 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"
                   aria-label={showPassword ? "Hide password" : "Show password"}
                 >
                   {showPassword ? <FaEyeSlash /> : <FaEye />}
@@ -171,7 +177,7 @@ const Register = () => {
               <div>
                 <label
                   htmlFor="studentID"
-                  className="mb-2 block text-sm font-semibold text-slate-700"
+                  className="mb-2 block text-sm font-semibold text-slate-700 dark:text-slate-300"
                 >
                   Student ID
                 </label>
@@ -181,14 +187,14 @@ const Register = () => {
                   placeholder="e.g. 1234567890"
                   value={studentID}
                   onChange={(e) => setStudentID(e.target.value)}
-                  className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-brand-500 focus:ring-4 focus:ring-brand-100"
+                  className={inputClass}
                 />
               </div>
 
               <div>
                 <label
                   htmlFor="collegeName"
-                  className="mb-2 block text-sm font-semibold text-slate-700"
+                  className="mb-2 block text-sm font-semibold text-slate-700 dark:text-slate-300"
                 >
                   College
                 </label>
@@ -198,7 +204,7 @@ const Register = () => {
                   placeholder="Your college"
                   value={collegeName}
                   onChange={(e) => setCollegeName(e.target.value)}
-                  className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-brand-500 focus:ring-4 focus:ring-brand-100"
+                  className={inputClass}
                 />
               </div>
             </div>
@@ -212,9 +218,12 @@ const Register = () => {
             </button>
           </form>
 
-          <p className="mt-8 text-center text-slate-500">
+          <p className="mt-8 text-center text-slate-500 dark:text-slate-400">
             Already have an account?{" "}
-            <Link to="/login" className="font-bold text-brand-600 hover:underline">
+            <Link
+              to="/login"
+              className="font-bold text-brand-600 hover:underline dark:text-brand-400"
+            >
               Sign in
             </Link>
           </p>
