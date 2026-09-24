@@ -24,7 +24,7 @@ const register = async (req, res) => {
       username,
       password: hashedPassword,
       studentID,
-      collegeName
+      collegeName: collegeName && collegeName.trim() ? collegeName.trim() : undefined
     })
 
     res.status(201).json({

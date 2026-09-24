@@ -21,7 +21,7 @@ const userSchema = new mongoose.Schema({
 
   collegeName: {
     type: String,
-    default: ""
+    default: "Dwarkadas J. Sanghvi College of Engineering"
   }
 
 })

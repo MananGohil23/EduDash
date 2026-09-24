@@ -81,9 +81,6 @@ const Profile = () => {
             <h1 className="text-2xl font-extrabold text-slate-900 dark:text-white">
               {user?.username || "Student"}
             </h1>
-            <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
-              {user?.collegeName || "Dwarkadas J. Sanghvi College of Engineering"}
-            </p>
           </div>
 
           <div className="flex gap-3 sm:pb-1">
@@ -117,7 +114,7 @@ const Profile = () => {
                 College
               </p>
               <p className="font-bold text-slate-800 dark:text-slate-100">
-                {user?.collegeName || "Not provided"}
+                {user?.collegeName || "Dwarkadas J. Sanghvi College of Engineering"}
               </p>
             </div>
           </div>
