@@ -2,9 +2,7 @@ const bcrypt = require('bcryptjs');
 
 const User = require('../models/User');
 
-const  generateToken = require('../utils/generateToken');
-
-const jwt = require('jsonwebtoken');
+const generateToken = require('../utils/generateToken');
 
 const register = async (req, res) => {
 
@@ -39,7 +37,6 @@ const register = async (req, res) => {
   } catch (err) {
 
     console.log(err);
-    alert(err.response.data.message);
 
     res.status(500).json({
       message: err.message
@@ -72,15 +69,7 @@ const login = async (req, res) => {
       })
     }
 
-    const token = jwt.sign(
-      {
-        id: user._id
-      },
-      process.env.JWT_SECRET,
-      {
-        expiresIn: '7d'
-      }
-    )
+    const token = generateToken(user._id)
 
     res.json({ token, username: user.username, studentID: user.studentID, collegeName: user.collegeName });
 
@@ -92,7 +81,34 @@ const login = async (req, res) => {
   }
 }
 
+const getMe = async (req, res) => {
+
+  try {
+
+    const user = await User.findById(req.user.id).select('-password')
+
+    if (!user) {
+      return res.status(404).json({
+        message: 'User not found'
+      })
+    }
+
+    res.json({
+      username: user.username,
+      studentID: user.studentID,
+      collegeName: user.collegeName
+    })
+
+  } catch (err) {
+
+    res.status(500).json({
+      message: err.message
+    })
+  }
+}
+
 module.exports = {
   register,
-  login
+  login,
+  getMe
 }

@@ -1,3 +1,5 @@
+const mongoose = require("mongoose");
+
 const Assignment = require("../models/Assignment");
 
 const getAssignments = async (req, res) => {
@@ -52,10 +54,17 @@ const markSubmitted = async (req, res) => {
 
     try {
 
+        if (!mongoose.isValidObjectId(req.params.id)) {
+            return res.status(404).json({
+                message: "Assignment not found"
+            });
+        }
+
         const assignment =
-            await Assignment.findById(
-                req.params.id
-            );
+            await Assignment.findOne({
+                _id: req.params.id,
+                userId: req.user.id
+            });
 
         if (!assignment) {
             return res.status(404).json({

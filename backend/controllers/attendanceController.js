@@ -7,6 +7,12 @@ const parseAttendance = async (req, res) => {
 
   try {
 
+    if (!req.file) {
+      return res.status(400).json({
+        message: "No file uploaded"
+      });
+    }
+
     console.log("1- File received");
 
     const buffer = fs.readFileSync(req.file.path);
@@ -30,6 +36,14 @@ const parseAttendance = async (req, res) => {
     res.status(500).json({
       message: err.message
     });
+
+  } finally {
+
+    if (req.file && req.file.path) {
+      fs.unlink(req.file.path, (err) => {
+        if (err) console.log(err);
+      });
+    }
   }
 };
 

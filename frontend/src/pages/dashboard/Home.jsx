@@ -1,80 +1,268 @@
-import React from 'react';
-import Marquee from 'react-fast-marquee';
+import React from "react";
+import { Link } from "react-router-dom";
+import Marquee from "react-fast-marquee";
+import {
+  FaClipboardCheck,
+  FaVideo,
+  FaTasks,
+  FaArrowRight,
+  FaBullhorn,
+  FaChartLine,
+  FaBookOpen,
+  FaExclamationTriangle,
+} from "react-icons/fa";
 import attendance from "../../assets/attendance.jpg";
 import startLearning from "../../assets/startLearning.jpg";
 import assignments from "../../assets/assignments.jpg";
-import { useUser } from '../../context/UserContext';
+import { useUser } from "../../context/UserContext";
+import { useAttendance } from "../../context/AttendanceContext";
 
 const Home = () => {
-    const { user } = useUser();
-    return (
-        <>
-            <div className = "bg-gradient-to-r from-slate-900 to-blue-800 pt-[60px] min-h-screen">
-                <h1 className = "w-full flex justify-center items-center text-4xl p-6 font-bold text-white">
-                   Hello {user?.username || "User"}, Welcome to EduDash.   
-                </h1>
-                <div className = "flex text-white font-bold justify-center items-center text-2xl">
-                    Latest Announcements
-                </div>
-                <Marquee speed = {100} className="mb-8 z-15">
-                    <div className = "rounded-lg text-white text-xl font-bold p-3">
-                        <div className = "flex text-black font-medium justify-between gap-4">
-                            <div className = "bg-gradient-to-r from-blue-400 to-blue-600 rounded-lg shadow-md p-2 mt-2">
-                                Midterm exams will be held from 15th to 20th October. Please check the schedule and prepare accordingly.
-                            </div>
-                            <div className = "bg-gradient-to-r from-orange-400 to-orange-600 rounded-lg shadow-md p-2 mt-2">
-                                Assignment 3 deadline extended to next week.
-                            </div>
-                            <div className = "bg-gradient-to-r from-blue-400 to-blue-600 rounded-lg shadow-md p-2 mt-2">
-                                New lecture on Data Structures uploaded.
-                            </div>
-                        </div>
-                    </div>
-                </Marquee>
-                <div className = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 p-4">
-                    <div className = "bg-gradient-to-r from-blue-500 to-blue-700 ring-1 ring-blue-400 rounded-lg shadow-blue-500 shadow-2xl p-6 transition hover:scale-105">
-                        <h2 className = "text-3xl text-white mb-2 font-bold">
-                            Check your Attendance
-                        </h2>
-                        <div>
-                            <a href = "/Attendance">
-                                <img src = {attendance} alt = "Attendance" className = "w-full h-[290px] object-cover rounded-md mb-2"/>
-                            </a>
-                            <p className = "text-white font-medium p-1 text-lg">
-                                Check your attendance records and stay updated on your attendance status. View detailed reports and ensure you meet the attendance requirements for your courses.
-                            </p>
-                        </div>
-                    </div>
-                    <div className = "bg-gradient-to-r from-orange-500 to-orange-700 -translate-y-[15px] ring-1 ring-orange-400 rounded-lg shadow-orange-500 shadow-2xl p-6 transition hover:scale-105">
-                        <h2 className = "text-3xl mb-2 font-bold">
-                            Start Learning 
-                        </h2>
-                        <div>
-                            <a href = "/learning/Lectures">
-                                <img src = {startLearning} alt = "Start Learning" className = "w-full h-[290px] object-cover rounded-md mb-2"/>
-                            </a>
-                            <p className = "font-medium p-1 text-lg">
-                                Personalised Video lectures and learning materials tailored to your courses. Access high-quality educational content to enhance your understanding and excel in your studies.
-                            </p>
-                        </div>
-                    </div>
-                    <div className = "bg-gradient-to-r from-blue-500 to-blue-700 ring-1 ring-blue-400 rounded-lg shadow-blue-500 shadow-2xl p-6 transition hover:scale-105">
-                        <h2 className = "text-3xl text-white mb-2 font-bold">
-                            Assignments
-                        </h2>
-                        <div>
-                            <a href = "/learning/Assignments">
-                                <img src = {assignments} alt = "Assignments" className = "w-full h-[290px] object-cover rounded-md mb-2"/>
-                            </a>
-                            <p className = "text-white font-medium p-1 text-lg">
-                                Stay on top of your assignments and deadlines. View upcoming assignments, submit your work, and track your progress to ensure you never miss an important task.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+  const { user } = useUser();
+  const { attendanceData } = useAttendance();
+
+  const subjects = Object.entries(attendanceData).filter(
+    ([name]) => name !== ""
+  );
+
+  const totals = subjects.reduce(
+    (acc, [, data]) => {
+      acc.present += data.present;
+      acc.total += data.total;
+      return acc;
+    },
+    { present: 0, total: 0 }
+  );
+
+  const overall =
+    totals.total > 0 ? ((totals.present / totals.total) * 100).toFixed(1) : null;
+
+  const belowThreshold = subjects.filter(([, data]) => {
+    const pct = data.total > 0 ? (data.present / data.total) * 100 : 0;
+    return pct < 75;
+  }).length;
+
+  const today = new Date().toLocaleDateString(undefined, {
+    weekday: "long",
+    month: "long",
+    day: "numeric",
+  });
+
+  const announcements = [
+    {
+      text: "Midterm exams will be held from 15th to 20th October. Check the schedule and prepare accordingly.",
+      tone: "bg-brand-500",
+    },
+    {
+      text: "Assignment 3 deadline has been extended to next week.",
+      tone: "bg-amber-500",
+    },
+    {
+      text: "New lecture on Data Structures has been uploaded.",
+      tone: "bg-emerald-500",
+    },
+  ];
+
+  const features = [
+    {
+      to: "/attendance",
+      title: "Attendance",
+      description:
+        "Upload your institution's PDF report and instantly see subject-wise percentages and shortage warnings.",
+      image: attendance,
+      icon: FaClipboardCheck,
+      accent: "from-brand-500 to-brand-700",
+    },
+    {
+      to: "/learning/lectures",
+      title: "Lectures",
+      description:
+        "Curated YouTube playlists for 7 subjects with chapter and subtopic navigation and an embedded player.",
+      image: startLearning,
+      icon: FaVideo,
+      accent: "from-amber-500 to-orange-600",
+    },
+    {
+      to: "/learning/assignments",
+      title: "Assignments",
+      description:
+        "Create assignments, track due dates, mark submissions and never miss an important deadline again.",
+      image: assignments,
+      icon: FaTasks,
+      accent: "from-emerald-500 to-teal-700",
+    },
+  ];
+
+  return (
+    <div className="space-y-8">
+      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-700 via-brand-600 to-indigo-900 p-8 text-white shadow-card sm:p-10">
+        <div className="absolute -right-16 -top-20 h-64 w-64 rounded-full bg-white/10" />
+        <div className="absolute -bottom-24 right-32 h-56 w-56 rounded-full bg-white/5" />
+
+        <div className="relative max-w-2xl">
+          <p className="text-sm font-semibold uppercase tracking-wider text-brand-200">
+            {today}
+          </p>
+          <h1 className="mt-3 text-3xl font-extrabold leading-tight sm:text-4xl">
+            Hello {user?.username || "Student"} 👋
+          </h1>
+          <p className="mt-3 text-lg text-brand-100">
+            Welcome back to EduDash. Here's a quick look at your academic
+            progress today.
+          </p>
+
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link
+              to="/attendance"
+              className="inline-flex items-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-bold text-brand-700 transition hover:bg-brand-50"
+            >
+              Check attendance
+              <FaArrowRight className="h-3.5 w-3.5" />
+            </Link>
+            <Link
+              to="/learning/lectures"
+              className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/10 px-5 py-3 text-sm font-bold text-white backdrop-blur transition hover:bg-white/20"
+            >
+              Start learning
+              <FaArrowRight className="h-3.5 w-3.5" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="grid gap-4 sm:grid-cols-3">
+        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-card">
+          <div className="flex items-center justify-between">
+            <span className="text-sm font-semibold text-slate-500">
+              Overall attendance
+            </span>
+            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-50 text-brand-600">
+              <FaChartLine />
+            </span>
+          </div>
+          <p className="mt-4 text-3xl font-extrabold text-slate-900">
+            {overall !== null ? `${overall}%` : "—"}
+          </p>
+          <p className="mt-1 text-sm text-slate-400">
+            {overall !== null
+              ? "Across all uploaded subjects"
+              : "Upload a report to see this"}
+          </p>
+        </div>
+
+        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-card">
+          <div className="flex items-center justify-between">
+            <span className="text-sm font-semibold text-slate-500">
+              Subjects tracked
+            </span>
+            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600">
+              <FaBookOpen />
+            </span>
+          </div>
+          <p className="mt-4 text-3xl font-extrabold text-slate-900">
+            {subjects.length}
+          </p>
+          <p className="mt-1 text-sm text-slate-400">
+            Subjects in your latest upload
+          </p>
+        </div>
+
+        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-card">
+          <div className="flex items-center justify-between">
+            <span className="text-sm font-semibold text-slate-500">
+              Below 75%
+            </span>
+            <span
+              className={`flex h-10 w-10 items-center justify-center rounded-xl ${
+                belowThreshold > 0
+                  ? "bg-rose-50 text-rose-600"
+                  : "bg-emerald-50 text-emerald-600"
+              }`}
+            >
+              <FaExclamationTriangle />
+            </span>
+          </div>
+          <p className="mt-4 text-3xl font-extrabold text-slate-900">
+            {belowThreshold}
+          </p>
+          <p className="mt-1 text-sm text-slate-400">
+            Subjects needing attention
+          </p>
+        </div>
+      </section>
+
+      <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-card">
+        <div className="mb-4 flex items-center gap-3">
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-50 text-amber-600">
+            <FaBullhorn />
+          </span>
+          <div>
+            <h2 className="text-lg font-extrabold text-slate-900">
+              Latest announcements
+            </h2>
+            <p className="text-sm text-slate-400">Campus & course updates</p>
+          </div>
+        </div>
+
+        <Marquee speed={45} gradient={false} pauseOnHover className="py-1">
+          {announcements.map((item, index) => (
+            <div
+              key={index}
+              className="mr-4 flex max-w-xl items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-5 py-3"
+            >
+              <span className={`h-2.5 w-2.5 shrink-0 rounded-full ${item.tone}`} />
+              <span className="text-sm font-medium text-slate-700">
+                {item.text}
+              </span>
             </div>
-        </>
-    );
+          ))}
+        </Marquee>
+      </section>
+
+      <section>
+        <h2 className="mb-4 text-xl font-extrabold text-slate-900">
+          Jump back in
+        </h2>
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {features.map((feature) => {
+            const Icon = feature.icon;
+            return (
+              <Link
+                key={feature.to}
+                to={feature.to}
+                className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-soft"
+              >
+                <div className="relative h-44 overflow-hidden">
+                  <img
+                    src={feature.image}
+                    alt={feature.title}
+                    className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                  />
+                  <span
+                    className={`absolute left-4 top-4 flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br ${feature.accent} text-lg text-white shadow-lg`}
+                  >
+                    <Icon />
+                  </span>
+                </div>
+                <div className="flex flex-1 flex-col p-6">
+                  <h3 className="text-lg font-extrabold text-slate-900">
+                    {feature.title}
+                  </h3>
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-500">
+                    {feature.description}
+                  </p>
+                  <span className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-brand-600">
+                    Open
+                    <FaArrowRight className="h-3 w-3 transition group-hover:translate-x-1" />
+                  </span>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      </section>
+    </div>
+  );
 };
 
 export default Home;

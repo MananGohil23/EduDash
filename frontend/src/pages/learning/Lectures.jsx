@@ -1,193 +1,160 @@
-import React from 'react'
-import {FaChevronDown , FaChevronUp} from 'react-icons/fa';
-import  Physics  from '../../subjects/Physics';
-import Mathematics from '../../subjects/Maths';
-import BEEDE from '../../subjects/Bee';
-import CEM from '../../subjects/Cem';
-import Chemistry from '../../subjects/Chemistry';
-import CLanguage from '../../subjects/C';
-import Java from '../../subjects/Java';
-import { useSubject } from '../../context/SubjectContext';
-const Lectures = () => {
-    const { setChapter, selectedLecture, setSelectedLecture, setSubTopic, setButtonActive, buttonActiveLecture, setButtonActiveLecture, setSubTopicSidebarActive, dropDown, setDropDown, chapterActive, setChapterActive } = useSubject();
-    
+import React from "react";
+import { FaChevronDown, FaChevronUp, FaBookOpen } from "react-icons/fa";
+import { useSubject } from "../../context/SubjectContext";
+import { SUBJECTS } from "../../subjects/subjectData";
+import SubjectLecturePage from "../../subjects/SubjectLecturePage";
 
-    const physics = ["1. Fibre Optics" , "2. Quantum Mechanics" , "3. Interference and Diffraction" , "4. Sensors" , "5. Lasers" , "6. Electodynamics"];
-    const maths = ["1. Matrices" , "2. Complex Numbers, Hyperbolic function and Logarithm of Complex Numbers" , "3. Partial Differentiation" , "4. Application of Partial Differentiation" , "5. Numerical Methods" , "6. Beta and Gamma Functions and DUIS" , "7. Multiple Integrals" , "8. Differential Equations of First Order and First Degree" , "9. Higher Order Linear Differential Equations with Constant Coefficients and Variable Coefficients"];
-    const bee = ["1. DC Circuits" , "2. AC Circuits" , "3. Logic Gates" , "4. Latches and Flip-Flops"];
-    const cem = ["1. System of Forces" , "2. Equilibrium of Rigid Bodies" , "3. Friction" , "4. Robot Kinematics (ICR)"];
-    const chem = ["1. Spectroscopic Techniques and Applications" , "2. Green Chemistry" , "3. Polymers" , "4. Fuels and Combustion" , "5. Phase Rule and Applications" , "6. Water Technology"];
-    const clanguage = ["1. C Programming (Pradeep Giri)" , "2. C Programming (Apna College 10hr One Shot)"];
-    const java = ["1. OOP using Java (Kunal Kushwaha)" , "2. Java and DSA with Java (Apna College)"];
-    return (
-        <>
-            <div className = "bg-gradient-to-r from-slate-900 to-blue-700 pt-[60px] min-h-screen flex">
-                <div className = "max-w-[275px] shadow-lg rounded-lg p-6">
-                    <h1 className = "text-4xl text-white font-bold mb-10 items-center flex justify-center">
-                        Subjects
-                    </h1>
-                    <div className = "flex flex-col gap-4 transition">
-                        <div className = {`rounded-lg shadow-md text-white p-4 hover:scale-[110%] ${buttonActiveLecture === 1 ? 'bg-gradient-to-r from-blue-500 to-blue-700 text-white scale-[110%]' : 'hover:bg-blue-600 hover:text-white'}`} onClick={() => {setSelectedLecture(1); if(selectedLecture !== 1){
-                            setChapter(null);
-                            setSubTopic(null);
-                            setChapterActive(null);
-                        }}}>
-                            <div className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(1)}}>
-                                <div className = "flex flex-col gap-2">
-                                    <div className = "flex items-center justify-between">   
-                                        <h1 className = "cursor-pointer" onClick={() =>setDropDown(null)}>Physics</h1>
-                                        <button onClick={() => setDropDown(dropDown === 1 ? 0 : 1)}>
-                                            {dropDown === 1 ? <FaChevronUp /> : <FaChevronDown />}
-                                        </button>
-                                    </div>
-                                    <div className={`overflow-hidden transition-all duration-300 ease-in-out ${dropDown === 1 ? 'max-h-96 opacity-100 overflow-y-auto' : 'max-h-0 opacity-0'}`}>
-                                        <div className = "flex flex-col gap-2 text-white p-2 border border-blue-400 rounded-md cursor-pointer">{physics.map((item , index) => ( <p className = {`text-lg p-2 rounded-md ${chapterActive === index+1 ? 'bg-gradient-to-r from-emerald-400 to-emerald-600' : 'hover:bg-emerald-400'} `} onClick = {() => {setChapter(index+1); setSubTopic(null); setButtonActive(null); setChapterActive(index+1); setSubTopicSidebarActive(true)}} key={index}>{item}</p>))}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>    
-                        </div>
-                        <div className = {`rounded-lg shadow-md text-white p-4 hover:scale-[110%] ${buttonActiveLecture === 2 ? 'bg-gradient-to-r from-blue-500 to-blue-700 text-white scale-[110%]' : 'hover:bg-blue-600 hover:text-white'}`} onClick={() => {setSelectedLecture(2); if(selectedLecture !== 2){
-                                    setChapter(null);
-                                    setSubTopic(null);
-                                    setChapterActive(null);
-                                }
-                        }}>
-                            <div className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(2)}}>
-                                <div className = "flex flex-col gap-2">
-                                    <div className = "flex items-center justify-between gap-2" onClick = {() => {setSubTopicSidebarActive(false); setChapter(null); setChapterActive(null);}}>   
-                                        <h1 className = "cursor-pointer" onClick = {() => setDropDown(null)}>Mathematics</h1>
-                                        <button onClick={() => setDropDown(dropDown === 2 ? 0 : 2)}>
-                                            {dropDown === 2 ? <FaChevronUp /> : <FaChevronDown />}
-                                        </button>
-                                    </div>
-                                    <div className={`overflow-hidden transition-all duration-300 ease-in-out ${dropDown === 2 ? 'max-h-96 opacity-100 overflow-y-auto' : 'max-h-0 opacity-0'}`}>
-                                        <div className = "flex flex-col gap-2 text-white p-2 border border-blue-400 rounded-md cursor-pointer">{maths.map((item , index) => ( <p className = {`text-lg p-2 rounded-md ${chapterActive === index+1 ? 'bg-gradient-to-r from-emerald-400 to-emerald-600' : 'hover:bg-emerald-400'} `} onClick = {() => {setChapter(index+1); setSubTopic(null); setButtonActive(null); setChapterActive(index+1); setSubTopicSidebarActive(true)}} key={index}>{item}</p>))}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>    
-                        </div>
-                        <div className = {`rounded-lg shadow-md text-white p-4 hover:scale-[110%] ${buttonActiveLecture === 3 ? 'bg-gradient-to-r from-blue-500 to-blue-700 text-white scale-[110%]' : 'hover:bg-blue-600 hover:text-white'}`} onClick={() => {setSelectedLecture(3); if(selectedLecture !== 3){
-                                    setChapter(null);
-                                    setSubTopic(null);
-                                    setChapterActive(null);
-                                }
-                            }}>
-                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(3)}}>
-                                <div className = "flex flex-col gap-2">
-                                    <div className = "flex items-center justify-between gap-2"  onClick = {() => {setSubTopicSidebarActive(false); setChapter(null); setChapterActive(null);}}>   
-                                        <h1 className = "cursor-pointer" onClick = {() => setDropDown(null)}>BEE&DE</h1>
-                                        <button onClick={() => setDropDown(dropDown === 3 ? 0 : 3)}>
-                                            {dropDown === 3 ? <FaChevronUp /> : <FaChevronDown />}
-                                        </button>
-                                    </div>
-                                    <div className={`overflow-hidden transition-all duration-300 ease-in-out ${dropDown === 3 ? 'max-h-96 opacity-100 overflow-y-auto' : 'max-h-0 opacity-0'}`}>
-                                        <div className = "flex flex-col gap-2 text-white p-2 border border-blue-400 rounded-md cursor-pointer">{bee.map((item , index) => ( <p className = {`text-lg p-2 rounded-md ${chapterActive === index+1 ? 'bg-gradient-to-r from-emerald-400 to-emerald-600' : 'hover:bg-emerald-400'} `} onClick = {() => {setChapter(index+1); setSubTopic(null); setButtonActive(null); setChapterActive(index+1); setSubTopicSidebarActive(true)}} key={index}>{item}</p>))}
-                                        </div>
-                                    </div>
-                                </div>
-                            </h2>    
-                        </div>
-                        <div className = {`rounded-lg shadow-md text-white p-4 hover:scale-[110%] ${buttonActiveLecture === 4 ? 'bg-gradient-to-r from-blue-500 to-blue-700 text-white scale-[110%]' : 'hover:bg-blue-600 hover:text-white'}`} onClick={() => {setSelectedLecture(4); if(selectedLecture !== 4){
-                                    setChapter(null);
-                                    setSubTopic(null);
-                                    setChapterActive(null);
-                                }
-                            }}>
-                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(4)}}>
-                                <div className = "flex flex-col gap-2">
-                                    <div className = "flex items-center justify-between gap-2"  onClick = {() => {setSubTopicSidebarActive(false); setChapter(null); setChapterActive(null);}}>   
-                                        <h1 className = "cursor-pointer" onClick={() => setDropDown(null)}>CEM</h1>
-                                        <button onClick={() => setDropDown(dropDown === 4 ? 0 : 4)}>
-                                            {dropDown === 4 ? <FaChevronUp /> : <FaChevronDown />}
-                                        </button>
-                                    </div>
-                                    <div className={`overflow-hidden transition-all duration-300 ease-in-out ${dropDown === 4 ? 'max-h-96 opacity-100 overflow-y-auto' : 'max-h-0 opacity-0'}`}>
-                                        <div className = "flex flex-col gap-2 text-white p-2 border border-blue-400 rounded-md cursor-pointer">{cem.map((item , index) => ( <p className = {`text-lg p-2 rounded-md ${chapterActive === index+1 ? 'bg-gradient-to-r from-emerald-400 to-emerald-600' : 'hover:bg-emerald-400'} `} onClick = {() => {setChapter(index+1); setSubTopic(null); setButtonActive(null); setChapterActive(index+1); setSubTopicSidebarActive(true)}} key={index}>{item}</p>))}
-                                        </div>
-                                    </div>
-                                </div>
-                            </h2>    
-                        </div>
-                        <div className = {`rounded-lg shadow-md text-white p-4 hover:scale-[110%] ${buttonActiveLecture === 5 ? 'bg-gradient-to-r from-blue-500 to-blue-700 text-white scale-[110%]' : 'hover:bg-blue-600 hover:text-white'}`} onClick={() => {setSelectedLecture(5); if(selectedLecture !== 5){
-                                    setChapter(null);
-                                    setSubTopic(null);
-                                    setChapterActive(null);
-                                }
-                            }}>
-                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(5)}}>
-                                <div className = "flex flex-col gap-2">
-                                    <div className = "flex items-center justify-between gap-2"  onClick = {() => {setSubTopicSidebarActive(false); setChapter(null); setChapterActive(null);}}>   
-                                        <h1 className = "cursor-pointer" onClick={() => setDropDown(null)}>Chemistry</h1>
-                                        <button onClick={() => setDropDown(dropDown === 5 ? 0 : 5)}>
-                                            {dropDown === 5 ? <FaChevronUp /> : <FaChevronDown />}
-                                        </button>
-                                    </div>
-                                    <div className={`overflow-hidden transition-all duration-300 ease-in-out ${dropDown === 5 ? 'max-h-96 opacity-100 overflow-y-auto' : 'max-h-0 opacity-0'}`}>
-                                        <div className = "flex flex-col gap-2 text-white p-2 border border-blue-400 rounded-md cursor-pointer">{chem.map((item , index) => ( <p className = {`text-lg p-2 rounded-md ${chapterActive === index+1 ? 'bg-gradient-to-r from-emerald-400 to-emerald-600' : 'hover:bg-emerald-400'} `} onClick = {() => {setChapter(index+1); setSubTopic(null); setButtonActive(null); setChapterActive(index+1); setSubTopicSidebarActive(true)}} key={index}>{item}</p>))}
-                                        </div>
-                                    </div>
-                                </div>
-                            </h2>    
-                        </div>
-                        <div className = {`rounded-lg shadow-md text-white p-4 hover:scale-[110%] ${buttonActiveLecture === 6 ? 'bg-gradient-to-r from-blue-500 to-blue-700 text-white scale-[110%]' : 'hover:bg-blue-600 hover:text-white'}`} onClick={() => {setSelectedLecture(6); if(selectedLecture !== 6){
-                                    setChapter(null);
-                                    setSubTopic(null);
-                                    setChapterActive(null);
-                                }
-                            }}>
-                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(6)}}>
-                                <div className = "flex flex-col gap-2">
-                                    <div className = "flex items-center justify-between gap-2"  onClick = {() => {setSubTopicSidebarActive(false); setChapter(null); setChapterActive(null);}}>   
-                                        <h1 className = "cursor-pointer" onClick={() => setDropDown(null)}>C Programming</h1>
-                                        <button onClick={() => setDropDown(dropDown === 6 ? 0 : 6)}>
-                                            {dropDown === 6 ? <FaChevronUp /> : <FaChevronDown />}
-                                        </button>
-                                    </div>
-                                    <div className={`overflow-hidden transition-all duration-300 ease-in-out ${dropDown === 6 ? 'max-h-96 opacity-100 overflow-y-auto' : 'max-h-0 opacity-0'}`}>
-                                        <div className = "flex flex-col gap-2 text-white p-2 border border-blue-400 rounded-md cursor-pointer">{clanguage.map((item , index) => ( <p className = {`text-lg p-2 rounded-md ${chapterActive === index+1 ? 'bg-gradient-to-r from-emerald-400 to-emerald-600' : 'hover:bg-emerald-400'} `} onClick = {() => {setChapter(index+1); setSubTopic(null); setButtonActive(null); setChapterActive(index+1); setSubTopicSidebarActive(true)}} key={index}>{item}</p>))}
-                                        </div>
-                                    </div>
-                                </div>
-                            </h2>    
-                        </div>
-                        <div className = {`rounded-lg shadow-md text-white p-4 hover:scale-[110%] ${buttonActiveLecture === 7 ? 'bg-gradient-to-r from-blue-500 to-blue-700 text-white scale-[110%]' : 'hover:bg-blue-600 hover:text-white'}`} onClick={() => {setSelectedLecture(7); if(selectedLecture !== 7){
-                                    setChapter(null);
-                                    setSubTopic(null);
-                                    setChapterActive(null);
-                                }
-                            }}>
-                            <h2 className = "text-xl font-medium" onClick = {() => {setButtonActiveLecture(7)}}>
-                                <div className = "flex items-center justify-between gap-2"  onClick = {() => {setSubTopicSidebarActive(false); setChapter(null); setChapterActive(null);}}>   
-                                        <h1 className = "cursor-pointer" onClick={() => setDropDown(null)}>OOP Using Java</h1>
-                                        <button onClick={() => setDropDown(dropDown === 7 ? 0 : 7)}>
-                                            {dropDown === 7 ? <FaChevronUp /> : <FaChevronDown />}
-                                        </button>
-                                    </div>
-                                    <div className={`overflow-hidden transition-all duration-300 ease-in-out ${dropDown === 7 ? 'max-h-96 opacity-100 overflow-y-auto' : 'max-h-0 opacity-0'}`}>
-                                        <div className = "flex flex-col gap-2 text-white p-2 border border-blue-400 rounded-md cursor-pointer">{java.map((item , index) => ( <p className = {`text-lg p-2 rounded-md ${chapterActive === index+1 ? 'bg-gradient-to-r from-emerald-400 to-emerald-600' : 'hover:bg-emerald-400'} `} onClick = {() => {setChapter(index+1); setSubTopic(null); setButtonActive(null); setChapterActive(index+1); setSubTopicSidebarActive(true)}} key={index}>{item}</p>))}
-                                        </div>
-                                    </div>
-                            </h2>    
-                        </div>
-                    </div>
+const Lectures = () => {
+  const {
+    chapter,
+    setChapter,
+    selectedLecture,
+    setSelectedLecture,
+    setSubTopic,
+    setButtonActive,
+    setSubTopicSidebarActive,
+    dropDown,
+    setDropDown,
+    chapterActive,
+    setChapterActive,
+  } = useSubject();
+
+  const activeSubject = SUBJECTS.find((s) => s.id === selectedLecture);
+
+  const selectSubject = (id) => {
+    setSelectedLecture(id);
+
+    if (selectedLecture !== id) {
+      setChapter(null);
+      setSubTopic(null);
+      setButtonActive(null);
+      setChapterActive(null);
+    }
+
+    setDropDown((current) => (current === id ? 0 : id));
+  };
+
+  const selectChapter = (index) => {
+    setChapter(index + 1);
+    setSubTopic(null);
+    setButtonActive(null);
+    setChapterActive(index + 1);
+    setSubTopicSidebarActive(true);
+  };
+
+  return (
+    <div className="grid gap-6 xl:grid-cols-[20rem_1fr] xl:items-start">
+      <aside className="rounded-2xl border border-slate-200 bg-white p-4 shadow-card xl:sticky xl:top-24">
+        <div className="flex items-center gap-2 px-2 pb-3 pt-1">
+          <FaBookOpen className="text-brand-600" />
+          <h2 className="font-extrabold text-slate-900">Subjects</h2>
+        </div>
+
+        <div className="space-y-2">
+          {SUBJECTS.map((subject) => {
+            const selected = selectedLecture === subject.id;
+            const expanded = dropDown === subject.id;
+
+            return (
+              <div
+                key={subject.id}
+                className={`overflow-hidden rounded-xl border transition ${
+                  selected
+                    ? "border-brand-200 bg-brand-50/60"
+                    : "border-slate-200 bg-white"
+                }`}
+              >
+                <button
+                  onClick={() => selectSubject(subject.id)}
+                  className="flex w-full items-center gap-3 px-3 py-3 text-left"
+                >
+                  <span
+                    className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br ${subject.accent} text-xs font-extrabold text-white`}
+                  >
+                    {subject.code.slice(0, 3)}
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <span
+                      className={`block truncate text-sm font-bold ${
+                        selected ? "text-brand-700" : "text-slate-800"
+                      }`}
+                    >
+                      {subject.name}
+                    </span>
+                    <span className="block text-xs text-slate-400">
+                      {subject.chapters.length} chapters
+                    </span>
+                  </span>
+                  {expanded ? (
+                    <FaChevronUp className="h-3 w-3 text-slate-400" />
+                  ) : (
+                    <FaChevronDown className="h-3 w-3 text-slate-400" />
+                  )}
+                </button>
+
+                <div
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                    expanded ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+                  }`}
+                >
+                  <div className="space-y-1 overflow-y-auto border-t border-slate-100 p-2">
+                    {subject.chapters.map((title, index) => {
+                      const active = chapterActive === index + 1;
+                      return (
+                        <button
+                          key={index}
+                          onClick={() => selectChapter(index)}
+                          className={`flex w-full items-start gap-2 rounded-lg px-3 py-2 text-left text-sm transition ${
+                            active
+                              ? "bg-brand-600 text-white"
+                              : "text-slate-600 hover:bg-slate-100"
+                          }`}
+                        >
+                          <span
+                            className={`mt-0.5 text-xs font-bold ${
+                              active ? "text-white/80" : "text-slate-400"
+                            }`}
+                          >
+                            {index + 1}
+                          </span>
+                          <span className="font-medium leading-snug">{title}</span>
+                        </button>
+                      );
+                    })}
+                  </div>
                 </div>
-                <div className = {`${selectedLecture === null ? 'block' : 'hidden'} text-4xl font-bold text-white items-center flex justify-center w-full`}>
-                    <h1 >Please select a subject to view its content</h1>
-                </div>
-                <div className = {`${selectedLecture === null ? 'hidden' : 'rounded-lg flex'}`}>
-                    <Physics />
-                    <Mathematics />
-                    <BEEDE />
-                    <CEM />
-                    <Chemistry />
-                    <CLanguage />
-                    <Java />
-                </div>
-            </div>
-        </>
-    );
+              </div>
+            );
+          })}
+        </div>
+      </aside>
+
+      <div className="min-w-0">
+        {!activeSubject ? (
+          <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-slate-300 bg-white px-6 py-20 text-center shadow-card">
+            <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-brand-50 text-3xl text-brand-500">
+              <FaBookOpen />
+            </span>
+            <h2 className="mt-5 text-xl font-extrabold text-slate-900">
+              Select a subject to start learning
+            </h2>
+            <p className="mt-2 max-w-sm text-sm text-slate-500">
+              Choose a subject from the list, pick a chapter, then select a
+              sub-topic to load the embedded lecture player.
+            </p>
+          </div>
+        ) : (
+          <SubjectLecturePage subject={activeSubject} />
+        )}
+
+        {activeSubject && !chapter && (
+          <p className="mt-4 text-center text-sm text-slate-400">
+            Tip: open a subject's chapters and choose one to load its lectures.
+          </p>
+        )}
+      </div>
+    </div>
+  );
 };
 
 export default Lectures;

@@ -1,171 +1,229 @@
-import React from 'react'
-import profilePic from '../../assets/profile_pic.jpg'
-import { useAttendance } from '../../context/AttendanceContext';
-import { useUser } from '../../context/UserContext';
+import React, { useMemo } from "react";
+import {
+  FaIdBadge,
+  FaUniversity,
+  FaTrophy,
+  FaChartLine,
+  FaExclamationTriangle,
+  FaInfoCircle,
+} from "react-icons/fa";
+import profilePic from "../../assets/profile_pic.jpg";
+import { useAttendance } from "../../context/AttendanceContext";
+import { useUser } from "../../context/UserContext";
 
 const Profile = () => {
-    const { attendanceData } = useAttendance();
-    const { user } = useUser();
-    const hasData = Object.keys(attendanceData).length > 0;
-    const overall = Object.values(attendanceData).reduce(
-        (acc, subject) => {
-            acc.present += subject.present;
-            acc.absent += subject.absent;
-            acc.total += subject.total;
-            return acc;
+  const { attendanceData } = useAttendance();
+  const { user } = useUser();
+
+  const subjects = useMemo(
+    () => Object.entries(attendanceData).filter(([name]) => name !== ""),
+    [attendanceData]
+  );
+
+  const overall = useMemo(
+    () =>
+      subjects.reduce(
+        (acc, [, data]) => {
+          acc.present += data.present;
+          acc.total += data.total;
+          return acc;
         },
-        {
-            present: 0,
-            absent: 0,
-            total: 0
-        }
-    );
+        { present: 0, total: 0 }
+      ),
+    [subjects]
+  );
 
-    const subjects = Object.entries(attendanceData).filter(([subject]) => subject !== "");
-
-    overall.percentage =
+  const overallPercentage =
     overall.total > 0
-            ? ((overall.present / overall.total) * 100).toFixed(2)
-            : 0;
+      ? ((overall.present / overall.total) * 100).toFixed(2)
+      : 0;
 
-        const subjectStats = Object.entries(attendanceData).map(([name, data]) => ({
+  const subjectStats = useMemo(
+    () =>
+      subjects.map(([name, data]) => ({
         name,
         percentage:
-            data.total > 0
-                ? ((data.present / data.total) * 100).toFixed(2)
-                : 0,
-    }));
+          data.total > 0
+            ? Number(((data.present / data.total) * 100).toFixed(2))
+            : 0,
+      })),
+    [subjects]
+  );
 
-    const bestSubject =
-        subjectStats.length > 0
-            ? subjectStats.reduce((a, b) =>
-                Number(a.percentage) > Number(b.percentage) ? a : b
-            )
-            : null;
+  const bestSubject =
+    subjectStats.length > 0
+      ? subjectStats.reduce((a, b) => (a.percentage > b.percentage ? a : b))
+      : null;
 
-    const worstSubject =
-        subjectStats.length > 0
-            ? subjectStats.reduce((a, b) =>
-                Number(a.percentage) < Number(b.percentage) ? a : b
-            )
-            : null;
+  const worstSubject =
+    subjectStats.length > 0
+      ? subjectStats.reduce((a, b) => (a.percentage < b.percentage ? a : b))
+      : null;
 
-    console.log(user);
+  const hasData = subjects.length > 0;
 
-    return (
+  const initials = (user?.username || "S").charAt(0).toUpperCase();
+
+  return (
+    <div className="space-y-8">
+      <section className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-card">
+        <div className="h-28 bg-gradient-to-r from-brand-600 to-indigo-800" />
+        <div className="flex flex-col items-center gap-6 px-6 pb-8 sm:flex-row sm:items-end">
+          <div className="-mt-14 h-28 w-28 shrink-0 overflow-hidden rounded-3xl border-4 border-white bg-slate-100 shadow-card">
+            <img
+              src={profilePic}
+              alt={user?.username || "Profile"}
+              className="h-full w-full object-cover"
+            />
+          </div>
+
+          <div className="flex-1 text-center sm:pb-1 sm:text-left">
+            <h1 className="text-2xl font-extrabold text-slate-900">
+              {user?.username || "Student"}
+            </h1>
+            <p className="mt-1 text-sm text-slate-500">
+              {user?.collegeName || "Dwarkadas J. Sanghvi College of Engineering"}
+            </p>
+          </div>
+
+          <div className="flex gap-3 sm:pb-1">
+            <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-50 text-lg font-extrabold text-brand-600">
+              {initials}
+            </span>
+          </div>
+        </div>
+
+        <div className="grid gap-px border-t border-slate-100 bg-slate-100 sm:grid-cols-2">
+          <div className="flex items-center gap-4 bg-white px-6 py-5">
+            <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600">
+              <FaIdBadge />
+            </span>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">
+                Student ID
+              </p>
+              <p className="font-bold text-slate-800">
+                {user?.studentID || "Not provided"}
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-4 bg-white px-6 py-5">
+            <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">
+              <FaUniversity />
+            </span>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">
+                College
+              </p>
+              <p className="font-bold text-slate-800">
+                {user?.collegeName || "Not provided"}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {!hasData && (
+        <div className="flex items-start gap-3 rounded-2xl border border-slate-200 bg-white p-5 text-sm text-slate-500 shadow-card">
+          <FaInfoCircle className="mt-0.5 shrink-0 text-brand-500" />
+          No attendance data yet. Upload your attendance report from the
+          Attendance page to unlock subject insights and best/worst subject
+          analysis.
+        </div>
+      )}
+
+      {hasData && (
         <>
-        <div className = "bg-gradient-to-r from-slate-900 flex p-6 to-blue-800 min-h-screen pt-[60px]">
-            <div className = "flex flex-col gap-10 p-10">
-                <img src={profilePic} alt="Profile" className="w-[300px] h-[300px] rounded-full border-[6px] border-blue-500" />
-                    <h1 className="text-4xl text-white font-bold ">{user?.username || "Manan Gohil"}</h1>  
-                    <div className="text-gray-300 space-y-2">
-                        <p>
-                            <span className="font-bold text-white">
-                                Student ID:
-                            </span>{" "}
-                            {user?.studentID || "1234567890"}
-                        </p>
-                        <p>
-                            <span className="font-bold text-white">
-                                College:
-                            </span>{" "}
-                            {user?.collegeName || "Dwarkadas J. Sanghvi College of Engineering"}
-                        </p>
-                    </div>
+          <section className="grid gap-4 md:grid-cols-3">
+            <div className="rounded-2xl bg-gradient-to-br from-brand-500 to-brand-700 p-6 text-white shadow-card">
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-semibold text-white/80">
+                  Overall attendance
+                </span>
+                <FaChartLine className="h-5 w-5 text-white/80" />
+              </div>
+              <p className="mt-3 text-4xl font-extrabold">{overallPercentage}%</p>
             </div>
-                {!hasData && (
-                    <div className = "col-span-full bg-gradient-to-r h-[300px] from-blue-500 to-blue-700 ring-1 ring-blue-400 mt-10 text-white p-4 rounded-lg shadow-lg shadow-blue-500">
-                        <h2 className="text-3xl font-bold">
-                            No Attendance Data Available
-                        </h2>
-                        <p className="mt-2 text-xl font-medium">
-                            Please upload your attendance data in the "Upload Attendance" section to see your attendance summary and insights.
-                        </p>
-                    </div>
-                )}
-                {hasData && (
-                    <div>
-                        <div className="bg-gradient-to-r from-blue-500 to-blue-700 ring-1 mt-10 ring-blue-400 text-white p-4 rounded-lg shadow-lg shadow-blue-500">
-                            <h2 className="text-2xl font-bold mb-2">Attendance Summary</h2>  
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-                                <div className="bg-gradient-to-r from-blue-600 to-blue-800 p-6 rounded-xl shadow-lg">
-                                    <h3 className="text-xl font-bold text-white">
-                                        Overall Attendance
-                                    </h3>
 
-                                    <p className="text-4xl font-bold text-green-300 mt-2">
-                                        {overall.percentage}%
-                                    </p>
-                                </div>
-
-                                <div className="bg-gradient-to-r from-purple-600 to-purple-800 p-6 rounded-xl shadow-lg">
-                                    <h3 className="text-xl font-bold text-white">
-                                        Best Subject
-                                    </h3>
-
-                                    <p className="text-2xl font-bold text-green-300 mt-2">
-                                        {bestSubject?.name}
-                                    </p>
-
-                                    <p className="text-lg text-white">
-                                        {bestSubject?.percentage}%
-                                    </p>
-                                </div>
-
-                                <div className="bg-gradient-to-r from-red-600 to-red-800 p-6 rounded-xl shadow-lg">
-                                    <h3 className="text-xl font-bold text-white">
-                                        Needs Improvement
-                                    </h3>
-
-                                    <p className="text-2xl font-bold text-yellow-300 mt-2">
-                                        {worstSubject?.name}
-                                    </p>
-
-                                    <p className="text-lg text-white">
-                                        {worstSubject?.percentage}%
-                                    </p>
-                                </div>
-                            </div>
-                        </div> 
-                        <div className="bg-slate-900 mt-8 p-6 rounded-xl shadow-lg">
-                            <h2 className="text-3xl text-white font-bold mb-6">
-                                Subject-wise Attendance
-                            </h2>
-
-                            <div className="space-y-6">
-                                {subjects.map(([subject, data]) => {
-                                    const percentage =
-                                        data.total > 0
-                                            ? ((data.present / data.total) * 100).toFixed(2)
-                                            : 0;
-
-                                    return (
-                                        <div key={subject}>
-                                            <div className="flex justify-between text-white mb-2">
-                                                <span>{subject}</span>
-                                                <span>{percentage}%</span>
-                                            </div>
-
-                                            <div className="w-full bg-gray-700 rounded-full h-4">
-                                                <div
-                                                    className={`h-4 rounded-full ${
-                                                        percentage >= 75
-                                                            ? "bg-green-500"
-                                                            : "bg-red-500"
-                                                    }`}
-                                                    style={{ width: `${percentage}%` }}
-                                                />
-                                            </div>
-                                        </div>
-                                    );
-                                })}
-                            </div>
-                        </div>  
-                    </div>
-                )};
+            <div className="rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-700 p-6 text-white shadow-card">
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-semibold text-white/80">
+                  Best subject
+                </span>
+                <FaTrophy className="h-5 w-5 text-white/80" />
+              </div>
+              <p className="mt-3 truncate text-xl font-extrabold">
+                {bestSubject?.name}
+              </p>
+              <p className="text-sm text-white/80">
+                {bestSubject?.percentage}% attendance
+              </p>
             </div>
+
+            <div className="rounded-2xl bg-gradient-to-br from-rose-500 to-red-700 p-6 text-white shadow-card">
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-semibold text-white/80">
+                  Needs improvement
+                </span>
+                <FaExclamationTriangle className="h-5 w-5 text-white/80" />
+              </div>
+              <p className="mt-3 truncate text-xl font-extrabold">
+                {worstSubject?.name}
+              </p>
+              <p className="text-sm text-white/80">
+                {worstSubject?.percentage}% attendance
+              </p>
+            </div>
+          </section>
+
+          <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-card sm:p-8">
+            <h2 className="text-lg font-extrabold text-slate-900">
+              Subject-wise attendance
+            </h2>
+            <p className="mt-1 text-sm text-slate-500">
+              Tracking {subjectStats.length} subjects from your latest upload
+            </p>
+
+            <div className="mt-6 space-y-5">
+              {subjectStats
+                .slice()
+                .sort((a, b) => b.percentage - a.percentage)
+                .map((subject) => {
+                  const safe = subject.percentage >= 75;
+                  return (
+                    <div key={subject.name}>
+                      <div className="mb-2 flex items-center justify-between text-sm">
+                        <span className="font-semibold text-slate-700">
+                          {subject.name}
+                        </span>
+                        <span
+                          className={`font-bold ${
+                            safe ? "text-emerald-600" : "text-rose-600"
+                          }`}
+                        >
+                          {subject.percentage}%
+                        </span>
+                      </div>
+                      <div className="h-2.5 w-full overflow-hidden rounded-full bg-slate-100">
+                        <div
+                          className={`h-full rounded-full transition-all duration-500 ${
+                            safe ? "bg-emerald-500" : "bg-rose-500"
+                          }`}
+                          style={{
+                            width: `${Math.min(subject.percentage, 100)}%`,
+                          }}
+                        />
+                      </div>
+                    </div>
+                  );
+                })}
+            </div>
+          </section>
         </>
-    );
+      )}
+    </div>
+  );
 };
 
 export default Profile;

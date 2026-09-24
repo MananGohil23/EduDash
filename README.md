@@ -201,7 +201,7 @@ npm start
 
 | Method | Endpoint | Description | Auth Required |
 |---|---|---|---|
-| `POST` | `/api/attendance/upload` | Upload a PDF; returns parsed subject-wise attendance JSON | ❌ |
+| `POST` | `/api/attendance/upload` | Upload a PDF; returns parsed subject-wise attendance JSON | ✅ |
 
 ### Assignments — `/api/assignments`
 
